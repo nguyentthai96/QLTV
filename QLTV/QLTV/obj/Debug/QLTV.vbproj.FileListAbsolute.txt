@@ -1,0 +1,13 @@
+E:\Git\QLTV\QLTV\QLTV\bin\Debug\QLTV.exe.config
+E:\Git\QLTV\QLTV\QLTV\bin\Debug\QLTV.exe
+E:\Git\QLTV\QLTV\QLTV\bin\Debug\QLTV.pdb
+E:\Git\QLTV\QLTV\QLTV\bin\Debug\QLTV.xml
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.Resources.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.vbproj.GenerateResource.Cache
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.exe
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.xml
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.pdb
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmMain.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmSach.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmTheLoai.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmLogin.resources

@@ -1,0 +1,9 @@
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmLogin.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmMain.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmNgonNgu.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmNXB.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmSach.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmTacGia.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmTheLoai.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.Resources.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.vbproj.GenerateResource.Cache
