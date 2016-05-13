@@ -192,7 +192,7 @@ Partial Class frmSach
         '
         'dtpkngaynhap
         '
-        Me.dtpkngaynhap.CustomFormat = "dd/mm/yyyy"
+        Me.dtpkngaynhap.CustomFormat = "MM/dd/yyyy"
         Me.dtpkngaynhap.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpkngaynhap.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.dtpkngaynhap.Location = New System.Drawing.Point(431, 104)

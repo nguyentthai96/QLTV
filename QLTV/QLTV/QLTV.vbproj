@@ -91,6 +91,12 @@
     <Compile Include="frmNgonNgu.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmNhanVien.Designer.vb">
+      <DependentUpon>frmNhanVien.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhanVien.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmNXB.Designer.vb">
       <DependentUpon>frmNXB.vb</DependentUpon>
     </Compile>
@@ -101,6 +107,12 @@
       <DependentUpon>frmSach.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSach.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSinhVien.Designer.vb">
+      <DependentUpon>frmSinhVien.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSinhVien.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTacGia.Designer.vb">
@@ -141,11 +153,17 @@
     <EmbeddedResource Include="frmNgonNgu.resx">
       <DependentUpon>frmNgonNgu.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNhanVien.resx">
+      <DependentUpon>frmNhanVien.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNXB.resx">
       <DependentUpon>frmNXB.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSach.resx">
       <DependentUpon>frmSach.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSinhVien.resx">
+      <DependentUpon>frmSinhVien.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTacGia.resx">
       <DependentUpon>frmTacGia.vb</DependentUpon>
@@ -177,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

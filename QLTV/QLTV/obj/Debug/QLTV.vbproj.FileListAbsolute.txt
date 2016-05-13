@@ -11,3 +11,6 @@ E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmMain.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmSach.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmTheLoai.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmLogin.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmNgonNgu.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmNXB.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmTacGia.resources

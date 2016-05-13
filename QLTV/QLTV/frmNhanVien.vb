@@ -1,20 +1,21 @@
-﻿Public Class frmNXB
+﻿Public Class frmNhanVien
     Private _DBAccess As New DataBaseAccess
 
-    Private Function InsertNXB() As Boolean
-        Dim sqlQuery As String = "INSERT INTO dbo.tbl_NHAXUATBAN ( tenNXB , diaChiNXB , dienThoaiNXB , websiteNXB )"
-        sqlQuery += String.Format("VALUES  ( N'{0}',N'{1}','{2}','{3}')", txttennxb.Text, txtdiachinxb.Text, txtsdtnxb.Text, txtwebsitenxb.Text)
+    Private Function InsertNV() As Boolean
+        Dim sqlQuery As String = "INSERT INTO dbo.tbl_NHANVIEN ( tenNV , gioiTinhNV ,ngaySinhNV ,dienThoaiNV ,diaChiNV , emailNV , ngayVaoLam, matKhau )"
+        sqlQuery += String.Format("VALUES  (N'{0}','{1}','{2}','{3}',N'{4}','{5}','{6}','{7}')", txttennv.Text, rdbtNam.Checked, dtpkns.Value, txtsdt.Text, txtdc.Text, txtemail.Text, dtpkngayvl.Value, "123456")
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
 
 
     Private Function isEmpty() As Boolean
-        Return String.IsNullOrEmpty(txttennxb.Text)
+        Return (String.IsNullOrEmpty(txttennv.Text) OrElse String.IsNullOrEmpty(txtsdt.Text) OrElse String.IsNullOrEmpty(txtdc.Text) _
+            OrElse String.IsNullOrEmpty(txtemail.Text) OrElse dtpkngayvl.Value <= dtpkns.Value)
     End Function
 
-    Private Function UpdateNXB() As Boolean
-        Dim sqlQuery As String = String.Format("UPDATE dbo.tbl_NHAXUATBAN SET tenNXB = N'{0}', diaChiNXB = N'{1}', dienThoaiNXB = '{2}', websiteNXB = '{3}' WHERE maNXB = '{4}'", Me.txttennxb.Text, Me.txtdiachinxb.Text, _
-                                               Me.txtsdtnxb.Text, Me.txtwebsitenxb.Text, txtmanxb.Text)
+    Private Function UpdateNV() As Boolean
+        Dim sqlQuery As String = String.Format("UPDATE dbo.tbl_NHANVIEN SET tenNV = N'{0}', gioiTinhNV = '{1}', ngaySinhNV = '{2}', dienThoaiNV = '{3}', diaChiNV = N'{4}',emailNV = '{5}',ngayVaoLam = '{6}' WHERE maNV = '{7}'", _
+                                               txttennv.Text, rdbtNam.Checked, dtpkns.Value, txtsdt.Text, txtdc.Text, txtemail.Text, dtpkngayvl.Value, txtmanv.Text)
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
@@ -22,7 +23,7 @@
             MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If _isEdit Then
-                If UpdateNXB() Then
+                If UpdateNV() Then
                     MessageBox.Show("Update thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.Yes
                 Else
@@ -30,7 +31,7 @@
                     Me.DialogResult = Windows.Forms.DialogResult.No
                 End If
             Else
-                If InsertNXB() Then
+                If InsertNV() Then
                     MessageBox.Show("Inster thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.Yes
                 Else
@@ -56,7 +57,7 @@
         _isEdit = IsEdit
     End Sub
 
-    Private Sub frmTheLoai_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txttennxb.Focus()
+    Private Sub frmNhanVien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txttennv.Focus()
     End Sub
 End Class

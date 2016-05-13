@@ -23,25 +23,25 @@
         End With
     End Sub
 
-    'Private Sub LoadDataSachOnGridviewMuon()
-    '    Dim sqlQuery As String = "SELECT * FROM dbo.tbl_SACH"
-    '    Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-    '    Me.dtgrMuonSach.DataSource = dtTable
-    '    With Me.dtgrMuonSach
-    '        .Columns(0).HeaderText = "Mã Sách"
-    '        .Columns(1).HeaderText = "Tên Sách"
-    '        .Columns(1).Width = 150
-    '        .Columns(2).HeaderText = "Số Trang"
-    '        .Columns(3).HeaderText = "Giá"
-    '        .Columns(4).HeaderText = "Số Lượng"
-    '        .Columns(5).HeaderText = "Ngày Nhập"
-    '        .Columns(6).HeaderText = "Mã NXB"
-    '        .Columns(7).HeaderText = "Mã TL"
-    '        .Columns(8).HeaderText = "Mã TG"
-    '        .Columns(9).HeaderText = "Mã NN"
-    '        .Columns(10).HeaderText = "Tình Trạng"
-    '    End With
-    'End Sub
+    Private Sub LoadDataSachOnGridviewMuon()
+        Dim sqlQuery As String = "SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrMuonSach.DataSource = dtTable
+        With Me.dtgrMuonSach
+            .Columns(0).HeaderText = "Mã Sách"
+            .Columns(1).HeaderText = "Tên Sách"
+            .Columns(1).Width = 150
+            .Columns(2).HeaderText = "Số Trang"
+            .Columns(3).HeaderText = "Giá"
+            .Columns(4).HeaderText = "Số Lượng"
+            .Columns(5).HeaderText = "Ngày Nhập"
+            .Columns(6).HeaderText = "Mã NXB"
+            .Columns(7).HeaderText = "Mã TL"
+            .Columns(8).HeaderText = "Mã TG"
+            .Columns(9).HeaderText = "Mã NN"
+            .Columns(10).HeaderText = "Tình Trạng"
+        End With
+    End Sub
 
     Private Sub LoadDataTLOnGridview()
         Dim sqlQuery As String = "SELECT * FROM dbo.tbl_THELOAI"
@@ -113,6 +113,39 @@
         End With
     End Sub
 
+    Private Sub LoadMSVOnCbbBox()
+        Dim sqlQuery As String = "SELECT masv from tbl_SINHVIEN"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.cmbmsvMS.DataSource = dtTable
+        With Me.cmbmsvMS
+            Me.cmbmsvMS.DisplayMember = "maSV"
+            Me.cmbmsvMS.ValueMember = "maSV"
+        End With
+        cmbmsvMS.SelectedIndex = -1
+    End Sub
+
+
+    Private Sub LoadMNVOnCmbBoxMS()
+        Dim sqlQuery As String = "SELECT maNV FROM dbo.tbl_NHANVIEN"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.cmbmnvMS.DataSource = dtTable
+        With Me.cmbmnvMS
+            Me.cmbmnvMS.DisplayMember = "maNV"
+            Me.cmbmnvMS.ValueMember = "maNV"
+        End With
+        cmbmnvMS.SelectedIndex = -1
+    End Sub
+
+    Private Sub LoadMSOnCbbBox()
+        Dim sqlQuery As String = "SELECT maSach FROM dbo.tbl_SACH"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.cmbmsMS.DataSource = dtTable
+        With Me.cmbmsMS
+            Me.cmbmsMS.DisplayMember = "maSach"
+            Me.cmbmsMS.ValueMember = "maSach"
+        End With
+        cmbmsMS.SelectedIndex = -1
+    End Sub
 
     Private Sub LoadDataSVOnGridview()
         Dim sqlQuery As String = "SELECT [maSV],[hoTenSV],[gioiTinhSV] = (CASE gioiTinhSV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),[ngaySinhSV],[lopSV],[ngayLamThe],[ngayHetHan] FROM dbo.tbl_SINHVIEN"
@@ -130,21 +163,35 @@
         End With
     End Sub
 
-    'Private Sub LoadDataMuonOnGridview()
-    '    Dim sqlQuery As String = "SELECT * FROM dbo.tbl_SINHVIEN"
-    '    Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-    '    Me.dtgrSV.DataSource = dataTable
-    '    With Me.dtgrSV
-    '        .Columns(0).HeaderText = "Mã sinh viên"
-    '        .Columns(1).HeaderText = "Tên sinh viên"
-    '        .Columns(1).Width = 150
-    '        .Columns(2).HeaderText = "Giới Tính"
-    '        .Columns(3).HeaderText = "Ngày Sinh"
-    '        .Columns(4).HeaderText = "Lớp"
-    '        .Columns(5).HeaderText = "Ngày Làm Thẻ"
-    '        .Columns(6).HeaderText = "Ngày Hết Hạn"
-    '    End With
-    'End Sub
+
+    Private Sub SearchNXBOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_NHAXUATBAN where tennxb like N'%{0}%'", txtSearchNXB.Text)
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrNXB.DataSource = dataTable
+        With Me.dtgrNXB
+            .Columns(0).HeaderText = "Mã NXB"
+            .Columns(0).Width = 200
+            .Columns(1).Width = 200
+            .Columns(1).HeaderText = "Tên NXB"
+        End With
+    End Sub
+
+
+    Private Sub LoadDataMuonOnGridview()
+        Dim sqlQuery As String = "SELECT * FROM dbo.tbl_SINHVIEN"
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrSV.DataSource = dataTable
+        With Me.dtgrSV
+            .Columns(0).HeaderText = "Mã sinh viên"
+            .Columns(1).HeaderText = "Tên sinh viên"
+            .Columns(1).Width = 150
+            .Columns(2).HeaderText = "Giới Tính"
+            .Columns(3).HeaderText = "Ngày Sinh"
+            .Columns(4).HeaderText = "Lớp"
+            .Columns(5).HeaderText = "Ngày Làm Thẻ"
+            .Columns(6).HeaderText = "Ngày Hết Hạn"
+        End With
+    End Sub
 
     Private Sub LoadDataPMOnGridView()
         Dim sqlQuery As String = "SELECT * FROM dbo.tbl_PHIEUMUON"
@@ -170,18 +217,56 @@
         End With
     End Sub
 
+
+    Private Sub LoadDataQLTraOnGridView()
+        Dim sqlQuery As String = "SELECT * FROM dbo.tbl_TRASACH"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrQLTra.DataSource = dtTable
+        With Me.dtgrQLTra
+            .Columns(0).HeaderText = "Số thứ tự"
+            .Columns(1).HeaderText = "Mã phiếu"
+            .Columns(2).HeaderText = "Mã sách"
+            .Columns(3).HeaderText = "Mã nhân viên"
+            .Columns(4).HeaderText = "Ngày trả"
+            .Columns(5).HeaderText = "Phạt hư hỏng"
+            .Columns(6).HeaderText = "Phạt quá hạn"
+            .Columns(7).HeaderText = "Thanh toán"
+        End With
+    End Sub
+
+    Private Sub SearchDataQLTraOnGridView()
+        Dim sqlQuery
+        If cmbfilterQLTra.SelectedIndex = 0 Then
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_TRASACH WHERE STT LIKE '%{0}%'", txtSearchQLTra.Text)
+        ElseIf cmbfilterQLTra.SelectedIndex = 1 Then
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_TRASACH WHERE maPhieu LIKE '%{0}%'", txtSearchQLTra.Text)
+        ElseIf cmbfilterQLTra.SelectedIndex = 2 Then
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_TRASACH WHERE maSach LIKE '%{0}%'", txtSearchQLTra.Text)
+        Else
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_TRASACH WHERE maNV LIKE '%{0}%'", txtSearchQLTra.Text)
+        End If
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrQLTra.DataSource = dtTable
+        With Me.dtgrQLTra
+            .Columns(0).HeaderText = "Số thứ tự"
+            .Columns(1).HeaderText = "Mã phiếu"
+            .Columns(2).HeaderText = "Mã sách"
+            .Columns(3).HeaderText = "Mã nhân viên"
+            .Columns(4).HeaderText = "Ngày trả"
+            .Columns(5).HeaderText = "Phạt hư hỏng"
+            .Columns(6).HeaderText = "Phạt quá hạn"
+            .Columns(7).HeaderText = "Thanh toán"
+        End With
+    End Sub
+
     Private Sub SearchBookOnTbl_MS()
         Dim sqlQuery As String
         If cmbfilterMS.SelectedIndex = 0 Then
-            If txtSearchMS.Text <> "" Then
-                sqlQuery = String.Format("SELECT * FROM dbo.tbl_SACH WHERE maSach = '{0}'", Val(txtSearchMS.Text))
-            Else
-                sqlQuery = "SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH"
-            End If
+                sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE maSach = '{0}'", Val(txtSearchMS.Text))
         ElseIf cmbfilterMS.SelectedIndex = 1 Then
-            sqlQuery = String.Format("SELECT * FROM dbo.tbl_SACH WHERE tenSach LIKE  N'%{0}%'", txtSearchMS.Text)
+            sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE tenSach LIKE  N'%{0}%'", txtSearchMS.Text)
         Else
-            sqlQuery = String.Format("SELECT * FROM dbo.tbl_SACH WHERE tenSach LIKE  N'%{0}%'", txtSearchMS.Text)
+            sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE tenSach LIKE  N'%{0}%'", txtSearchMS.Text)
         End If
         Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
         Me.dtgrMuonSach.DataSource = dtTable
@@ -201,24 +286,171 @@
         End With
     End Sub
 
+
+    Private Sub SearchSVOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT [maSV],[hoTenSV],[gioiTinhSV] = (CASE gioiTinhSV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),[ngaySinhSV],[lopSV],[ngayLamThe],[ngayHetHan] FROM dbo.tbl_SINHVIEN WHERE hoTenSV like N'%{0}%'", txtSearchSV.Text)
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrSV.DataSource = dataTable
+        With Me.dtgrSV
+            .Columns(0).HeaderText = "Mã sinh viên"
+            .Columns(1).HeaderText = "Tên sinh viên"
+            .Columns(1).Width = 150
+            .Columns(2).HeaderText = "Giới Tính"
+            .Columns(3).HeaderText = "Ngày Sinh"
+            .Columns(4).HeaderText = "Lớp"
+            .Columns(5).HeaderText = "Ngày Làm Thẻ"
+            .Columns(6).HeaderText = "Ngày Hết Hạn"
+        End With
+    End Sub
+    Private Sub SearchNVOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT maNV,tenNV,gioiTinhNV = (CASE gioiTinhNV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),ngaySinhNV,dienThoaiNV,diaChiNV,emailNV,ngayVaoLam,matKhau FROM dbo.tbl_NHANVIEN where tennv like N'%{0}%'", txtSearchNV.Text)
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrNV.DataSource = dataTable
+        With Me.dtgrNV
+            .Columns(0).HeaderText = "Mã NV"
+            .Columns(1).HeaderText = "Tên NV"
+            .Columns(1).Width = 150
+            .Columns(2).HeaderText = "gioiTinhNV"
+            .Columns(3).HeaderText = "ngaySinhNV"
+            .Columns(4).HeaderText = "dienThoaiNV"
+            .Columns(5).HeaderText = "diaChiNV"
+            .Columns(6).HeaderText = "emailNV"
+            .Columns(7).HeaderText = "ngayVaoLam"
+            .Columns(8).HeaderText = "matKhau"
+        End With
+    End Sub
+
+    Private Sub SearchNNOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_NgonNgu WHERE tennn like N'%{0}%'", txtSearchNN.Text)
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrNN.DataSource = dataTable
+        With Me.dtgrNN
+            .Columns(0).HeaderText = "Mã Ngôn Ngữ"
+            .Columns(0).Width = 200
+            .Columns(1).Width = 200
+            .Columns(1).HeaderText = "Tên Ngôn Ngữ"
+        End With
+    End Sub
+
+    Private Sub SearchTGOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_TACGIA WHERE hoTenTG LIKE N'%{0}%'", txtSearchTG.Text)
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrTG.DataSource = dataTable
+        With Me.dtgrTG
+            .Columns(0).HeaderText = "Mã Tác Giả"
+            .Columns(0).Width = 200
+            .Columns(1).Width = 200
+            .Columns(1).HeaderText = "Tên Tác Giả"
+        End With
+    End Sub
+
+    Private Sub SearchTLOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_THELOAI Where tenTL LIKE N'%{0}%'", txtSearchTL.Text)
+        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgrTheLoai.DataSource = dataTable
+        With Me.dtgrTheLoai
+            .Columns(0).HeaderText = "Mã Thể Loại"
+            .Columns(0).Width = 200
+            .Columns(1).Width = 200
+            .Columns(1).HeaderText = "Tên Thể Loại"
+        End With
+    End Sub
+
+    Private Sub SearchSachOnGridView()
+        Dim sqlQuery As String = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH where TenSach like N'%{0}%'", txtSearch.Text)
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.dtgvSach.DataSource = dtTable
+        With Me.dtgvSach
+            .Columns(0).HeaderText = "Mã Sách"
+            .Columns(1).HeaderText = "Tên Sách"
+            .Columns(1).Width = 150
+            .Columns(2).HeaderText = "Số Trang"
+            .Columns(3).HeaderText = "Giá"
+            .Columns(4).HeaderText = "Số Lượng"
+            .Columns(5).HeaderText = "Ngày Nhập"
+            .Columns(6).HeaderText = "Mã NXB"
+            .Columns(7).HeaderText = "Mã TL"
+            .Columns(8).HeaderText = "Mã TG"
+            .Columns(9).HeaderText = "Mã NN"
+            .Columns(10).HeaderText = "Tình Trạng"
+        End With
+    End Sub
+
+    Private Sub SearchInfoOnQLMuon()
+        Dim sqlQuery, sqlQuery1 As String
+        If cmbQLMuon.SelectedIndex = 0 Then
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_PHIEUMUON WHERE maPhieu = '{0}'", txtSearchQLM.Text)
+            sqlQuery1 = String.Format("SELECT * FROM dbo.tbl_CTPHIEUMUON WHERE maPhieu = '{0}'", txtSearchQLM.Text)
+            Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+            Me.dtgrPM.DataSource = dtTable
+            With Me.dtgrPM
+                .Columns(0).HeaderText = "Mã phiếu"
+                .Columns(1).HeaderText = "Mã sinh viên"
+                .Columns(2).HeaderText = "Ngày mượn"
+                .Columns(3).HeaderText = "Mã nhân viên"
+            End With
+
+            Dim dtTable1 As DataTable = _DBAccess.GetDataTable(sqlQuery1)
+            Me.dtgrCTPM.DataSource = dtTable1
+            With Me.dtgrCTPM
+                .Columns(0).HeaderText = "Mã phiếu"
+                .Columns(1).HeaderText = "Mã sách"
+                .Columns(2).HeaderText = "Hạn trả"
+                .Columns(3).HeaderText = "Tiền cọc"
+            End With
+        ElseIf cmbQLMuon.SelectedIndex = 1 Then
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_PHIEUMUON WHERE maSV = '{0}'", txtSearchQLM.Text)
+            Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+            Me.dtgrPM.DataSource = dtTable
+            With Me.dtgrPM
+                .Columns(0).HeaderText = "Mã phiếu"
+                .Columns(1).HeaderText = "Mã sinh viên"
+                .Columns(2).HeaderText = "Ngày mượn"
+                .Columns(3).HeaderText = "Mã nhân viên"
+            End With
+        Else
+            sqlQuery1 = String.Format("SELECT * FROM dbo.tbl_CTPHIEUMUON WHERE maSach = '{0}'", txtSearchQLM.Text)
+            Dim dtTable1 As DataTable = _DBAccess.GetDataTable(sqlQuery1)
+            Me.dtgrCTPM.DataSource = dtTable1
+            With Me.dtgrCTPM
+                .Columns(0).HeaderText = "Mã phiếu"
+                .Columns(1).HeaderText = "Mã sách"
+                .Columns(2).HeaderText = "Hạn trả"
+                .Columns(3).HeaderText = "Tiền cọc"
+            End With
+        End If
+    End Sub
+
     Private Sub btnlogin_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub submenu11_Click(sender As Object, e As EventArgs) Handles submenu11.Click
-        TabControl1.SelectTab(0)
-    End Sub
+    'Insert Sach on tbl_PhieuMuon and tbl_CTPhieuMuon(Thêm mượn sách)
+    Private Function OnLoanBookOfLibrary_PhieuMuon() As Boolean
+        Dim sqlQuery As String = "INSERT dbo.tbl_PHIEUMUON ( maSV, ngayMuon, maNV )"
+        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}')", cmbmsvMS.SelectedValue, dtpkngaymuonMS.Value, cmbmnvMS.SelectedValue)
+        Return _DBAccess.ExecuteNoneQuery(sqlQuery)
+    End Function
+    Private Function OnLoanBookOfLibrary_CTPhieuMuon() As Boolean
+        LoadDataPMOnGridView()
+        Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
+        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS.Text, dtpkhtMS.Value, txttcMS.Text)
+        Return _DBAccess.ExecuteNoneQuery(sqlQuery)
+    End Function
 
-    Private Sub submenu21_Click(sender As Object, e As EventArgs) Handles submenu21.Click
-        If TabControl1.SelectedIndex <> 1 Then
-            TabControl1.SelectTab(1)
-        End If
-    End Sub
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If cmbfilterMS.SelectedIndex = -1 Then
             cmbfilterMS.SelectedItem = "Mã Sách"
         End If
+        If cmbfilterQLTra.SelectedIndex = -1 Then
+            cmbfilterQLTra.SelectedItem = "Số thứ tự"
+        End If
+        If cmbQLMuon.SelectedIndex = -1 Then
+            cmbQLMuon.SelectedItem = "Mã phiếu"
+        End If
+
+        dtpkngaymuonMS.Value = Date.Today
 
         LoadDataNVOnGridview()
         LoadDataTLOnGridview()
@@ -230,96 +462,80 @@
         LoadDataSachOnGridview()
         LoadDataPMOnGridView()
         LoadDataCTPMOnGridView()
+        LoadDataSachOnGridviewMuon()
+        LoadDataQLTraOnGridView()
+
+        LoadMSVOnCbbBox()
+        LoadMNVOnCmbBoxMS()
+        LoadMSOnCbbBox()
 
 
     End Sub
 
-    Private Sub cmbfilter1_SelectedIndexChanged(sender As Object, e As EventArgs)
-    End Sub
-
-
-    'Private Sub txtadd_Click(sender As Object, e As EventArgs) Handles txtadd.Click
-    '    Dim frm1 As New frmSach
-    '    frm1.ShowDialog()
-    'End Sub
-
-    Private Sub TabPage2_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
-
-    End Sub
-
-    Private Sub TabControl1_DrawItem(sender As Object, e As DrawItemEventArgs) Handles TabControl1.DrawItem
-
-    End Sub
-
-    Private Sub TabPage3_Click(sender As Object, e As EventArgs) Handles TabPage2.Click
-
-    End Sub
-
-    Private Sub submenu22_Click(sender As Object, e As EventArgs) Handles submenu22.Click
-        If TabControl1.SelectedIndex <> 2 Then
-            TabControl1.SelectTab(2)
-
-        End If
-    End Sub
-
-    Private Sub submenu23_Click(sender As Object, e As EventArgs) Handles submenu23.Click
-        If TabControl1.SelectedIndex <> 3 Then
-            TabControl1.SelectTab(3)
-
-        End If
-    End Sub
-
-    Private Sub submenu24_Click(sender As Object, e As EventArgs) Handles submenu24.Click
-        If TabControl1.SelectedIndex <> 4 Then
-            TabControl1.SelectTab(4)
-
-        End If
-    End Sub
-
-    Private Sub submenu25_Click(sender As Object, e As EventArgs) Handles submenu25.Click
-        If TabControl1.SelectedIndex <> 5 Then
-            TabControl1.SelectTab(5)
-
-        End If
-    End Sub
-
-    Private Sub submenu31_Click(sender As Object, e As EventArgs) Handles submenu31.Click
-        If TabControl1.SelectedIndex <> 6 Then
-            TabControl1.SelectTab(6)
-
-        End If
-    End Sub
-
-    Private Sub submenu32_Click(sender As Object, e As EventArgs) Handles submenu32.Click
-        If TabControl1.SelectedIndex <> 7 Then
-            TabControl1.SelectTab(7)
-
+    
+    Private Sub txtSearchTL_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchTL.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SearchTLOnGridView()
         End If
     End Sub
 
 
     Private Sub txtSearchTL_TextChanged(sender As Object, e As EventArgs) Handles txtSearchTL.TextChanged
-        
+
+    End Sub
+
+    Private Sub txtSearchTG_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchTG.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SearchTGOnGridView()
+        End If
     End Sub
 
     Private Sub txtSearchTG_TextChanged(sender As Object, e As EventArgs) Handles txtSearchTG.TextChanged
-        
+
+    End Sub
+
+    Private Sub txtSearchNN_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchNN.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnSearchNN.Focus()
+            SearchNNOnGridView()
+        End If
     End Sub
 
     Private Sub txtSearchNN_TextChanged(sender As Object, e As EventArgs) Handles txtSearchNN.TextChanged
-        
+
+    End Sub
+
+    Private Sub txtSearchNXB_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchNXB.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnSearchNXB.Focus()
+            SearchNXBOnGridView()
+        End If
     End Sub
 
     Private Sub txtSearchNXB_TextChanged(sender As Object, e As EventArgs) Handles txtSearchNXB.TextChanged
-        
+
+    End Sub
+
+    Private Sub txtSearchNV_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchNV.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnSearchNV.Focus()
+            SearchNVOnGridView()
+        End If
     End Sub
 
     Private Sub txtSearchNV_TextChanged(sender As Object, e As EventArgs) Handles txtSearchNV.TextChanged
-        
+
+    End Sub
+
+    Private Sub txtSearchSV_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchSV.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnSearchSV.Focus()
+            SearchSVOnGridView()
+        End If
     End Sub
 
     Private Sub txtSearchSV_TextChanged(sender As Object, e As EventArgs) Handles txtSearchSV.TextChanged
-        
+
     End Sub
 
     Private Sub submenu41_Click(sender As Object, e As EventArgs) Handles submenu41.Click
@@ -329,8 +545,21 @@
         End If
     End Sub
 
+    Private Sub txtSearch_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearch.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SearchSachOnGridView()
+        End If
+    End Sub
+
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        
+
+    End Sub
+
+    Private Sub txtSearchMS_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchMS.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnSearchMS.Focus()
+            SearchBookOnTbl_MS()
+        End If
     End Sub
 
     Private Sub txtSearchMS_TextChanged(sender As Object, e As EventArgs) Handles txtSearchMS.TextChanged
@@ -341,9 +570,6 @@
         SearchBookOnTbl_MS()
     End Sub
 
-    Private Sub dtgrMuonSach_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgrMuonSach.CellContentClick
-        txtmsMS.Text = dtgrMuonSach.CurrentRow.Cells(0).Clone
-    End Sub
 
     Private Sub btnAddTL_Click(sender As Object, e As EventArgs) Handles btnAddTL.Click
         Dim frm As New frmTheLoai(False)
@@ -369,7 +595,7 @@
         'Khai bao biens lay maTL trong dtgrv
         Dim maTl As Integer = Val(Me.dtgrTheLoai.Rows(Me.dtgrTheLoai.CurrentCell.RowIndex).Cells("MaTL").Value)
         'Xóa
-        Dim sqlQuery As String = String.Format("DELETE tbl_THELOAI WHERE maTL  = '{0}'", maTL)
+        Dim sqlQuery As String = String.Format("DELETE tbl_THELOAI WHERE maTL  = '{0}'", maTl)
 
         If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
             MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -561,108 +787,190 @@
     End Sub
 
     Private Sub btnSearchSach_Click(sender As Object, e As EventArgs) Handles btnSearchSach.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_SACH where TenSach like N'%{0}%'", txtSearch.Text)
-        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgvSach.DataSource = dtTable
-        With Me.dtgvSach
-            .Columns(0).HeaderText = "Mã Sách"
-            .Columns(1).HeaderText = "Tên Sách"
-            .Columns(1).Width = 150
-            .Columns(2).HeaderText = "Số Trang"
-            .Columns(3).HeaderText = "Giá"
-            .Columns(4).HeaderText = "Số Lượng"
-            .Columns(5).HeaderText = "Ngày Nhập"
-            .Columns(6).HeaderText = "Mã NXB"
-            .Columns(7).HeaderText = "Mã TL"
-            .Columns(8).HeaderText = "Mã TG"
-            .Columns(9).HeaderText = "Mã NN"
-            .Columns(10).HeaderText = "Tình Trạng"
-        End With
+        SearchSachOnGridView()
     End Sub
 
     Private Sub btnSearchTl_Click(sender As Object, e As EventArgs) Handles btnSearchTl.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_THELOAI Where tenTL LIKE N'%{0}%'", txtSearchTL.Text)
-        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgrTheLoai.DataSource = dataTable
-        With Me.dtgrTheLoai
-            .Columns(0).HeaderText = "Mã Thể Loại"
-            .Columns(0).Width = 200
-            .Columns(1).Width = 200
-            .Columns(1).HeaderText = "Tên Thể Loại"
-        End With
+        SearchTLOnGridView()
     End Sub
 
     Private Sub btnSearchTG_Click(sender As Object, e As EventArgs) Handles btnSearchTG.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_TACGIA WHERE hoTenTG LIKE N'%{0}%'", txtSearchTG.Text)
-        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgrTG.DataSource = dataTable
-        With Me.dtgrTG
-            .Columns(0).HeaderText = "Mã Tác Giả"
-            .Columns(0).Width = 200
-            .Columns(1).Width = 200
-            .Columns(1).HeaderText = "Tên Tác Giả"
-        End With
+        SearchTGOnGridView()
     End Sub
 
     Private Sub btnSearchNN_Click(sender As Object, e As EventArgs) Handles btnSearchNN.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_NgonNgu WHERE tennn like N'%{0}%'", txtSearchNN.Text)
-        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgrNN.DataSource = dataTable
-        With Me.dtgrNN
-            .Columns(0).HeaderText = "Mã Ngôn Ngữ"
-            .Columns(0).Width = 200
-            .Columns(1).Width = 200
-            .Columns(1).HeaderText = "Tên Ngôn Ngữ"
-        End With
+        SearchNNOnGridView()
     End Sub
 
     Private Sub btnSearchNXB_Click(sender As Object, e As EventArgs) Handles btnSearchNXB.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_NHAXUATBAN where tennxb like N'%{0}%'", txtSearchNXB.Text)
-        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgrNXB.DataSource = dataTable
-        With Me.dtgrNXB
-            .Columns(0).HeaderText = "Mã NXB"
-            .Columns(0).Width = 200
-            .Columns(1).Width = 200
-            .Columns(1).HeaderText = "Tên NXB"
-        End With
+        SearchNXBOnGridView()
     End Sub
 
     Private Sub btnSearchNV_Click(sender As Object, e As EventArgs) Handles btnSearchNV.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_NHANVIEN where tennv like N'%{0}%'", txtSearchNV.Text)
-        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgrNV.DataSource = dataTable
-        With Me.dtgrNV
-            .Columns(0).HeaderText = "Mã NV"
-            .Columns(1).HeaderText = "Tên NV"
-            .Columns(1).Width = 150
-            .Columns(2).HeaderText = "gioiTinhNV"
-            .Columns(3).HeaderText = "ngaySinhNV"
-            .Columns(4).HeaderText = "dienThoaiNV"
-            .Columns(5).HeaderText = "diaChiNV"
-            .Columns(6).HeaderText = "emailNV"
-            .Columns(7).HeaderText = "ngayVaoLam"
-            .Columns(8).HeaderText = "matKhau"
-        End With
+        SearchNVOnGridView()
     End Sub
 
     Private Sub btnSearchSV_Click(sender As Object, e As EventArgs) Handles btnSearchSV.Click
-        Dim sqlQuery As String = String.Format("SELECT * FROM dbo.tbl_SINHVIEN WHERE hoTenSV like N'%{0}%'", txtSearchSV.Text)
-        Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.dtgrSV.DataSource = dataTable
-        With Me.dtgrSV
-            .Columns(0).HeaderText = "Mã sinh viên"
-            .Columns(1).HeaderText = "Tên sinh viên"
-            .Columns(1).Width = 150
-            .Columns(2).HeaderText = "Giới Tính"
-            .Columns(3).HeaderText = "Ngày Sinh"
-            .Columns(4).HeaderText = "Lớp"
-            .Columns(5).HeaderText = "Ngày Làm Thẻ"
-            .Columns(6).HeaderText = "Ngày Hết Hạn"
-        End With
+        SearchSVOnGridView()
     End Sub
 
     Private Sub btnSearchMS_Click(sender As Object, e As EventArgs) Handles btnSearchMS.Click
         SearchBookOnTbl_MS()
+    End Sub
+
+    Private Sub btnSearchQLM_Click(sender As Object, e As EventArgs) Handles btnSearchQLM.Click
+        SearchInfoOnQLMuon()
+    End Sub
+
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub btnRefreshSach_Click(sender As Object, e As EventArgs) Handles btnRefreshSach.Click
+        LoadDataSachOnGridview()
+    End Sub
+
+    Private Sub btnRefreshTL_Click(sender As Object, e As EventArgs) Handles btnRefreshTL.Click
+        LoadDataTLOnGridview()
+    End Sub
+
+    Private Sub btnRefreshTG_Click(sender As Object, e As EventArgs) Handles btnRefreshTG.Click
+        LoadDataTGOnGridview()
+    End Sub
+
+    Private Sub btnRefreshNN_Click(sender As Object, e As EventArgs) Handles btnRefreshNN.Click
+        LoadDataNNOnGridview()
+    End Sub
+
+    Private Sub btnRefreshNXB_Click(sender As Object, e As EventArgs) Handles btnRefreshNXB.Click
+        LoadDataNXBOnGridview()
+    End Sub
+
+    Private Sub btnRefreshNV_Click(sender As Object, e As EventArgs) Handles btnRefreshNV.Click
+        LoadDataNVOnGridview()
+    End Sub
+
+    Private Sub btnRefreshSV_Click(sender As Object, e As EventArgs) Handles btnRefreshSV.Click
+        LoadDataSVOnGridview()
+    End Sub
+
+    Private Sub btnreFreshMS_Click(sender As Object, e As EventArgs) Handles btnreFreshMS.Click
+        LoadDataSachOnGridviewMuon()
+    End Sub
+
+    Private Sub txtSearchQLM_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchQLM.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            btnSearchQLM.Focus()
+            SearchInfoOnQLMuon()
+        End If
+    End Sub
+
+    Private Sub txtSearchQLM_TextChanged(sender As Object, e As EventArgs) Handles txtSearchQLM.TextChanged
+
+    End Sub
+
+    Private Sub btnRefreshQLM_Click(sender As Object, e As EventArgs) Handles btnRefreshQLM.Click
+        LoadDataCTPMOnGridView()
+        LoadDataPMOnGridView()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        LoadDataQLTraOnGridView()
+    End Sub
+
+    Private Sub btnQLtra_Click(sender As Object, e As EventArgs) Handles btnQLtra.Click
+        SearchDataQLTraOnGridView()
+    End Sub
+
+    Private Sub txtSearchQLTra_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchQLTra.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            SearchDataQLTraOnGridView()
+        End If
+    End Sub
+
+    Private Sub txtSearchQLTra_TextChanged(sender As Object, e As EventArgs) Handles txtSearchQLTra.TextChanged
+
+    End Sub
+
+    Private Sub TabPage8_Click(sender As Object, e As EventArgs) Handles TabPage8.Click
+
+    End Sub
+
+    Private Sub btnOkMS_Click(sender As Object, e As EventArgs) Handles btnOkMS.Click
+        If cmbmsvMS.SelectedIndex < 0 OrElse cmbmnvMS.SelectedValue < 0 OrElse cmbmsMS.SelectedIndex < 0 _
+            OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse Val(txttcMS.Text) < 0 Then
+            MessageBox.Show("kiểm tra lại nhập liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() Then
+                MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+
+    Private Sub dtgrPM_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgrPM.CellContentClick
+
+    End Sub
+
+    Private Sub b_Click(sender As Object, e As EventArgs) Handles b.Click
+        Dim frm = New frmNhanVien(False)
+        frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataNVOnGridview()
+        End If
+    End Sub
+
+    Private Sub btnCancelMS_Click(sender As Object, e As EventArgs) Handles btnCancelMS.Click
+        cmbmsvMS.SelectedIndex = -1
+        cmbmnvMS.SelectedIndex = -1
+        cmbmsMS.SelectedIndex = -1
+        dtpkhtMS.Value = Date.Today
+        txttcMS.Text = ""
+    End Sub
+
+    Private Sub btnEditNV_Click(sender As Object, e As EventArgs) Handles btnEditNV.Click
+        Dim frm = New frmNhanVien(True)
+        With Me.dtgrNV
+            frm.txtmanv.Text = .Rows(.CurrentCell.RowIndex).Cells(0).Value
+            frm.txttennv.Text = .Rows(.CurrentCell.RowIndex).Cells(1).Value
+            If .Rows(.CurrentCell.RowIndex).Cells(2).Value.ToString = "Nam" Then
+                frm.rdbtNam.Checked = True
+            Else
+                frm.rdbtNu.Checked = True
+            End If
+            frm.dtpkns.Value = .Rows(.CurrentCell.RowIndex).Cells(3).Value
+            frm.txtsdt.Text = .Rows(.CurrentCell.RowIndex).Cells(4).Value
+            frm.txtdc.Text = .Rows(.CurrentCell.RowIndex).Cells(5).Value
+            frm.txtemail.Text = .Rows(.CurrentCell.RowIndex).Cells(6).Value
+            frm.dtpkngayvl.Value = .Rows(.CurrentCell.RowIndex).Cells(7).Value
+        End With
+        frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataNVOnGridview()
+        End If
+    End Sub
+
+    Private Sub dtpkhtMS_ValueChanged(sender As Object, e As EventArgs) Handles dtpkhtMS.ValueChanged
+
+    End Sub
+
+    Private Sub btnDeleteNV_Click(sender As Object, e As EventArgs) Handles btnDeleteNV.Click
+        Dim maNV As Integer = Val(Me.dtgrNV.Rows(Me.dtgrNV.CurrentCell.RowIndex).Cells("MaNV").Value)
+        'Xóa
+        Dim sqlQuery As String = String.Format("DELETE tbl_NHANVIEN WHERE maNV  = '{0}'", maNV)
+
+        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            LoadDataSachOnGridview()
+        Else
+            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+        LoadDataNVOnGridview()
     End Sub
 End Class

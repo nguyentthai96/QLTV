@@ -7,3 +7,11 @@ E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmTacGia.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmTheLoai.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.Resources.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.vbproj.GenerateResource.Cache
+E:\Git\QLTV\QLTV\QLTV\bin\Release\QLTV.exe.config
+E:\Git\QLTV\QLTV\QLTV\bin\Release\QLTV.exe
+E:\Git\QLTV\QLTV\QLTV\bin\Release\QLTV.pdb
+E:\Git\QLTV\QLTV\QLTV\bin\Release\QLTV.xml
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.exe
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.xml
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.pdb
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmNhanVien.resources
