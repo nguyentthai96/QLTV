@@ -15,6 +15,10 @@ QLTV
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:QLTV.My.Resources.Resources.Edit">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="P:QLTV.My.Resources.Resources.Refresh">
 	<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

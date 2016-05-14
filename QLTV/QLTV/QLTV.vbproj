@@ -103,6 +103,12 @@
     <Compile Include="frmNXB.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmQLMuon.Designer.vb">
+      <DependentUpon>frmQLMuon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLMuon.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSach.designer.vb">
       <DependentUpon>frmSach.vb</DependentUpon>
     </Compile>
@@ -159,6 +165,9 @@
     <EmbeddedResource Include="frmNXB.resx">
       <DependentUpon>frmNXB.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmQLMuon.resx">
+      <DependentUpon>frmQLMuon.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSach.resx">
       <DependentUpon>frmSach.vb</DependentUpon>
     </EmbeddedResource>
@@ -191,13 +200,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ok.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Refresh.png" />
+    <Content Include="Resources\Add.png" />
+    <Content Include="Resources\Delete.png" />
+    <None Include="Resources\Edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

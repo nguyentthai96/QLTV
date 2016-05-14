@@ -25,27 +25,26 @@ Partial Class frmSinhVien
         Me.rdbtNu = New System.Windows.Forms.RadioButton()
         Me.rdbtNam = New System.Windows.Forms.RadioButton()
         Me.dtpkns = New System.Windows.Forms.DateTimePicker()
-        Me.dtpkngayvl = New System.Windows.Forms.DateTimePicker()
-        Me.txtemail = New System.Windows.Forms.TextBox()
-        Me.txtdc = New System.Windows.Forms.TextBox()
+        Me.dtpkngayhethan = New System.Windows.Forms.DateTimePicker()
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnOK = New System.Windows.Forms.Button()
-        Me.txtmanv = New System.Windows.Forms.TextBox()
+        Me.txtmsv = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtsdt = New System.Windows.Forms.TextBox()
+        Me.txtlop = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.txttennv = New System.Windows.Forms.TextBox()
+        Me.txttsv = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtpkngaylamthe = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'rdbtNu
         '
         Me.rdbtNu.AutoSize = True
-        Me.rdbtNu.Location = New System.Drawing.Point(206, 139)
+        Me.rdbtNu.Location = New System.Drawing.Point(174, 139)
         Me.rdbtNu.Name = "rdbtNu"
         Me.rdbtNu.Size = New System.Drawing.Size(39, 17)
         Me.rdbtNu.TabIndex = 71
@@ -56,7 +55,7 @@ Partial Class frmSinhVien
         '
         Me.rdbtNam.AutoSize = True
         Me.rdbtNam.Checked = True
-        Me.rdbtNam.Location = New System.Drawing.Point(123, 139)
+        Me.rdbtNam.Location = New System.Drawing.Point(91, 139)
         Me.rdbtNam.Name = "rdbtNam"
         Me.rdbtNam.Size = New System.Drawing.Size(47, 17)
         Me.rdbtNam.TabIndex = 70
@@ -68,37 +67,23 @@ Partial Class frmSinhVien
         '
         Me.dtpkns.CustomFormat = "MM/dd/yyyy"
         Me.dtpkns.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkns.Location = New System.Drawing.Point(111, 183)
+        Me.dtpkns.Location = New System.Drawing.Point(91, 183)
         Me.dtpkns.Name = "dtpkns"
         Me.dtpkns.Size = New System.Drawing.Size(154, 20)
         Me.dtpkns.TabIndex = 69
         '
-        'dtpkngayvl
+        'dtpkngayhethan
         '
-        Me.dtpkngayvl.CustomFormat = "MM/dd/yyyy"
-        Me.dtpkngayvl.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkngayvl.Location = New System.Drawing.Point(420, 183)
-        Me.dtpkngayvl.Name = "dtpkngayvl"
-        Me.dtpkngayvl.Size = New System.Drawing.Size(153, 20)
-        Me.dtpkngayvl.TabIndex = 68
-        '
-        'txtemail
-        '
-        Me.txtemail.Location = New System.Drawing.Point(418, 138)
-        Me.txtemail.Name = "txtemail"
-        Me.txtemail.Size = New System.Drawing.Size(154, 20)
-        Me.txtemail.TabIndex = 67
-        '
-        'txtdc
-        '
-        Me.txtdc.Location = New System.Drawing.Point(419, 92)
-        Me.txtdc.Name = "txtdc"
-        Me.txtdc.Size = New System.Drawing.Size(154, 20)
-        Me.txtdc.TabIndex = 66
+        Me.dtpkngayhethan.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkngayhethan.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkngayhethan.Location = New System.Drawing.Point(383, 183)
+        Me.dtpkngayhethan.Name = "dtpkngayhethan"
+        Me.dtpkngayhethan.Size = New System.Drawing.Size(153, 20)
+        Me.dtpkngayhethan.TabIndex = 68
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(345, 249)
+        Me.btnCancel.Location = New System.Drawing.Point(327, 249)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 36)
         Me.btnCancel.TabIndex = 65
@@ -107,123 +92,130 @@ Partial Class frmSinhVien
         '
         'btnOK
         '
-        Me.btnOK.Location = New System.Drawing.Point(170, 249)
+        Me.btnOK.Location = New System.Drawing.Point(174, 249)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 36)
         Me.btnOK.TabIndex = 64
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
         '
-        'txtmanv
+        'txtmsv
         '
-        Me.txtmanv.Location = New System.Drawing.Point(111, 42)
-        Me.txtmanv.Name = "txtmanv"
-        Me.txtmanv.ReadOnly = True
-        Me.txtmanv.Size = New System.Drawing.Size(154, 20)
-        Me.txtmanv.TabIndex = 63
+        Me.txtmsv.Location = New System.Drawing.Point(248, 40)
+        Me.txtmsv.Name = "txtmsv"
+        Me.txtmsv.Size = New System.Drawing.Size(154, 20)
+        Me.txtmsv.TabIndex = 63
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(9, 45)
+        Me.Label11.Location = New System.Drawing.Point(149, 43)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(72, 13)
+        Me.Label11.Size = New System.Drawing.Size(67, 13)
         Me.Label11.TabIndex = 62
-        Me.Label11.Text = "Mã nhân viên"
+        Me.Label11.Text = "Mã sinh viên"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(331, 188)
+        Me.Label8.Location = New System.Drawing.Point(302, 188)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 13)
+        Me.Label8.Size = New System.Drawing.Size(71, 13)
         Me.Label8.TabIndex = 61
-        Me.Label8.Text = "Ngày vào làm"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(331, 141)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(32, 13)
-        Me.Label7.TabIndex = 60
-        Me.Label7.Text = "Email"
+        Me.Label8.Text = "Ngày hết hạn"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(331, 95)
+        Me.Label6.Location = New System.Drawing.Point(303, 137)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(40, 13)
+        Me.Label6.Size = New System.Drawing.Size(69, 13)
         Me.Label6.TabIndex = 59
-        Me.Label6.Text = "Địa chỉ"
+        Me.Label6.Text = "Ngày làm thẻ"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 189)
+        Me.Label4.Location = New System.Drawing.Point(12, 189)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(54, 13)
         Me.Label4.TabIndex = 58
         Me.Label4.Text = "Ngày sinh"
         '
-        'txtsdt
+        'txtlop
         '
-        Me.txtsdt.Location = New System.Drawing.Point(419, 42)
-        Me.txtsdt.Name = "txtsdt"
-        Me.txtsdt.Size = New System.Drawing.Size(154, 20)
-        Me.txtsdt.TabIndex = 57
+        Me.txtlop.Location = New System.Drawing.Point(383, 84)
+        Me.txtlop.Name = "txtlop"
+        Me.txtlop.Size = New System.Drawing.Size(154, 20)
+        Me.txtlop.TabIndex = 57
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(331, 45)
+        Me.Label3.Location = New System.Drawing.Point(303, 87)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(55, 13)
+        Me.Label3.Size = New System.Drawing.Size(25, 13)
         Me.Label3.TabIndex = 56
-        Me.Label3.Text = "Điện thoại"
+        Me.Label3.Text = "Lớp"
         '
-        'txttennv
+        'txttsv
         '
-        Me.txttennv.Location = New System.Drawing.Point(111, 92)
-        Me.txttennv.Name = "txttennv"
-        Me.txttennv.Size = New System.Drawing.Size(154, 20)
-        Me.txttennv.TabIndex = 55
+        Me.txttsv.Location = New System.Drawing.Point(91, 92)
+        Me.txttsv.Name = "txttsv"
+        Me.txttsv.Size = New System.Drawing.Size(154, 20)
+        Me.txttsv.TabIndex = 55
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 95)
+        Me.Label1.Location = New System.Drawing.Point(12, 95)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(76, 13)
+        Me.Label1.Size = New System.Drawing.Size(71, 13)
         Me.Label1.TabIndex = 54
-        Me.Label1.Text = "Tên nhân viên"
+        Me.Label1.Text = "Tên sinh viên"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 141)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 72
+        Me.Label2.Text = "Giới tính"
+        '
+        'dtpkngaylamthe
+        '
+        Me.dtpkngaylamthe.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkngaylamthe.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkngaylamthe.Location = New System.Drawing.Point(383, 135)
+        Me.dtpkngaylamthe.Name = "dtpkngaylamthe"
+        Me.dtpkngaylamthe.Size = New System.Drawing.Size(153, 20)
+        Me.dtpkngaylamthe.TabIndex = 73
         '
         'frmSinhVien
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(582, 327)
+        Me.Controls.Add(Me.dtpkngaylamthe)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.rdbtNu)
         Me.Controls.Add(Me.rdbtNam)
         Me.Controls.Add(Me.dtpkns)
-        Me.Controls.Add(Me.dtpkngayvl)
-        Me.Controls.Add(Me.txtemail)
-        Me.Controls.Add(Me.txtdc)
+        Me.Controls.Add(Me.dtpkngayhethan)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnOK)
-        Me.Controls.Add(Me.txtmanv)
+        Me.Controls.Add(Me.txtmsv)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.txtsdt)
+        Me.Controls.Add(Me.txtlop)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.txttennv)
+        Me.Controls.Add(Me.txttsv)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmSinhVien"
-        Me.Text = "frmSinhVien"
+        Me.Text = "Quản Lý Sinh Viên"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -231,19 +223,18 @@ Partial Class frmSinhVien
     Friend WithEvents rdbtNu As System.Windows.Forms.RadioButton
     Friend WithEvents rdbtNam As System.Windows.Forms.RadioButton
     Friend WithEvents dtpkns As System.Windows.Forms.DateTimePicker
-    Friend WithEvents dtpkngayvl As System.Windows.Forms.DateTimePicker
-    Friend WithEvents txtemail As System.Windows.Forms.TextBox
-    Friend WithEvents txtdc As System.Windows.Forms.TextBox
+    Friend WithEvents dtpkngayhethan As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnOK As System.Windows.Forms.Button
-    Friend WithEvents txtmanv As System.Windows.Forms.TextBox
+    Friend WithEvents txtmsv As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents txtsdt As System.Windows.Forms.TextBox
+    Friend WithEvents txtlop As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txttennv As System.Windows.Forms.TextBox
+    Friend WithEvents txttsv As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents dtpkngaylamthe As System.Windows.Forms.DateTimePicker
 End Class

@@ -262,7 +262,7 @@
     Private Sub SearchBookOnTbl_MS()
         Dim sqlQuery As String
         If cmbfilterMS.SelectedIndex = 0 Then
-                sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE maSach = '{0}'", Val(txtSearchMS.Text))
+            sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE maSach LIKE '%{0}%'", Val(txtSearchMS.Text))
         ElseIf cmbfilterMS.SelectedIndex = 1 Then
             sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE tenSach LIKE  N'%{0}%'", txtSearchMS.Text)
         Else
@@ -379,8 +379,8 @@
     Private Sub SearchInfoOnQLMuon()
         Dim sqlQuery, sqlQuery1 As String
         If cmbQLMuon.SelectedIndex = 0 Then
-            sqlQuery = String.Format("SELECT * FROM dbo.tbl_PHIEUMUON WHERE maPhieu = '{0}'", txtSearchQLM.Text)
-            sqlQuery1 = String.Format("SELECT * FROM dbo.tbl_CTPHIEUMUON WHERE maPhieu = '{0}'", txtSearchQLM.Text)
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_PHIEUMUON WHERE maPhieu LIKE '%{0}%'", txtSearchQLM.Text)
+            sqlQuery1 = String.Format("SELECT * FROM dbo.tbl_CTPHIEUMUON WHERE maPhieu LIKE '%{0}%'", txtSearchQLM.Text)
             Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
             Me.dtgrPM.DataSource = dtTable
             With Me.dtgrPM
@@ -399,7 +399,7 @@
                 .Columns(3).HeaderText = "Tiền cọc"
             End With
         ElseIf cmbQLMuon.SelectedIndex = 1 Then
-            sqlQuery = String.Format("SELECT * FROM dbo.tbl_PHIEUMUON WHERE maSV = '{0}'", txtSearchQLM.Text)
+            sqlQuery = String.Format("SELECT * FROM dbo.tbl_PHIEUMUON WHERE maSV LIKE '%{0}%'", txtSearchQLM.Text)
             Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
             Me.dtgrPM.DataSource = dtTable
             With Me.dtgrPM
@@ -409,7 +409,7 @@
                 .Columns(3).HeaderText = "Mã nhân viên"
             End With
         Else
-            sqlQuery1 = String.Format("SELECT * FROM dbo.tbl_CTPHIEUMUON WHERE maSach = '{0}'", txtSearchQLM.Text)
+            sqlQuery1 = String.Format("SELECT * FROM dbo.tbl_CTPHIEUMUON WHERE maSach LIKE '%{0}%'", txtSearchQLM.Text)
             Dim dtTable1 As DataTable = _DBAccess.GetDataTable(sqlQuery1)
             Me.dtgrCTPM.DataSource = dtTable1
             With Me.dtgrCTPM
@@ -596,12 +596,13 @@
         Dim maTl As Integer = Val(Me.dtgrTheLoai.Rows(Me.dtgrTheLoai.CurrentCell.RowIndex).Cells("MaTL").Value)
         'Xóa
         Dim sqlQuery As String = String.Format("DELETE tbl_THELOAI WHERE maTL  = '{0}'", maTl)
-
-        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
-            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadDataTLOnGridview()
-        Else
-            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataTLOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
@@ -640,12 +641,13 @@
         Dim maTG As Integer = Val(Me.dtgrTG.Rows(Me.dtgrTG.CurrentCell.RowIndex).Cells("MaTG").Value)
         'Xóa
         Dim sqlQuery As String = String.Format("DELETE tbl_TACGIA WHERE maTG  = '{0}'", maTG)
-
-        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
-            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadDataTGOnGridview()
-        Else
-            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataTGOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
@@ -678,12 +680,13 @@
         Dim maNN As Integer = Val(Me.dtgrNN.Rows(Me.dtgrNN.CurrentCell.RowIndex).Cells("MaNN").Value)
         'Xóa
         Dim sqlQuery As String = String.Format("DELETE tbl_NgonNgu WHERE maNN  = '{0}'", maNN)
-
-        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
-            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadDataNNOnGridview()
-        Else
-            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataNNOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
@@ -721,12 +724,13 @@
         Dim maNXB As Integer = Val(Me.dtgrNXB.Rows(Me.dtgrNXB.CurrentCell.RowIndex).Cells("MaNXB").Value)
         'Xóa
         Dim sqlQuery As String = String.Format("DELETE tbl_NHAXUATBAN WHERE maNXB  = '{0}'", maNXB)
-
-        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
-            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadDataNXBOnGridview()
-        Else
-            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataNXBOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
@@ -745,33 +749,18 @@
         Dim maSach As Integer = Val(Me.dtgvSach.Rows(Me.dtgvSach.CurrentCell.RowIndex).Cells("maSach").Value)
         'Xóa
         Dim sqlQuery As String = String.Format("DELETE tbl_SACH WHERE maSach  = '{0}'", maSach)
-
-        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
-            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadDataSachOnGridview()
-        Else
-            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataSachOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
     Private Sub txtEdit_Click(sender As Object, e As EventArgs) Handles btnEditSach.Click
         Dim frm = New frmSach(True, dtgvSach.CurrentRow)
-        ''run thu xem
-        'ai lai de control public het the nay, tao 1 constructor ben frmSach roi truyen cai row vao
-        'With Me.dtgvSach
-        '    frm.txtMaSach.Text = .CurrentRow.Cells("maSach").Value
-        '    frm.txtTenSach.Text = .CurrentRow.Cells("TenSach").Value
-        '    frm.txtSoTrang.Text = .CurrentRow.Cells("soTrang").Value
-        '    frm.txtGia.Text = .CurrentRow.Cells("gia").Value
-        '    frm.txtSoLuong.Text = .CurrentRow.Cells("soLuong").Value
-        '    frm.dtpkngaynhap.Value = .CurrentRow.Cells("ngayNhap").Value
-
-        '    frm.cmbmanxb.SelectedValue = .CurrentRow.Cells("maNXB").Value
-        '    frm.cmbmatl.SelectedValue = .Rows(.CurrentCell.RowIndex).Cells("maTL").Value
-        '    frm.cmbmatg.SelectedValue = .Rows(.CurrentCell.RowIndex).Cells("maTG").Value
-        '    frm.cmbmann.SelectedValue = .CurrentRow.Cells("maNN").Value
-
-        'End With
         frm.ShowDialog()
         If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
             LoadDataSachOnGridview()
@@ -897,9 +886,6 @@
 
     End Sub
 
-    Private Sub TabPage8_Click(sender As Object, e As EventArgs) Handles TabPage8.Click
-
-    End Sub
 
     Private Sub btnOkMS_Click(sender As Object, e As EventArgs) Handles btnOkMS.Click
         If cmbmsvMS.SelectedIndex < 0 OrElse cmbmnvMS.SelectedValue < 0 OrElse cmbmsMS.SelectedIndex < 0 _
@@ -964,13 +950,73 @@
         Dim maNV As Integer = Val(Me.dtgrNV.Rows(Me.dtgrNV.CurrentCell.RowIndex).Cells("MaNV").Value)
         'Xóa
         Dim sqlQuery As String = String.Format("DELETE tbl_NHANVIEN WHERE maNV  = '{0}'", maNV)
-
-        If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
-            MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            LoadDataSachOnGridview()
-        Else
-            MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataSachOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
-        LoadDataNVOnGridview()
     End Sub
+
+    Private Sub btnAddSV_Click(sender As Object, e As EventArgs) Handles btnAddSV.Click
+        Dim frm = New frmSinhVien(False)
+        frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataSVOnGridview()
+        End If
+    End Sub
+
+    Private Sub btnEditSV_Click(sender As Object, e As EventArgs) Handles btnEditSV.Click
+        Dim frm = New frmSinhVien(True)
+        frm.txtmsv.ReadOnly = True
+        With Me.dtgrSV
+            frm.txtmsv.Text = .Rows(.CurrentCell.RowIndex).Cells(0).Value
+            frm.txttsv.Text = .Rows(.CurrentCell.RowIndex).Cells(1).Value
+            If .Rows(.CurrentCell.RowIndex).Cells(2).Value.ToString = "Nam" Then
+                frm.rdbtNam.Checked = True
+            Else
+                frm.rdbtNu.Checked = True
+            End If
+            frm.dtpkns.Value = .Rows(.CurrentCell.RowIndex).Cells(3).Value
+            frm.txtlop.Text = .Rows(.CurrentCell.RowIndex).Cells(4).Value
+            frm.dtpkngaylamthe.Value = .Rows(.CurrentCell.RowIndex).Cells(5).Value
+            frm.dtpkngayhethan.Text = .Rows(.CurrentCell.RowIndex).Cells(6).Value
+        End With
+        frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataSVOnGridview()
+        End If
+    End Sub
+
+    Private Sub btnDeleteSV_Click(sender As Object, e As EventArgs) Handles btnDeleteSV.Click
+        Dim maSV As String = Me.dtgrSV.Rows(Me.dtgrSV.CurrentCell.RowIndex).Cells(0).Value
+        'Xóa
+        Dim sqlQuery As String = String.Format("DELETE dbo.tbl_SINHVIEN WHERE maSV = '{0}'", maSV)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataSVOnGridview()
+            Else
+                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+
+    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+        TabControl1.SelectTab(9)
+        LoadDataCTPMOnGridView()
+        LoadDataPMOnGridView()
+    End Sub
+
+    Private Sub dtgrCTPM_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgrCTPM.CellContentClick
+
+    End Sub
+
+    Private Sub btnGiahanQLMuon_Click(sender As Object, e As EventArgs) Handles btnGiahanQLMuon.Click
+        Dim frm = New frmQLMuon
+        frm.ShowDialog()
+    End Sub
+
 End Class

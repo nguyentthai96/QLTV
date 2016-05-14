@@ -15,3 +15,5 @@ E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.exe
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.xml
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.pdb
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmNhanVien.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmSinhVien.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmQLMuon.resources

@@ -70,6 +70,7 @@ Partial Class frmMain
         Me.submenu62 = New System.Windows.Forms.ToolStripMenuItem()
         Me.submenu63 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.btnView = New System.Windows.Forms.Button()
         Me.dtpkngaymuonMS = New System.Windows.Forms.DateTimePicker()
         Me.dtpkhtMS = New System.Windows.Forms.DateTimePicker()
         Me.cmbmsMS = New System.Windows.Forms.ComboBox()
@@ -174,6 +175,12 @@ Partial Class frmMain
         Me.dtgrQLTra = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnQLtra = New System.Windows.Forms.Button()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         CType(Me.dtgrMuonSach, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -492,6 +499,7 @@ Partial Class frmMain
         '
         'TabPage8
         '
+        Me.TabPage8.Controls.Add(Me.btnView)
         Me.TabPage8.Controls.Add(Me.dtpkngaymuonMS)
         Me.TabPage8.Controls.Add(Me.dtpkhtMS)
         Me.TabPage8.Controls.Add(Me.cmbmsMS)
@@ -520,6 +528,15 @@ Partial Class frmMain
         Me.TabPage8.Text = "Mượn sách"
         Me.TabPage8.UseVisualStyleBackColor = True
         '
+        'btnView
+        '
+        Me.btnView.Location = New System.Drawing.Point(607, 296)
+        Me.btnView.Name = "btnView"
+        Me.btnView.Size = New System.Drawing.Size(96, 31)
+        Me.btnView.TabIndex = 38
+        Me.btnView.Text = "QL phiếu mượn"
+        Me.btnView.UseVisualStyleBackColor = True
+        '
         'dtpkngaymuonMS
         '
         Me.dtpkngaymuonMS.CustomFormat = "MM/dd/yyyy"
@@ -528,7 +545,7 @@ Partial Class frmMain
         Me.dtpkngaymuonMS.Location = New System.Drawing.Point(251, 194)
         Me.dtpkngaymuonMS.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
         Me.dtpkngaymuonMS.Name = "dtpkngaymuonMS"
-        Me.dtpkngaymuonMS.Size = New System.Drawing.Size(143, 20)
+        Me.dtpkngaymuonMS.Size = New System.Drawing.Size(146, 20)
         Me.dtpkngaymuonMS.TabIndex = 37
         '
         'dtpkhtMS
@@ -538,7 +555,7 @@ Partial Class frmMain
         Me.dtpkhtMS.Location = New System.Drawing.Point(607, 194)
         Me.dtpkhtMS.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
         Me.dtpkhtMS.Name = "dtpkhtMS"
-        Me.dtpkhtMS.Size = New System.Drawing.Size(143, 20)
+        Me.dtpkhtMS.Size = New System.Drawing.Size(146, 20)
         Me.dtpkhtMS.TabIndex = 36
         '
         'cmbmsMS
@@ -573,9 +590,9 @@ Partial Class frmMain
         '
         'btnCancelMS
         '
-        Me.btnCancelMS.Location = New System.Drawing.Point(535, 304)
+        Me.btnCancelMS.Location = New System.Drawing.Point(450, 296)
         Me.btnCancelMS.Name = "btnCancelMS"
-        Me.btnCancelMS.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancelMS.Size = New System.Drawing.Size(75, 31)
         Me.btnCancelMS.TabIndex = 30
         Me.btnCancelMS.Text = "&Clear"
         Me.btnCancelMS.UseVisualStyleBackColor = True
@@ -670,11 +687,11 @@ Partial Class frmMain
         '
         'btnOkMS
         '
-        Me.btnOkMS.Location = New System.Drawing.Point(394, 304)
+        Me.btnOkMS.Location = New System.Drawing.Point(275, 296)
         Me.btnOkMS.Name = "btnOkMS"
-        Me.btnOkMS.Size = New System.Drawing.Size(75, 23)
+        Me.btnOkMS.Size = New System.Drawing.Size(109, 31)
         Me.btnOkMS.TabIndex = 2
-        Me.btnOkMS.Text = "&OK"
+        Me.btnOkMS.Text = "Thêm phiếu mượn"
         Me.btnOkMS.UseVisualStyleBackColor = True
         '
         'dtgrMuonSach
@@ -690,7 +707,7 @@ Partial Class frmMain
         Me.dtgrMuonSach.RowHeadersVisible = False
         Me.dtgrMuonSach.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrMuonSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrMuonSach.Size = New System.Drawing.Size(1189, 235)
+        Me.dtgrMuonSach.Size = New System.Drawing.Size(1154, 235)
         Me.dtgrMuonSach.TabIndex = 1
         '
         'btnreFreshMS
@@ -776,7 +793,7 @@ Partial Class frmMain
         Me.dtgrSV.RowHeadersVisible = False
         Me.dtgrSV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrSV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrSV.Size = New System.Drawing.Size(805, 353)
+        Me.dtgrSV.Size = New System.Drawing.Size(762, 353)
         Me.dtgrSV.TabIndex = 20
         '
         'btnEditSV
@@ -864,14 +881,14 @@ Partial Class frmMain
         Me.dtgrNV.AllowUserToDeleteRows = False
         Me.dtgrNV.AllowUserToOrderColumns = True
         Me.dtgrNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgrNV.Location = New System.Drawing.Point(78, 197)
+        Me.dtgrNV.Location = New System.Drawing.Point(112, 197)
         Me.dtgrNV.MultiSelect = False
         Me.dtgrNV.Name = "dtgrNV"
         Me.dtgrNV.ReadOnly = True
         Me.dtgrNV.RowHeadersVisible = False
         Me.dtgrNV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrNV.Size = New System.Drawing.Size(1100, 353)
+        Me.dtgrNV.Size = New System.Drawing.Size(959, 353)
         Me.dtgrNV.TabIndex = 14
         '
         'btnEditNV
@@ -965,7 +982,7 @@ Partial Class frmMain
         Me.dtgrNXB.RowHeadersVisible = False
         Me.dtgrNXB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrNXB.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrNXB.Size = New System.Drawing.Size(834, 353)
+        Me.dtgrNXB.Size = New System.Drawing.Size(803, 353)
         Me.dtgrNXB.TabIndex = 21
         '
         'btnEditNXB
@@ -1060,7 +1077,7 @@ Partial Class frmMain
         Me.dtgrNN.RowHeadersVisible = False
         Me.dtgrNN.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrNN.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrNN.Size = New System.Drawing.Size(426, 353)
+        Me.dtgrNN.Size = New System.Drawing.Size(403, 353)
         Me.dtgrNN.TabIndex = 21
         '
         'btnEditNN
@@ -1157,7 +1174,7 @@ Partial Class frmMain
         Me.dtgrTG.RowHeadersVisible = False
         Me.dtgrTG.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrTG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrTG.Size = New System.Drawing.Size(426, 353)
+        Me.dtgrTG.Size = New System.Drawing.Size(404, 353)
         Me.dtgrTG.TabIndex = 15
         '
         'btnEditTG
@@ -1245,14 +1262,14 @@ Partial Class frmMain
         Me.dtgrTheLoai.AllowUserToDeleteRows = False
         Me.dtgrTheLoai.AllowUserToOrderColumns = True
         Me.dtgrTheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgrTheLoai.Location = New System.Drawing.Point(162, 149)
+        Me.dtgrTheLoai.Location = New System.Drawing.Point(162, 140)
         Me.dtgrTheLoai.MultiSelect = False
         Me.dtgrTheLoai.Name = "dtgrTheLoai"
         Me.dtgrTheLoai.ReadOnly = True
         Me.dtgrTheLoai.RowHeadersVisible = False
         Me.dtgrTheLoai.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrTheLoai.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrTheLoai.Size = New System.Drawing.Size(426, 353)
+        Me.dtgrTheLoai.Size = New System.Drawing.Size(382, 353)
         Me.dtgrTheLoai.TabIndex = 1
         '
         'btnEditTL
@@ -1340,14 +1357,14 @@ Partial Class frmMain
         Me.dtgvSach.AllowUserToDeleteRows = False
         Me.dtgvSach.AllowUserToOrderColumns = True
         Me.dtgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgvSach.Location = New System.Drawing.Point(42, 238)
+        Me.dtgvSach.Location = New System.Drawing.Point(70, 238)
         Me.dtgvSach.MultiSelect = False
         Me.dtgvSach.Name = "dtgvSach"
         Me.dtgvSach.ReadOnly = True
         Me.dtgvSach.RowHeadersVisible = False
         Me.dtgvSach.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgvSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgvSach.Size = New System.Drawing.Size(1189, 353)
+        Me.dtgvSach.Size = New System.Drawing.Size(1161, 353)
         Me.dtgvSach.TabIndex = 0
         '
         'btnEditSach
@@ -1413,6 +1430,10 @@ Partial Class frmMain
         '
         'TabPage10
         '
+        Me.TabPage10.Controls.Add(Me.Button4)
+        Me.TabPage10.Controls.Add(Me.Button2)
+        Me.TabPage10.Controls.Add(Me.Button3)
+        Me.TabPage10.Controls.Add(Me.Label5)
         Me.TabPage10.Controls.Add(Me.btnGiahanQLMuon)
         Me.TabPage10.Controls.Add(Me.btnRefreshQLM)
         Me.TabPage10.Controls.Add(Me.btnSearchQLM)
@@ -1423,6 +1444,7 @@ Partial Class frmMain
         Me.TabPage10.Controls.Add(Me.Label1)
         Me.TabPage10.Controls.Add(Me.dtgrCTPM)
         Me.TabPage10.Controls.Add(Me.dtgrPM)
+        Me.TabPage10.Controls.Add(Me.ShapeContainer1)
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
@@ -1433,17 +1455,18 @@ Partial Class frmMain
         '
         'btnGiahanQLMuon
         '
-        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(608, 289)
+        Me.btnGiahanQLMuon.Image = Global.QLTV.My.Resources.Resources.Edit
+        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(173, 522)
         Me.btnGiahanQLMuon.Name = "btnGiahanQLMuon"
         Me.btnGiahanQLMuon.Size = New System.Drawing.Size(64, 49)
         Me.btnGiahanQLMuon.TabIndex = 37
-        Me.btnGiahanQLMuon.Text = "Gia Hạn"
+        Me.btnGiahanQLMuon.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGiahanQLMuon.UseVisualStyleBackColor = True
         '
         'btnRefreshQLM
         '
         Me.btnRefreshQLM.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshQLM.Location = New System.Drawing.Point(608, 204)
+        Me.btnRefreshQLM.Location = New System.Drawing.Point(609, 137)
         Me.btnRefreshQLM.Name = "btnRefreshQLM"
         Me.btnRefreshQLM.Size = New System.Drawing.Size(64, 55)
         Me.btnRefreshQLM.TabIndex = 36
@@ -1452,7 +1475,7 @@ Partial Class frmMain
         'btnSearchQLM
         '
         Me.btnSearchQLM.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchQLM.Location = New System.Drawing.Point(868, 137)
+        Me.btnSearchQLM.Location = New System.Drawing.Point(870, 65)
         Me.btnSearchQLM.Name = "btnSearchQLM"
         Me.btnSearchQLM.Size = New System.Drawing.Size(63, 37)
         Me.btnSearchQLM.TabIndex = 35
@@ -1460,7 +1483,7 @@ Partial Class frmMain
         '
         'txtSearchQLM
         '
-        Me.txtSearchQLM.Location = New System.Drawing.Point(500, 146)
+        Me.txtSearchQLM.Location = New System.Drawing.Point(503, 73)
         Me.txtSearchQLM.Name = "txtSearchQLM"
         Me.txtSearchQLM.Size = New System.Drawing.Size(340, 20)
         Me.txtSearchQLM.TabIndex = 33
@@ -1471,7 +1494,7 @@ Partial Class frmMain
         Me.cmbQLMuon.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbQLMuon.FormattingEnabled = True
         Me.cmbQLMuon.Items.AddRange(New Object() {"Mã phiếu", "Mã Sinh Viên", "Mã Sách"})
-        Me.cmbQLMuon.Location = New System.Drawing.Point(316, 147)
+        Me.cmbQLMuon.Location = New System.Drawing.Point(319, 74)
         Me.cmbQLMuon.Name = "cmbQLMuon"
         Me.cmbQLMuon.Size = New System.Drawing.Size(142, 21)
         Me.cmbQLMuon.TabIndex = 34
@@ -1479,7 +1502,7 @@ Partial Class frmMain
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(313, 117)
+        Me.Label3.Location = New System.Drawing.Point(316, 44)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(73, 13)
         Me.Label3.TabIndex = 32
@@ -1490,7 +1513,7 @@ Partial Class frmMain
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(790, 535)
+        Me.Label2.Location = New System.Drawing.Point(785, 468)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(328, 31)
         Me.Label2.TabIndex = 3
@@ -1501,7 +1524,7 @@ Partial Class frmMain
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Red
-        Me.Label1.Location = New System.Drawing.Point(213, 535)
+        Me.Label1.Location = New System.Drawing.Point(220, 468)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(227, 31)
         Me.Label1.TabIndex = 2
@@ -1512,12 +1535,12 @@ Partial Class frmMain
         Me.dtgrCTPM.AllowUserToAddRows = False
         Me.dtgrCTPM.AllowUserToDeleteRows = False
         Me.dtgrCTPM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgrCTPM.Location = New System.Drawing.Point(730, 204)
+        Me.dtgrCTPM.Location = New System.Drawing.Point(737, 137)
         Me.dtgrCTPM.Name = "dtgrCTPM"
         Me.dtgrCTPM.ReadOnly = True
         Me.dtgrCTPM.RowHeadersVisible = False
         Me.dtgrCTPM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrCTPM.Size = New System.Drawing.Size(441, 300)
+        Me.dtgrCTPM.Size = New System.Drawing.Size(399, 300)
         Me.dtgrCTPM.TabIndex = 1
         '
         'dtgrPM
@@ -1525,12 +1548,12 @@ Partial Class frmMain
         Me.dtgrPM.AllowUserToAddRows = False
         Me.dtgrPM.AllowUserToDeleteRows = False
         Me.dtgrPM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgrPM.Location = New System.Drawing.Point(107, 204)
+        Me.dtgrPM.Location = New System.Drawing.Point(114, 137)
         Me.dtgrPM.Name = "dtgrPM"
         Me.dtgrPM.ReadOnly = True
         Me.dtgrPM.RowHeadersVisible = False
         Me.dtgrPM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrPM.Size = New System.Drawing.Size(442, 300)
+        Me.dtgrPM.Size = New System.Drawing.Size(418, 300)
         Me.dtgrPM.TabIndex = 0
         '
         'TabPage11
@@ -1587,10 +1610,10 @@ Partial Class frmMain
         'dtgrQLTra
         '
         Me.dtgrQLTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtgrQLTra.Location = New System.Drawing.Point(128, 264)
+        Me.dtgrQLTra.Location = New System.Drawing.Point(159, 264)
         Me.dtgrQLTra.Name = "dtgrQLTra"
         Me.dtgrQLTra.RowHeadersVisible = False
-        Me.dtgrQLTra.Size = New System.Drawing.Size(729, 302)
+        Me.dtgrQLTra.Size = New System.Drawing.Size(698, 302)
         Me.dtgrQLTra.TabIndex = 0
         '
         'Button1
@@ -1610,6 +1633,60 @@ Partial Class frmMain
         Me.btnQLtra.Size = New System.Drawing.Size(63, 37)
         Me.btnQLtra.TabIndex = 37
         Me.btnQLtra.UseVisualStyleBackColor = True
+        '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 3)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(1317, 625)
+        Me.ShapeContainer1.TabIndex = 39
+        Me.ShapeContainer1.TabStop = False
+        '
+        'LineShape1
+        '
+        Me.LineShape1.Name = "LineShape1"
+        Me.LineShape1.X1 = 635
+        Me.LineShape1.X2 = 635
+        Me.LineShape1.Y1 = 201
+        Me.LineShape1.Y2 = 585
+        '
+        'Button2
+        '
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.Location = New System.Drawing.Point(553, 363)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 51)
+        Me.Button2.TabIndex = 41
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.Location = New System.Drawing.Point(352, 522)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(61, 49)
+        Me.Button3.TabIndex = 40
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.Location = New System.Drawing.Point(914, 522)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(61, 49)
+        Me.Button4.TabIndex = 42
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(170, 587)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 13)
+        Me.Label5.TabIndex = 38
+        Me.Label5.Text = "Sửa/ Gia hạn"
         '
         'frmMain
         '
@@ -1812,5 +1889,12 @@ Partial Class frmMain
     Friend WithEvents cmbmnvMS As System.Windows.Forms.ComboBox
     Friend WithEvents cmbmsvMS As System.Windows.Forms.ComboBox
     Friend WithEvents dtpkngaymuonMS As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btnView As System.Windows.Forms.Button
+    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
+    Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 
 End Class
