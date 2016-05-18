@@ -157,6 +157,9 @@ Partial Class frmMain
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.btnGiahanQLMuon = New System.Windows.Forms.Button()
         Me.btnRefreshQLM = New System.Windows.Forms.Button()
         Me.btnSearchQLM = New System.Windows.Forms.Button()
@@ -167,6 +170,8 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgrCTPM = New System.Windows.Forms.DataGridView()
         Me.dtgrPM = New System.Windows.Forms.DataGridView()
+        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
+        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.bntGiaHanQLTra = New System.Windows.Forms.Button()
         Me.cmbfilterQLTra = New System.Windows.Forms.ComboBox()
@@ -175,12 +180,6 @@ Partial Class frmMain
         Me.dtgrQLTra = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnQLtra = New System.Windows.Forms.Button()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         CType(Me.dtgrMuonSach, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -225,13 +224,13 @@ Partial Class frmMain
         'LogOutToolStripMenuItem
         '
         Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
-        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.LogOutToolStripMenuItem.Text = "Đăng xuất"
         '
         'ThoátToolStripMenuItem
         '
         Me.ThoátToolStripMenuItem.Name = "ThoátToolStripMenuItem"
-        Me.ThoátToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.ThoátToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ThoátToolStripMenuItem.Text = "Thoát"
         '
         'ToolStripMenuItem2
@@ -325,7 +324,7 @@ Partial Class frmMain
         'GiaoDiệnToolStripMenuItem
         '
         Me.GiaoDiệnToolStripMenuItem.Name = "GiaoDiệnToolStripMenuItem"
-        Me.GiaoDiệnToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.GiaoDiệnToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GiaoDiệnToolStripMenuItem.Text = "Giao Diện"
         '
         'ToolStripMenuItem6
@@ -1431,7 +1430,6 @@ Partial Class frmMain
         'TabPage10
         '
         Me.TabPage10.Controls.Add(Me.Button4)
-        Me.TabPage10.Controls.Add(Me.Button2)
         Me.TabPage10.Controls.Add(Me.Button3)
         Me.TabPage10.Controls.Add(Me.Label5)
         Me.TabPage10.Controls.Add(Me.btnGiahanQLMuon)
@@ -1453,10 +1451,37 @@ Partial Class frmMain
         Me.TabPage10.Text = "QL Mượn"
         Me.TabPage10.UseVisualStyleBackColor = True
         '
+        'Button4
+        '
+        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
+        Me.Button4.Location = New System.Drawing.Point(999, 522)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(61, 49)
+        Me.Button4.TabIndex = 42
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.Location = New System.Drawing.Point(275, 522)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(61, 49)
+        Me.Button3.TabIndex = 40
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(836, 576)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 13)
+        Me.Label5.TabIndex = 38
+        Me.Label5.Text = "Sửa/ Gia hạn"
+        '
         'btnGiahanQLMuon
         '
         Me.btnGiahanQLMuon.Image = Global.QLTV.My.Resources.Resources.Edit
-        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(173, 522)
+        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(843, 522)
         Me.btnGiahanQLMuon.Name = "btnGiahanQLMuon"
         Me.btnGiahanQLMuon.Size = New System.Drawing.Size(64, 49)
         Me.btnGiahanQLMuon.TabIndex = 37
@@ -1556,6 +1581,24 @@ Partial Class frmMain
         Me.dtgrPM.Size = New System.Drawing.Size(418, 300)
         Me.dtgrPM.TabIndex = 0
         '
+        'ShapeContainer1
+        '
+        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 3)
+        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ShapeContainer1.Name = "ShapeContainer1"
+        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
+        Me.ShapeContainer1.Size = New System.Drawing.Size(1317, 625)
+        Me.ShapeContainer1.TabIndex = 39
+        Me.ShapeContainer1.TabStop = False
+        '
+        'LineShape1
+        '
+        Me.LineShape1.Name = "LineShape1"
+        Me.LineShape1.X1 = 635
+        Me.LineShape1.X2 = 635
+        Me.LineShape1.Y1 = 201
+        Me.LineShape1.Y2 = 585
+        '
         'TabPage11
         '
         Me.TabPage11.Controls.Add(Me.bntGiaHanQLTra)
@@ -1633,60 +1676,6 @@ Partial Class frmMain
         Me.btnQLtra.Size = New System.Drawing.Size(63, 37)
         Me.btnQLtra.TabIndex = 37
         Me.btnQLtra.UseVisualStyleBackColor = True
-        '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 3)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(1317, 625)
-        Me.ShapeContainer1.TabIndex = 39
-        Me.ShapeContainer1.TabStop = False
-        '
-        'LineShape1
-        '
-        Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = 635
-        Me.LineShape1.X2 = 635
-        Me.LineShape1.Y1 = 201
-        Me.LineShape1.Y2 = 585
-        '
-        'Button2
-        '
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(553, 363)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 51)
-        Me.Button2.TabIndex = 41
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(352, 522)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(61, 49)
-        Me.Button3.TabIndex = 40
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(914, 522)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(61, 49)
-        Me.Button4.TabIndex = 42
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(170, 587)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(71, 13)
-        Me.Label5.TabIndex = 38
-        Me.Label5.Text = "Sửa/ Gia hạn"
         '
         'frmMain
         '
@@ -1893,7 +1882,6 @@ Partial Class frmMain
     Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
     Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
 

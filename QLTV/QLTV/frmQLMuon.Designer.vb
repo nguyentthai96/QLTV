@@ -26,7 +26,6 @@ Partial Class frmQLMuon
         Me.dtpkhtMS = New System.Windows.Forms.DateTimePicker()
         Me.cmbmsMS = New System.Windows.Forms.ComboBox()
         Me.cmbmnvMS = New System.Windows.Forms.ComboBox()
-        Me.cmbmsvMS = New System.Windows.Forms.ComboBox()
         Me.btnCancelMS = New System.Windows.Forms.Button()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -36,6 +35,8 @@ Partial Class frmQLMuon
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.btnOkMS = New System.Windows.Forms.Button()
+        Me.txtmsv = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'dtpkngaymuonMS
@@ -79,19 +80,9 @@ Partial Class frmQLMuon
         Me.cmbmnvMS.Size = New System.Drawing.Size(146, 21)
         Me.cmbmnvMS.TabIndex = 49
         '
-        'cmbmsvMS
-        '
-        Me.cmbmsvMS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbmsvMS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbmsvMS.FormattingEnabled = True
-        Me.cmbmsvMS.Location = New System.Drawing.Point(136, 90)
-        Me.cmbmsvMS.Name = "cmbmsvMS"
-        Me.cmbmsvMS.Size = New System.Drawing.Size(146, 21)
-        Me.cmbmsvMS.TabIndex = 48
-        '
         'btnCancelMS
         '
-        Me.btnCancelMS.Location = New System.Drawing.Point(355, 259)
+        Me.btnCancelMS.Location = New System.Drawing.Point(444, 261)
         Me.btnCancelMS.Name = "btnCancelMS"
         Me.btnCancelMS.Size = New System.Drawing.Size(75, 31)
         Me.btnCancelMS.TabIndex = 47
@@ -161,23 +152,41 @@ Partial Class frmQLMuon
         '
         'btnOkMS
         '
-        Me.btnOkMS.Location = New System.Drawing.Point(217, 259)
+        Me.btnOkMS.Location = New System.Drawing.Point(166, 261)
         Me.btnOkMS.Name = "btnOkMS"
         Me.btnOkMS.Size = New System.Drawing.Size(72, 31)
         Me.btnOkMS.TabIndex = 39
         Me.btnOkMS.Text = "&OK"
         Me.btnOkMS.UseVisualStyleBackColor = True
         '
+        'txtmsv
+        '
+        Me.txtmsv.Location = New System.Drawing.Point(136, 90)
+        Me.txtmsv.Name = "txtmsv"
+        Me.txtmsv.ReadOnly = True
+        Me.txtmsv.Size = New System.Drawing.Size(146, 20)
+        Me.txtmsv.TabIndex = 53
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(304, 261)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(72, 31)
+        Me.Button1.TabIndex = 54
+        Me.Button1.Text = "&Cancel"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'frmQLMuon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(681, 370)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtmsv)
         Me.Controls.Add(Me.dtpkngaymuonMS)
         Me.Controls.Add(Me.dtpkhtMS)
         Me.Controls.Add(Me.cmbmsMS)
         Me.Controls.Add(Me.cmbmnvMS)
-        Me.Controls.Add(Me.cmbmsvMS)
         Me.Controls.Add(Me.btnCancelMS)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label18)
@@ -197,7 +206,6 @@ Partial Class frmQLMuon
     Friend WithEvents dtpkhtMS As System.Windows.Forms.DateTimePicker
     Friend WithEvents cmbmsMS As System.Windows.Forms.ComboBox
     Friend WithEvents cmbmnvMS As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbmsvMS As System.Windows.Forms.ComboBox
     Friend WithEvents btnCancelMS As System.Windows.Forms.Button
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
@@ -207,4 +215,6 @@ Partial Class frmQLMuon
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents btnOkMS As System.Windows.Forms.Button
+    Friend WithEvents txtmsv As System.Windows.Forms.TextBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

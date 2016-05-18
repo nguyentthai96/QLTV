@@ -1010,13 +1010,12 @@
         LoadDataPMOnGridView()
     End Sub
 
-    Private Sub dtgrCTPM_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgrCTPM.CellContentClick
-
-    End Sub
 
     Private Sub btnGiahanQLMuon_Click(sender As Object, e As EventArgs) Handles btnGiahanQLMuon.Click
         Dim frm = New frmQLMuon
+        With Me.dtgrPM
+            frm.txtmsv.Text = .Rows(.CurrentCell.RowIndex).Cells("maSV").Value
+        End With
         frm.ShowDialog()
     End Sub
-
 End Class
