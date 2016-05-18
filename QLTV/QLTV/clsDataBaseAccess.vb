@@ -114,6 +114,8 @@ Public Class DataBaseAccess
             SqlCom.Dispose()
         End Try
     End Function
+
+
     'Purpose: return the first column of the first row in the result set,
     ' or a nothing reference if the result set is empty
     Public Function GetScalar(ByVal v_sSqlString As String) As Object

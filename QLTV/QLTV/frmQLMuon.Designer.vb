@@ -22,72 +22,44 @@ Partial Class frmQLMuon
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dtpkngaymuonMS = New System.Windows.Forms.DateTimePicker()
-        Me.dtpkhtMS = New System.Windows.Forms.DateTimePicker()
-        Me.cmbmsMS = New System.Windows.Forms.ComboBox()
-        Me.cmbmnvMS = New System.Windows.Forms.ComboBox()
-        Me.btnCancelMS = New System.Windows.Forms.Button()
+        Me.dtpkngaymuon = New System.Windows.Forms.DateTimePicker()
+        Me.dtpkht = New System.Windows.Forms.DateTimePicker()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.txttcMS = New System.Windows.Forms.TextBox()
+        Me.txttc = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.btnOkMS = New System.Windows.Forms.Button()
+        Me.btnOK = New System.Windows.Forms.Button()
         Me.txtmsv = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.bntCancel = New System.Windows.Forms.Button()
+        Me.txtmp = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtms = New System.Windows.Forms.TextBox()
+        Me.txtmnv = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
-        'dtpkngaymuonMS
+        'dtpkngaymuon
         '
-        Me.dtpkngaymuonMS.CustomFormat = "MM/dd/yyyy"
-        Me.dtpkngaymuonMS.Enabled = False
-        Me.dtpkngaymuonMS.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkngaymuonMS.Location = New System.Drawing.Point(136, 148)
-        Me.dtpkngaymuonMS.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
-        Me.dtpkngaymuonMS.Name = "dtpkngaymuonMS"
-        Me.dtpkngaymuonMS.Size = New System.Drawing.Size(146, 20)
-        Me.dtpkngaymuonMS.TabIndex = 52
+        Me.dtpkngaymuon.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkngaymuon.Enabled = False
+        Me.dtpkngaymuon.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkngaymuon.Location = New System.Drawing.Point(136, 148)
+        Me.dtpkngaymuon.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpkngaymuon.Name = "dtpkngaymuon"
+        Me.dtpkngaymuon.Size = New System.Drawing.Size(146, 20)
+        Me.dtpkngaymuon.TabIndex = 52
         '
-        'dtpkhtMS
+        'dtpkht
         '
-        Me.dtpkhtMS.CustomFormat = "MM/dd/yyyy"
-        Me.dtpkhtMS.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkhtMS.Location = New System.Drawing.Point(444, 148)
-        Me.dtpkhtMS.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
-        Me.dtpkhtMS.Name = "dtpkhtMS"
-        Me.dtpkhtMS.Size = New System.Drawing.Size(146, 20)
-        Me.dtpkhtMS.TabIndex = 51
-        '
-        'cmbmsMS
-        '
-        Me.cmbmsMS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbmsMS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbmsMS.FormattingEnabled = True
-        Me.cmbmsMS.Location = New System.Drawing.Point(444, 90)
-        Me.cmbmsMS.Name = "cmbmsMS"
-        Me.cmbmsMS.Size = New System.Drawing.Size(146, 21)
-        Me.cmbmsMS.TabIndex = 50
-        '
-        'cmbmnvMS
-        '
-        Me.cmbmnvMS.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbmnvMS.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbmnvMS.FormattingEnabled = True
-        Me.cmbmnvMS.Location = New System.Drawing.Point(136, 201)
-        Me.cmbmnvMS.Name = "cmbmnvMS"
-        Me.cmbmnvMS.Size = New System.Drawing.Size(146, 21)
-        Me.cmbmnvMS.TabIndex = 49
-        '
-        'btnCancelMS
-        '
-        Me.btnCancelMS.Location = New System.Drawing.Point(444, 261)
-        Me.btnCancelMS.Name = "btnCancelMS"
-        Me.btnCancelMS.Size = New System.Drawing.Size(75, 31)
-        Me.btnCancelMS.TabIndex = 47
-        Me.btnCancelMS.Text = "&Clear"
-        Me.btnCancelMS.UseVisualStyleBackColor = True
+        Me.dtpkht.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkht.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkht.Location = New System.Drawing.Point(444, 148)
+        Me.dtpkht.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpkht.Name = "dtpkht"
+        Me.dtpkht.Size = New System.Drawing.Size(146, 20)
+        Me.dtpkht.TabIndex = 51
         '
         'Label17
         '
@@ -116,12 +88,12 @@ Partial Class frmQLMuon
         Me.Label19.TabIndex = 44
         Me.Label19.Text = "Mã sách"
         '
-        'txttcMS
+        'txttc
         '
-        Me.txttcMS.Location = New System.Drawing.Point(444, 201)
-        Me.txttcMS.Name = "txttcMS"
-        Me.txttcMS.Size = New System.Drawing.Size(146, 20)
-        Me.txttcMS.TabIndex = 43
+        Me.txttc.Location = New System.Drawing.Point(444, 201)
+        Me.txttc.Name = "txttc"
+        Me.txttc.Size = New System.Drawing.Size(146, 20)
+        Me.txttc.TabIndex = 43
         '
         'Label16
         '
@@ -150,71 +122,104 @@ Partial Class frmQLMuon
         Me.Label14.TabIndex = 40
         Me.Label14.Text = "Mã sinh viên"
         '
-        'btnOkMS
+        'btnOK
         '
-        Me.btnOkMS.Location = New System.Drawing.Point(166, 261)
-        Me.btnOkMS.Name = "btnOkMS"
-        Me.btnOkMS.Size = New System.Drawing.Size(72, 31)
-        Me.btnOkMS.TabIndex = 39
-        Me.btnOkMS.Text = "&OK"
-        Me.btnOkMS.UseVisualStyleBackColor = True
+        Me.btnOK.Location = New System.Drawing.Point(227, 277)
+        Me.btnOK.Name = "btnOK"
+        Me.btnOK.Size = New System.Drawing.Size(72, 31)
+        Me.btnOK.TabIndex = 39
+        Me.btnOK.Text = "&OK"
+        Me.btnOK.UseVisualStyleBackColor = True
         '
         'txtmsv
         '
         Me.txtmsv.Location = New System.Drawing.Point(136, 90)
         Me.txtmsv.Name = "txtmsv"
-        Me.txtmsv.ReadOnly = True
         Me.txtmsv.Size = New System.Drawing.Size(146, 20)
         Me.txtmsv.TabIndex = 53
         '
-        'Button1
+        'bntCancel
         '
-        Me.Button1.Location = New System.Drawing.Point(304, 261)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(72, 31)
-        Me.Button1.TabIndex = 54
-        Me.Button1.Text = "&Cancel"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.bntCancel.Location = New System.Drawing.Point(365, 277)
+        Me.bntCancel.Name = "bntCancel"
+        Me.bntCancel.Size = New System.Drawing.Size(72, 31)
+        Me.bntCancel.TabIndex = 54
+        Me.bntCancel.Text = "&Cancel"
+        Me.bntCancel.UseVisualStyleBackColor = True
+        '
+        'txtmp
+        '
+        Me.txtmp.Location = New System.Drawing.Point(289, 41)
+        Me.txtmp.Name = "txtmp"
+        Me.txtmp.ReadOnly = True
+        Me.txtmp.Size = New System.Drawing.Size(146, 20)
+        Me.txtmp.TabIndex = 56
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(201, 44)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(51, 13)
+        Me.Label1.TabIndex = 55
+        Me.Label1.Text = "Mã phiếu"
+        '
+        'txtms
+        '
+        Me.txtms.Location = New System.Drawing.Point(444, 90)
+        Me.txtms.Name = "txtms"
+        Me.txtms.ReadOnly = True
+        Me.txtms.Size = New System.Drawing.Size(146, 20)
+        Me.txtms.TabIndex = 57
+        '
+        'txtmnv
+        '
+        Me.txtmnv.Location = New System.Drawing.Point(136, 201)
+        Me.txtmnv.Name = "txtmnv"
+        Me.txtmnv.Size = New System.Drawing.Size(146, 20)
+        Me.txtmnv.TabIndex = 58
         '
         'frmQLMuon
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(681, 370)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.txtmnv)
+        Me.Controls.Add(Me.txtms)
+        Me.Controls.Add(Me.txtmp)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.bntCancel)
         Me.Controls.Add(Me.txtmsv)
-        Me.Controls.Add(Me.dtpkngaymuonMS)
-        Me.Controls.Add(Me.dtpkhtMS)
-        Me.Controls.Add(Me.cmbmsMS)
-        Me.Controls.Add(Me.cmbmnvMS)
-        Me.Controls.Add(Me.btnCancelMS)
+        Me.Controls.Add(Me.dtpkngaymuon)
+        Me.Controls.Add(Me.dtpkht)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.txttcMS)
+        Me.Controls.Add(Me.txttc)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.btnOkMS)
+        Me.Controls.Add(Me.btnOK)
         Me.Name = "frmQLMuon"
         Me.Text = "Quản Lý Mượn"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents dtpkngaymuonMS As System.Windows.Forms.DateTimePicker
-    Friend WithEvents dtpkhtMS As System.Windows.Forms.DateTimePicker
-    Friend WithEvents cmbmsMS As System.Windows.Forms.ComboBox
-    Friend WithEvents cmbmnvMS As System.Windows.Forms.ComboBox
-    Friend WithEvents btnCancelMS As System.Windows.Forms.Button
+    Friend WithEvents dtpkngaymuon As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpkht As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents txttcMS As System.Windows.Forms.TextBox
+    Friend WithEvents txttc As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents btnOkMS As System.Windows.Forms.Button
+    Friend WithEvents btnOK As System.Windows.Forms.Button
     Friend WithEvents txtmsv As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents bntCancel As System.Windows.Forms.Button
+    Friend WithEvents txtmp As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtms As System.Windows.Forms.TextBox
+    Friend WithEvents txtmnv As System.Windows.Forms.TextBox
 End Class

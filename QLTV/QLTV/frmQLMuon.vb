@@ -1,22 +1,43 @@
 ﻿Public Class frmQLMuon
-    Private _DBAccess As DataBaseAccess
+    Private _DBAccess As New DataBaseAccess
 
-    Private Sub LoadDataSachOnMaSach()
-        Dim maPhieu As Integer
-        With frmMain.dtgrCTPM
-            maPhieu = .Rows(.CurrentCell.RowIndex).Cells("maPhieu").Value
-        End With
-        Dim sqlQuery As String = String.Format("SELECT maSach FROM  dbo.tbl_CTPHIEUMUON WHERE maPhieu = '{0}'", maPhieu)
-        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
-        Me.cmbmsMS.DataSource = dtTable
-        With Me.cmbmsMS
-            Me.cmbmsMS.ValueMember = "maPhieu"
-            Me.cmbmsMS.DisplayMember = "maPhieu"
-        End With
+    Private Function isEmpty() As Boolean
+        Return (String.IsNullOrEmpty(txtmsv.Text) OrElse String.IsNullOrEmpty(txtmnv.Text) OrElse String.IsNullOrEmpty(txtms.Text) _
+                OrElse dtpkht.Value <= dtpkngaymuon.Value)
+    End Function
+
+    Private Function UpdatePM() As Boolean
+        Dim sqlQuery As String = String.Format("UPDATE dbo.tbl_PHIEUMUON SET maSV = '{0}',maNV= '{1}' WHERE maPhieu = '{2}'", _
+                                               txtmsv.Text, txtmnv.Text, txtmp.Text)
+        Return _DBAccess.ExecuteNoneQuery(sqlQuery)
+    End Function
+
+    Private Function UpdateCTPM() As Boolean
+        Dim sqlQuery As String = String.Format("UPDATE dbo.tbl_CTPHIEUMUON SET  hanTra = '{0}',tienCoc = '{1}' WHERE maPhieu = '{2}' AND maSach = '{3}'", _
+                             dtpkht.Value, txttc.Text, txtmp.Text, txtms.Text)
+        Return _DBAccess.ExecuteNoneQuery(sqlQuery)
+    End Function
+
+    Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
+        If isEmpty() Then
+            MessageBox.Show("Bạn phải nhập đủ thông tin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            If UpdatePM() And UpdateCTPM() Then
+                MessageBox.Show("Update thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.DialogResult = Windows.Forms.DialogResult.Yes
+            Else
+                MessageBox.Show("Update không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.DialogResult = Windows.Forms.DialogResult.No
+            End If
+        End If
+        Me.Close()
     End Sub
 
+    Private Sub frmTheLoai_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtmsv.Focus()
+    End Sub
 
-    Private Sub frmQLMuon_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadDataSachOnMaSach()
+    Private Sub bntCancel_Click(sender As Object, e As EventArgs) Handles bntCancel.Click
+        Me.Close()
     End Sub
 End Class

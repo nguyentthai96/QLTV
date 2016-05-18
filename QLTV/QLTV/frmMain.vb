@@ -1,7 +1,6 @@
 ﻿Public Class frmMain
     'Khai báo obj class DataBaseAccess
     Private _DBAccess As New DataBaseAccess
-
     'Load Data Sach on GridView
     Private Sub LoadDataSachOnGridview()
         Dim sqlQuery As String = "SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH"
@@ -147,6 +146,28 @@
         cmbmsMS.SelectedIndex = -1
     End Sub
 
+    Private Sub LoadMSOnCbbBox1()
+        Dim sqlQuery As String = "SELECT maSach FROM dbo.tbl_SACH"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.cmbmsMS1.DataSource = dtTable
+        With Me.cmbmsMS1
+            Me.cmbmsMS1.DisplayMember = "maSach"
+            Me.cmbmsMS1.ValueMember = "maSach"
+        End With
+        cmbmsMS1.SelectedIndex = -1
+    End Sub
+
+    Private Sub LoadMSOnCbbBox2()
+        Dim sqlQuery As String = "SELECT maSach FROM dbo.tbl_SACH"
+        Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+        Me.cmbmsMS2.DataSource = dtTable
+        With Me.cmbmsMS2
+            Me.cmbmsMS2.DisplayMember = "maSach"
+            Me.cmbmsMS2.ValueMember = "maSach"
+        End With
+        cmbmsMS2.SelectedIndex = -1
+    End Sub
+
     Private Sub LoadDataSVOnGridview()
         Dim sqlQuery As String = "SELECT [maSV],[hoTenSV],[gioiTinhSV] = (CASE gioiTinhSV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),[ngaySinhSV],[lopSV],[ngayLamThe],[ngayHetHan] FROM dbo.tbl_SINHVIEN"
         Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
@@ -262,7 +283,7 @@
     Private Sub SearchBookOnTbl_MS()
         Dim sqlQuery As String
         If cmbfilterMS.SelectedIndex = 0 Then
-            sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE maSach LIKE '%{0}%'", Val(txtSearchMS.Text))
+            sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE maSach = '{0}'", txtSearchMS.Text)
         ElseIf cmbfilterMS.SelectedIndex = 1 Then
             sqlQuery = String.Format("SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH WHERE tenSach LIKE  N'%{0}%'", txtSearchMS.Text)
         Else
@@ -432,12 +453,25 @@
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
     Private Function OnLoanBookOfLibrary_CTPhieuMuon() As Boolean
+            LoadDataPMOnGridView()
+            Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
+                sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS.Text, dtpkhtMS.Value, txttcMS.Text)
+            Return _DBAccess.ExecuteNoneQuery(sqlQuery)
+    End Function
+
+    Private Function OnLoanBookOfLibrary_CTPhieuMuon1() As Boolean
         LoadDataPMOnGridView()
         Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
-        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS.Text, dtpkhtMS.Value, txttcMS.Text)
+        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS1.Text, dtpkhtMS1.Value, txttcMS1.Text)
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
 
+    Private Function OnLoanBookOfLibrary_CTPhieuMuon2() As Boolean
+        LoadDataPMOnGridView()
+        Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
+        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS2.Text, dtpkhtMS2.Value, txttcMS2.Text)
+        Return _DBAccess.ExecuteNoneQuery(sqlQuery)
+    End Function
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If cmbfilterMS.SelectedIndex = -1 Then
@@ -450,7 +484,7 @@
             cmbQLMuon.SelectedItem = "Mã phiếu"
         End If
 
-        dtpkngaymuonMS.Value = Date.Today
+        dtpkngaymuonMS.Value = Date.Today()
 
         LoadDataNVOnGridview()
         LoadDataTLOnGridview()
@@ -468,7 +502,6 @@
         LoadMSVOnCbbBox()
         LoadMNVOnCmbBoxMS()
         LoadMSOnCbbBox()
-
 
     End Sub
 
@@ -817,7 +850,8 @@
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
-
+        frmLogin.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnRefreshSach_Click(sender As Object, e As EventArgs) Handles btnRefreshSach.Click
@@ -886,16 +920,44 @@
 
     End Sub
 
+    Private Function Check_Input_MS()
+        If _isAddBook = 1 Then
+            Return (cmbmsvMS.SelectedIndex = -1 OrElse cmbmnvMS.SelectedIndex = -1 OrElse cmbmsMS.SelectedIndex = -1 _
+                    OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value)
+        ElseIf _isAddBook = 2 Then
+            Return (cmbmsvMS.SelectedIndex = -1 OrElse cmbmnvMS.SelectedIndex = -1 OrElse cmbmsMS.SelectedIndex = -1 _
+                    OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse cmbmsMS1.SelectedIndex = -1 _
+                    OrElse dtpkhtMS1.Value <= dtpkngaymuonMS.Value OrElse (cmbmsMS1.SelectedIndex = cmbmsMS.SelectedIndex))
+        Else
+            Return (cmbmsvMS.SelectedIndex = -1 OrElse cmbmnvMS.SelectedIndex = -1 OrElse cmbmsMS.SelectedIndex = -1 _
+                    OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse cmbmsMS1.SelectedIndex = -1 _
+                    OrElse dtpkhtMS1.Value <= dtpkngaymuonMS.Value OrElse cmbmsMS2.SelectedIndex = -1 Or dtpkhtMS2.Value <= dtpkngaymuonMS.Value _
+                    OrElse (cmbmsMS2.SelectedIndex = cmbmsMS.SelectedIndex Or cmbmsMS2.SelectedIndex = cmbmsMS1.SelectedIndex))
+        End If
+    End Function
 
     Private Sub btnOkMS_Click(sender As Object, e As EventArgs) Handles btnOkMS.Click
-        If cmbmsvMS.SelectedIndex < 0 OrElse cmbmnvMS.SelectedValue < 0 OrElse cmbmsMS.SelectedIndex < 0 _
-            OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse Val(txttcMS.Text) < 0 Then
-            MessageBox.Show("kiểm tra lại nhập liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If Check_Input_MS() Then
+            MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() Then
-                MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If _isAddBook = 1 Then
+                If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() Then
+                    MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+            ElseIf _isAddBook = 2 Then
+                If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon1() Then
+                    MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             Else
-                MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon1() And OnLoanBookOfLibrary_CTPhieuMuon2() Then
+                    MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
         End If
     End Sub
@@ -1013,9 +1075,124 @@
 
     Private Sub btnGiahanQLMuon_Click(sender As Object, e As EventArgs) Handles btnGiahanQLMuon.Click
         Dim frm = New frmQLMuon
-        With Me.dtgrPM
-            frm.txtmsv.Text = .Rows(.CurrentCell.RowIndex).Cells("maSV").Value
+        With Me.dtgrCTPM
+            frm.txtmp.Text = .Rows(.CurrentCell.RowIndex).Cells("maPhieu").Value
+            frm.txtms.Text = .Rows(.CurrentCell.RowIndex).Cells("maSach").Value
+            frm.dtpkht.Value = .Rows(.CurrentCell.RowIndex).Cells("hanTra").Value
+            If .Rows(.CurrentCell.RowIndex).Cells("tienCoc").Value.ToString <> "" Then
+                frm.txttc.Text = .Rows(.CurrentCell.RowIndex).Cells("tienCoc").Value
+            End If
         End With
+        For i As Integer = 0 To Me.dtgrPM.RowCount - 1
+            If Me.dtgrPM.Rows(i).Cells("maPhieu").Value = frm.txtmp.Text Then
+                'Me.dtgrPM.ClearSelection()
+                'Me.dtgrPM.Rows(i).Selected = True
+                frm.txtmsv.Text = Me.dtgrPM.Rows(i).Cells("maSV").Value
+                frm.dtpkngaymuon.Value = Me.dtgrPM.Rows(i).Cells("ngayMuon").Value
+                frm.txtmnv.Text = Me.dtgrPM.Rows(i).Cells("maNV").Value
+                Exit For
+            End If
+        Next
         frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataCTPMOnGridView()
+            LoadDataPMOnGridView()
+        End If
+    End Sub
+
+    Private Sub cmbmnvMS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbmnvMS.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub btnAddBook_Click(sender As Object, e As EventArgs) Handles btnAddBook.Click
+        If MessageBox.Show("Thêm sách mượn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            _isAddBook += 1
+            If _isAddBook = 2 Then
+                Me.btnAddBook.Location = New Point(920, 129)
+                Me.cmbmsMS1.Visible = True
+                Me.dtpkhtMS1.Visible = True
+                Me.txttcMS1.Visible = True
+                LoadMSOnCbbBox1()
+            Else
+                Me.cmbmsMS2.Visible = True
+                Me.dtpkhtMS2.Visible = True
+                Me.txttcMS2.Visible = True
+                btnAddBook.Visible = False
+                LoadMSOnCbbBox2()
+            End If
+            TabPage8.Refresh()
+        End If
+    End Sub
+
+    Private Sub cmbmsMS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbmsMS.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
+
+    End Sub
+
+    Private Sub ThoátToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThoátToolStripMenuItem.Click
+        End
+    End Sub
+
+    Private Sub QLSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLSáchToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 1 Then
+            TabControl1.SelectTab(1)
+        End If
+    End Sub
+
+    Private Sub QLThểLoạiToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLThểLoạiToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 2 Then
+            TabControl1.SelectTab(2)
+        End If
+    End Sub
+
+    Private Sub QLTácGiảToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLTácGiảToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 3 Then
+            TabControl1.SelectTab(3)
+        End If
+    End Sub
+
+    Private Sub QLNgônNgữToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLNgônNgữToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 4 Then
+            TabControl1.SelectTab(4)
+        End If
+    End Sub
+
+    Private Sub QLNhàXuấtBảnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLNhàXuấtBảnToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 5 Then
+            TabControl1.SelectTab(5)
+        End If
+    End Sub
+
+    Private Sub QLNhânViênToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLNhânViênToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 6 Then
+            TabControl1.SelectTab(6)
+        End If
+    End Sub
+
+    Private Sub QLĐộcGiảToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLĐộcGiảToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 7 Then
+            TabControl1.SelectTab(7)
+        End If
+    End Sub
+
+    Private Sub QLMượnSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLMượnSáchToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 9 Then
+            TabControl1.SelectTab(9)
+        End If
+    End Sub
+
+    Private Sub LậpPhiếuMượnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LậpPhiếuMượnToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 8 Then
+            TabControl1.SelectTab(8)
+        End If
+    End Sub
+
+    Private Sub QLTrảSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLTrảSáchToolStripMenuItem.Click
+        If TabControl1.SelectedIndex <> 10 Then
+            TabControl1.SelectTab(10)
+        End If
     End Sub
 End Class

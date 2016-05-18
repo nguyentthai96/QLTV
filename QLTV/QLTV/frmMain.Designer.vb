@@ -70,6 +70,7 @@ Partial Class frmMain
         Me.submenu62 = New System.Windows.Forms.ToolStripMenuItem()
         Me.submenu63 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.btnAddBook = New System.Windows.Forms.Button()
         Me.btnView = New System.Windows.Forms.Button()
         Me.dtpkngaymuonMS = New System.Windows.Forms.DateTimePicker()
         Me.dtpkhtMS = New System.Windows.Forms.DateTimePicker()
@@ -157,9 +158,9 @@ Partial Class frmMain
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.btnGiahanQLMuon = New System.Windows.Forms.Button()
         Me.btnRefreshQLM = New System.Windows.Forms.Button()
         Me.btnSearchQLM = New System.Windows.Forms.Button()
@@ -170,8 +171,6 @@ Partial Class frmMain
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtgrCTPM = New System.Windows.Forms.DataGridView()
         Me.dtgrPM = New System.Windows.Forms.DataGridView()
-        Me.ShapeContainer1 = New Microsoft.VisualBasic.PowerPacks.ShapeContainer()
-        Me.LineShape1 = New Microsoft.VisualBasic.PowerPacks.LineShape()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.bntGiaHanQLTra = New System.Windows.Forms.Button()
         Me.cmbfilterQLTra = New System.Windows.Forms.ComboBox()
@@ -180,6 +179,13 @@ Partial Class frmMain
         Me.dtgrQLTra = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnQLtra = New System.Windows.Forms.Button()
+        Me.dtpkhtMS1 = New System.Windows.Forms.DateTimePicker()
+        Me.cmbmsMS1 = New System.Windows.Forms.ComboBox()
+        Me.txttcMS1 = New System.Windows.Forms.TextBox()
+        Me.dtpkhtMS2 = New System.Windows.Forms.DateTimePicker()
+        Me.cmbmsMS2 = New System.Windows.Forms.ComboBox()
+        Me.txttcMS2 = New System.Windows.Forms.TextBox()
+        Me.LậpPhiếuMượnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         CType(Me.dtgrMuonSach, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -280,18 +286,18 @@ Partial Class frmMain
         'QLNhânViênToolStripMenuItem
         '
         Me.QLNhânViênToolStripMenuItem.Name = "QLNhânViênToolStripMenuItem"
-        Me.QLNhânViênToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.QLNhânViênToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.QLNhânViênToolStripMenuItem.Text = "QL Nhân Viên"
         '
         'QLĐộcGiảToolStripMenuItem
         '
         Me.QLĐộcGiảToolStripMenuItem.Name = "QLĐộcGiảToolStripMenuItem"
-        Me.QLĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(147, 22)
+        Me.QLĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.QLĐộcGiảToolStripMenuItem.Text = "QL Độc Giả"
         '
         'ToolStripMenuItem4
         '
-        Me.ToolStripMenuItem4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QLMượnSáchToolStripMenuItem, Me.QLTrảSáchToolStripMenuItem, Me.ThốngKêQuáHạnToolStripMenuItem})
+        Me.ToolStripMenuItem4.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LậpPhiếuMượnToolStripMenuItem, Me.QLMượnSáchToolStripMenuItem, Me.QLTrảSáchToolStripMenuItem, Me.ThốngKêQuáHạnToolStripMenuItem})
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
         Me.ToolStripMenuItem4.Size = New System.Drawing.Size(117, 20)
         Me.ToolStripMenuItem4.Text = "&Quản lý mượn- trả"
@@ -299,19 +305,19 @@ Partial Class frmMain
         'QLMượnSáchToolStripMenuItem
         '
         Me.QLMượnSáchToolStripMenuItem.Name = "QLMượnSáchToolStripMenuItem"
-        Me.QLMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QLMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.QLMượnSáchToolStripMenuItem.Text = "QL Mượn Sách"
         '
         'QLTrảSáchToolStripMenuItem
         '
         Me.QLTrảSáchToolStripMenuItem.Name = "QLTrảSáchToolStripMenuItem"
-        Me.QLTrảSáchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.QLTrảSáchToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.QLTrảSáchToolStripMenuItem.Text = "QL Trả Sách"
         '
         'ThốngKêQuáHạnToolStripMenuItem
         '
         Me.ThốngKêQuáHạnToolStripMenuItem.Name = "ThốngKêQuáHạnToolStripMenuItem"
-        Me.ThốngKêQuáHạnToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ThốngKêQuáHạnToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.ThốngKêQuáHạnToolStripMenuItem.Text = "Thống Kê"
         '
         'ToolStripMenuItem5
@@ -324,7 +330,7 @@ Partial Class frmMain
         'GiaoDiệnToolStripMenuItem
         '
         Me.GiaoDiệnToolStripMenuItem.Name = "GiaoDiệnToolStripMenuItem"
-        Me.GiaoDiệnToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.GiaoDiệnToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
         Me.GiaoDiệnToolStripMenuItem.Text = "Giao Diện"
         '
         'ToolStripMenuItem6
@@ -498,6 +504,13 @@ Partial Class frmMain
         '
         'TabPage8
         '
+        Me.TabPage8.Controls.Add(Me.dtpkhtMS2)
+        Me.TabPage8.Controls.Add(Me.cmbmsMS2)
+        Me.TabPage8.Controls.Add(Me.txttcMS2)
+        Me.TabPage8.Controls.Add(Me.dtpkhtMS1)
+        Me.TabPage8.Controls.Add(Me.cmbmsMS1)
+        Me.TabPage8.Controls.Add(Me.txttcMS1)
+        Me.TabPage8.Controls.Add(Me.btnAddBook)
         Me.TabPage8.Controls.Add(Me.btnView)
         Me.TabPage8.Controls.Add(Me.dtpkngaymuonMS)
         Me.TabPage8.Controls.Add(Me.dtpkhtMS)
@@ -527,6 +540,15 @@ Partial Class frmMain
         Me.TabPage8.Text = "Mượn sách"
         Me.TabPage8.UseVisualStyleBackColor = True
         '
+        'btnAddBook
+        '
+        Me.btnAddBook.Image = CType(resources.GetObject("btnAddBook.Image"), System.Drawing.Image)
+        Me.btnAddBook.Location = New System.Drawing.Point(742, 128)
+        Me.btnAddBook.Name = "btnAddBook"
+        Me.btnAddBook.Size = New System.Drawing.Size(41, 35)
+        Me.btnAddBook.TabIndex = 39
+        Me.btnAddBook.UseVisualStyleBackColor = True
+        '
         'btnView
         '
         Me.btnView.Location = New System.Drawing.Point(607, 296)
@@ -551,10 +573,10 @@ Partial Class frmMain
         '
         Me.dtpkhtMS.CustomFormat = "MM/dd/yyyy"
         Me.dtpkhtMS.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkhtMS.Location = New System.Drawing.Point(607, 194)
+        Me.dtpkhtMS.Location = New System.Drawing.Point(607, 193)
         Me.dtpkhtMS.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
         Me.dtpkhtMS.Name = "dtpkhtMS"
-        Me.dtpkhtMS.Size = New System.Drawing.Size(146, 20)
+        Me.dtpkhtMS.Size = New System.Drawing.Size(129, 20)
         Me.dtpkhtMS.TabIndex = 36
         '
         'cmbmsMS
@@ -564,7 +586,7 @@ Partial Class frmMain
         Me.cmbmsMS.FormattingEnabled = True
         Me.cmbmsMS.Location = New System.Drawing.Point(607, 136)
         Me.cmbmsMS.Name = "cmbmsMS"
-        Me.cmbmsMS.Size = New System.Drawing.Size(146, 21)
+        Me.cmbmsMS.Size = New System.Drawing.Size(129, 21)
         Me.cmbmsMS.TabIndex = 35
         '
         'cmbmnvMS
@@ -608,7 +630,7 @@ Partial Class frmMain
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(500, 200)
+        Me.Label18.Location = New System.Drawing.Point(500, 199)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(42, 13)
         Me.Label18.TabIndex = 28
@@ -627,7 +649,7 @@ Partial Class frmMain
         '
         Me.txttcMS.Location = New System.Drawing.Point(607, 247)
         Me.txttcMS.Name = "txttcMS"
-        Me.txttcMS.Size = New System.Drawing.Size(146, 20)
+        Me.txttcMS.Size = New System.Drawing.Size(129, 20)
         Me.txttcMS.TabIndex = 26
         '
         'txtSearchMS
@@ -1424,14 +1446,14 @@ Partial Class frmMain
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage9.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage9.TabIndex = 9
-        Me.TabPage9.Text = "TabPage9"
+        Me.TabPage9.Text = "Welcome"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
         'TabPage10
         '
+        Me.TabPage10.Controls.Add(Me.Button2)
         Me.TabPage10.Controls.Add(Me.Button4)
         Me.TabPage10.Controls.Add(Me.Button3)
-        Me.TabPage10.Controls.Add(Me.Label5)
         Me.TabPage10.Controls.Add(Me.btnGiahanQLMuon)
         Me.TabPage10.Controls.Add(Me.btnRefreshQLM)
         Me.TabPage10.Controls.Add(Me.btnSearchQLM)
@@ -1442,7 +1464,6 @@ Partial Class frmMain
         Me.TabPage10.Controls.Add(Me.Label1)
         Me.TabPage10.Controls.Add(Me.dtgrCTPM)
         Me.TabPage10.Controls.Add(Me.dtgrPM)
-        Me.TabPage10.Controls.Add(Me.ShapeContainer1)
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
@@ -1450,6 +1471,15 @@ Partial Class frmMain
         Me.TabPage10.TabIndex = 10
         Me.TabPage10.Text = "QL Mượn"
         Me.TabPage10.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.Location = New System.Drawing.Point(609, 221)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(64, 49)
+        Me.Button2.TabIndex = 43
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -1469,19 +1499,10 @@ Partial Class frmMain
         Me.Button3.TabIndex = 40
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(836, 576)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(71, 13)
-        Me.Label5.TabIndex = 38
-        Me.Label5.Text = "Sửa/ Gia hạn"
-        '
         'btnGiahanQLMuon
         '
         Me.btnGiahanQLMuon.Image = Global.QLTV.My.Resources.Resources.Edit
-        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(843, 522)
+        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(859, 522)
         Me.btnGiahanQLMuon.Name = "btnGiahanQLMuon"
         Me.btnGiahanQLMuon.Size = New System.Drawing.Size(64, 49)
         Me.btnGiahanQLMuon.TabIndex = 37
@@ -1581,24 +1602,6 @@ Partial Class frmMain
         Me.dtgrPM.Size = New System.Drawing.Size(418, 300)
         Me.dtgrPM.TabIndex = 0
         '
-        'ShapeContainer1
-        '
-        Me.ShapeContainer1.Location = New System.Drawing.Point(3, 3)
-        Me.ShapeContainer1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShapeContainer1.Name = "ShapeContainer1"
-        Me.ShapeContainer1.Shapes.AddRange(New Microsoft.VisualBasic.PowerPacks.Shape() {Me.LineShape1})
-        Me.ShapeContainer1.Size = New System.Drawing.Size(1317, 625)
-        Me.ShapeContainer1.TabIndex = 39
-        Me.ShapeContainer1.TabStop = False
-        '
-        'LineShape1
-        '
-        Me.LineShape1.Name = "LineShape1"
-        Me.LineShape1.X1 = 635
-        Me.LineShape1.X2 = 635
-        Me.LineShape1.Y1 = 201
-        Me.LineShape1.Y2 = 585
-        '
         'TabPage11
         '
         Me.TabPage11.Controls.Add(Me.bntGiaHanQLTra)
@@ -1676,6 +1679,72 @@ Partial Class frmMain
         Me.btnQLtra.Size = New System.Drawing.Size(63, 37)
         Me.btnQLtra.TabIndex = 37
         Me.btnQLtra.UseVisualStyleBackColor = True
+        '
+        'dtpkhtMS1
+        '
+        Me.dtpkhtMS1.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkhtMS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkhtMS1.Location = New System.Drawing.Point(781, 193)
+        Me.dtpkhtMS1.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpkhtMS1.Name = "dtpkhtMS1"
+        Me.dtpkhtMS1.Size = New System.Drawing.Size(129, 20)
+        Me.dtpkhtMS1.TabIndex = 42
+        Me.dtpkhtMS1.Visible = False
+        '
+        'cmbmsMS1
+        '
+        Me.cmbmsMS1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbmsMS1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbmsMS1.FormattingEnabled = True
+        Me.cmbmsMS1.Location = New System.Drawing.Point(781, 136)
+        Me.cmbmsMS1.Name = "cmbmsMS1"
+        Me.cmbmsMS1.Size = New System.Drawing.Size(129, 21)
+        Me.cmbmsMS1.TabIndex = 41
+        Me.cmbmsMS1.Visible = False
+        '
+        'txttcMS1
+        '
+        Me.txttcMS1.Location = New System.Drawing.Point(781, 247)
+        Me.txttcMS1.Name = "txttcMS1"
+        Me.txttcMS1.Size = New System.Drawing.Size(129, 20)
+        Me.txttcMS1.TabIndex = 40
+        Me.txttcMS1.Visible = False
+        '
+        'dtpkhtMS2
+        '
+        Me.dtpkhtMS2.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkhtMS2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkhtMS2.Location = New System.Drawing.Point(952, 193)
+        Me.dtpkhtMS2.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpkhtMS2.Name = "dtpkhtMS2"
+        Me.dtpkhtMS2.Size = New System.Drawing.Size(129, 20)
+        Me.dtpkhtMS2.TabIndex = 45
+        Me.dtpkhtMS2.Visible = False
+        '
+        'cmbmsMS2
+        '
+        Me.cmbmsMS2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbmsMS2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbmsMS2.FormattingEnabled = True
+        Me.cmbmsMS2.Location = New System.Drawing.Point(952, 136)
+        Me.cmbmsMS2.Name = "cmbmsMS2"
+        Me.cmbmsMS2.Size = New System.Drawing.Size(129, 21)
+        Me.cmbmsMS2.TabIndex = 44
+        Me.cmbmsMS2.Visible = False
+        '
+        'txttcMS2
+        '
+        Me.txttcMS2.Location = New System.Drawing.Point(952, 247)
+        Me.txttcMS2.Name = "txttcMS2"
+        Me.txttcMS2.Size = New System.Drawing.Size(129, 20)
+        Me.txttcMS2.TabIndex = 43
+        Me.txttcMS2.Visible = False
+        '
+        'LậpPhiếuMượnToolStripMenuItem
+        '
+        Me.LậpPhiếuMượnToolStripMenuItem.Name = "LậpPhiếuMượnToolStripMenuItem"
+        Me.LậpPhiếuMượnToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.LậpPhiếuMượnToolStripMenuItem.Text = "Lập Phiếu Mượn"
         '
         'frmMain
         '
@@ -1879,10 +1948,16 @@ Partial Class frmMain
     Friend WithEvents cmbmsvMS As System.Windows.Forms.ComboBox
     Friend WithEvents dtpkngaymuonMS As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnView As System.Windows.Forms.Button
-    Friend WithEvents ShapeContainer1 As Microsoft.VisualBasic.PowerPacks.ShapeContainer
-    Friend WithEvents LineShape1 As Microsoft.VisualBasic.PowerPacks.LineShape
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnAddBook As System.Windows.Forms.Button
+    Friend WithEvents dtpkhtMS2 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cmbmsMS2 As System.Windows.Forms.ComboBox
+    Friend WithEvents txttcMS2 As System.Windows.Forms.TextBox
+    Friend WithEvents dtpkhtMS1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents cmbmsMS1 As System.Windows.Forms.ComboBox
+    Friend WithEvents txttcMS1 As System.Windows.Forms.TextBox
+    Friend WithEvents LậpPhiếuMượnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

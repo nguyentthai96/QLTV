@@ -22,6 +22,7 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -31,11 +32,13 @@ Partial Class frmLogin
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtusername = New System.Windows.Forms.TextBox()
         Me.txtpassword = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLogin
         '
-        Me.btnLogin.Location = New System.Drawing.Point(115, 194)
+        Me.btnLogin.Location = New System.Drawing.Point(188, 199)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(75, 23)
         Me.btnLogin.TabIndex = 1
@@ -45,7 +48,7 @@ Partial Class frmLogin
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(79, 75)
+        Me.Label1.Location = New System.Drawing.Point(152, 80)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 2
@@ -54,7 +57,7 @@ Partial Class frmLogin
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(81, 115)
+        Me.Label2.Location = New System.Drawing.Point(152, 123)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 4
@@ -62,7 +65,7 @@ Partial Class frmLogin
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(261, 194)
+        Me.btnCancel.Location = New System.Drawing.Point(334, 199)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 23)
         Me.btnCancel.TabIndex = 5
@@ -72,7 +75,7 @@ Partial Class frmLogin
         'llblforgetpass
         '
         Me.llblforgetpass.AutoSize = True
-        Me.llblforgetpass.Location = New System.Drawing.Point(269, 159)
+        Me.llblforgetpass.Location = New System.Drawing.Point(342, 164)
         Me.llblforgetpass.Name = "llblforgetpass"
         Me.llblforgetpass.Size = New System.Drawing.Size(86, 13)
         Me.llblforgetpass.TabIndex = 6
@@ -82,7 +85,9 @@ Partial Class frmLogin
         'ckbremember
         '
         Me.ckbremember.AutoSize = True
-        Me.ckbremember.Location = New System.Drawing.Point(129, 158)
+        Me.ckbremember.Checked = True
+        Me.ckbremember.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.ckbremember.Location = New System.Drawing.Point(202, 163)
         Me.ckbremember.Name = "ckbremember"
         Me.ckbremember.Size = New System.Drawing.Size(101, 17)
         Me.ckbremember.TabIndex = 7
@@ -95,7 +100,7 @@ Partial Class frmLogin
         Me.Label3.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
-        Me.Label3.Location = New System.Drawing.Point(123, 21)
+        Me.Label3.Location = New System.Drawing.Point(196, 26)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(221, 25)
         Me.Label3.TabIndex = 8
@@ -103,24 +108,36 @@ Partial Class frmLogin
         '
         'txtusername
         '
-        Me.txtusername.Location = New System.Drawing.Point(158, 72)
+        Me.txtusername.Location = New System.Drawing.Point(231, 77)
         Me.txtusername.Name = "txtusername"
         Me.txtusername.Size = New System.Drawing.Size(196, 20)
         Me.txtusername.TabIndex = 9
+        Me.txtusername.Text = "vanhieu2910@gmail.com"
         '
         'txtpassword
         '
-        Me.txtpassword.Location = New System.Drawing.Point(159, 115)
+        Me.txtpassword.Location = New System.Drawing.Point(232, 120)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpassword.Size = New System.Drawing.Size(196, 20)
         Me.txtpassword.TabIndex = 10
+        Me.txtpassword.Text = "admin"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(21, 41)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(115, 139)
+        Me.PictureBox1.TabIndex = 11
+        Me.PictureBox1.TabStop = False
         '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(445, 261)
+        Me.ClientSize = New System.Drawing.Size(519, 261)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txtpassword)
         Me.Controls.Add(Me.txtusername)
         Me.Controls.Add(Me.Label3)
@@ -134,6 +151,7 @@ Partial Class frmLogin
         Me.MinimizeBox = False
         Me.Name = "frmLogin"
         Me.Text = "Đăng nhập"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -147,4 +165,5 @@ Partial Class frmLogin
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents txtusername As System.Windows.Forms.TextBox
     Friend WithEvents txtpassword As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

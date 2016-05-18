@@ -27,4 +27,9 @@
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtusername.Focus()
     End Sub
+
+    Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        userName = txtusername.Text
+        End
+    End Sub
 End Class
