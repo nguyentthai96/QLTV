@@ -14,3 +14,8 @@ E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmLogin.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmNgonNgu.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmNXB.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmTacGia.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmNhanVien.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmQLMuon.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmSinhVien.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmQLTra.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Debug\QLTV.frmPassChange.resources

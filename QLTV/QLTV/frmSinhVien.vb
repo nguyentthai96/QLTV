@@ -27,14 +27,14 @@
     End Function
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         If isEmpty() Then
-            MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If _isEdit Then
                 If UpdateSV() Then
                     MessageBox.Show("Update thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.Yes
                 Else
-                    MessageBox.Show("Update không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Update không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Me.DialogResult = Windows.Forms.DialogResult.No
                 End If
             Else
@@ -42,7 +42,7 @@
                     MessageBox.Show("Inster thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.Yes
                 Else
-                    MessageBox.Show("Inster không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Inster không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Me.DialogResult = Windows.Forms.DialogResult.No
                 End If
             End If
@@ -62,5 +62,9 @@
 
         ' Add any initialization after the InitializeComponent() call.
         _isEdit = IsEdit
+    End Sub
+
+    Private Sub frmSinhVien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

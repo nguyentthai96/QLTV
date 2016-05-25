@@ -93,7 +93,7 @@ Partial Class frmTheLoai
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmTheLoai"
-        Me.Text = "Thông Tin Thể Loại"
+        Me.Text = "Quản Lý Thể Loại"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

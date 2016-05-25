@@ -112,16 +112,16 @@ Partial Class frmLogin
         Me.txtusername.Name = "txtusername"
         Me.txtusername.Size = New System.Drawing.Size(196, 20)
         Me.txtusername.TabIndex = 9
-        Me.txtusername.Text = "vanhieu2910@gmail.com"
+        Me.txtusername.Text = "admin"
         '
         'txtpassword
         '
         Me.txtpassword.Location = New System.Drawing.Point(232, 120)
         Me.txtpassword.Name = "txtpassword"
-        Me.txtpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpassword.Size = New System.Drawing.Size(196, 20)
         Me.txtpassword.TabIndex = 10
         Me.txtpassword.Text = "admin"
+        Me.txtpassword.UseSystemPasswordChar = True
         '
         'PictureBox1
         '
@@ -147,6 +147,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnLogin)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmLogin"

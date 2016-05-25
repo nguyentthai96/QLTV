@@ -201,7 +201,7 @@ Partial Class frmQLMuon
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.btnOK)
         Me.Name = "frmQLMuon"
-        Me.Text = "Quản Lý Mượn"
+        Me.Text = "Quản Lý Mượn Sách"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

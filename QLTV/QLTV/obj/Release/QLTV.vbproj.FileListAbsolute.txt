@@ -17,3 +17,5 @@ E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.pdb
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmNhanVien.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmSinhVien.resources
 E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmQLMuon.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmQLTra.resources
+E:\Git\QLTV\QLTV\QLTV\obj\Release\QLTV.frmPassChange.resources

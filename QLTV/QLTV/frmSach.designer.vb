@@ -268,7 +268,7 @@ Partial Class frmSach
         Me.Controls.Add(Me.txtTenSach)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmSach"
-        Me.Text = "Thông tin sách"
+        Me.Text = "Quản Lý Sách"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

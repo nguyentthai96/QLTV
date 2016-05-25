@@ -7,10 +7,10 @@
         Dim sqlQuery As String = String.Format("SELECT * FROM tbl_NhanVien where EmailNV = '{0}' and MatKhau = '{1}'", txtusername.Text, txtpassword.Text)
         Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
         If dtTable.Rows.Count > 0 Then
-            MessageBox.Show("Bạn đã đăng nhập với tên " & txtusername.Text)
-            'Dim frm = New frmMain
-            frmMain.Show()
+            MessageBox.Show("Bạn đã đăng nhập với tên " & txtusername.Text.ToUpper)
+            userName = txtusername.Text
             Me.Hide()
+            frmMain.Show()
         Else
             MessageBox.Show("Sai tên tài khoản hoặc mật khẩu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtusername.Focus()
@@ -21,15 +21,11 @@
         End
     End Sub
 
-    Private Sub frmLogin_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-    End Sub
-
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtusername.Focus()
     End Sub
 
     Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        userName = txtusername.Text
         End
     End Sub
 End Class

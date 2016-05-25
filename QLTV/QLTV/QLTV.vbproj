@@ -103,10 +103,22 @@
     <Compile Include="frmNXB.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPassChange.Designer.vb">
+      <DependentUpon>frmPassChange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassChange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmQLMuon.Designer.vb">
       <DependentUpon>frmQLMuon.vb</DependentUpon>
     </Compile>
     <Compile Include="frmQLMuon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQLTra.Designer.vb">
+      <DependentUpon>frmQLTra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQLTra.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSach.designer.vb">
@@ -166,8 +178,14 @@
     <EmbeddedResource Include="frmNXB.resx">
       <DependentUpon>frmNXB.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPassChange.resx">
+      <DependentUpon>frmPassChange.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmQLMuon.resx">
       <DependentUpon>frmQLMuon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQLTra.resx">
+      <DependentUpon>frmQLTra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSach.resx">
       <DependentUpon>frmSach.vb</DependentUpon>
@@ -201,8 +219,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\1464107390_application-pgp-signature.png" />
+    <None Include="Resources\1464119870_book_stack.png" />
     <Content Include="Resources\Add.png" />
     <Content Include="Resources\Delete.png" />
+    <None Include="Resources\logout.png" />
     <None Include="Resources\Edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

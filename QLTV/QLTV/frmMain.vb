@@ -685,7 +685,9 @@
     End Sub
 
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        End
+        If MessageBox.Show("Bạn muốn thoát ứng dụng ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            End
+        End If
     End Sub
 
     Private Sub btnAddNN_Click(sender As Object, e As EventArgs) Handles btnAddNN.Click
@@ -850,8 +852,10 @@
     End Sub
 
     Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
-        frmLogin.Show()
-        Me.Hide()
+        If MessageBox.Show("Bạn muốn đăng xuất ?", "Warrning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            frmLogin.Show()
+            Me.Hide()
+        End If
     End Sub
 
     Private Sub btnRefreshSach_Click(sender As Object, e As EventArgs) Handles btnRefreshSach.Click
@@ -955,15 +959,14 @@
             Else
                 If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon1() And OnLoanBookOfLibrary_CTPhieuMuon2() Then
                     MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'Load dữ liệu bảng CTPM và bảng PM
+                    LoadDataCTPMOnGridView()
+                    LoadDataPMOnGridView()
                 Else
                     MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         End If
-    End Sub
-
-    Private Sub dtgrPM_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgrPM.CellContentClick
-
     End Sub
 
     Private Sub b_Click(sender As Object, e As EventArgs) Handles b.Click
@@ -980,6 +983,16 @@
         cmbmsMS.SelectedIndex = -1
         dtpkhtMS.Value = Date.Today
         txttcMS.Text = ""
+        If _isAddBook > 1 Then
+            cmbmsMS1.SelectedIndex = -1
+            dtpkhtMS1.Value = Date.Today
+            txttcMS1.Text = ""
+        End If
+        If _isAddBook = 3 Then
+            cmbmsMS2.SelectedIndex = -1
+            dtpkhtMS2.Value = Date.Today
+            txttcMS2.Text = ""
+        End If
     End Sub
 
     Private Sub btnEditNV_Click(sender As Object, e As EventArgs) Handles btnEditNV.Click
@@ -1015,9 +1028,9 @@
         If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
             If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
                 MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                LoadDataSachOnGridview()
+                LoadDataNVOnGridview()
             Else
-                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Delete không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
     End Sub
@@ -1061,7 +1074,7 @@
                 MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 LoadDataSVOnGridview()
             Else
-                MessageBox.Show("Delete không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Delete không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
     End Sub
@@ -1193,6 +1206,60 @@
     Private Sub QLTrảSáchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles QLTrảSáchToolStripMenuItem.Click
         If TabControl1.SelectedIndex <> 10 Then
             TabControl1.SelectTab(10)
+        End If
+    End Sub
+
+    Private Sub bntGiaHanQLTra_Click(sender As Object, e As EventArgs) Handles bntGiaHanQLTra.Click
+        TabControl1.SelectTab(9)
+    End Sub
+
+
+    Private Sub btnDelPM_Click(sender As Object, e As EventArgs) Handles btnDelPM.Click
+        Dim maPhieu As Integer = Me.dtgrPM.CurrentRow.Cells("maPhieu").Value
+        Dim sqlQuery As String = String.Format("DELETE FROM tbl_PHIEUMUON WHERE maPhieu = '{0}'", maPhieu)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataPMOnGridView()
+            Else
+                MessageBox.Show("Delete không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+
+    Private Sub btnDelCTPM_Click(sender As Object, e As EventArgs) Handles btnDelCTPM.Click
+        Dim maPhieu As Integer = Me.dtgrCTPM.CurrentRow.Cells("maPhieu").Value
+        Dim maSach As Integer = Me.dtgrCTPM.CurrentRow.Cells("maSach").Value
+        Dim sqlQuery As String = String.Format("DELETE FROM tbl_CTPHIEUMUON WHERE maPhieu = '{0}' AND maSach = '{1}'", maPhieu, maSach)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataCTPMOnGridView()
+            Else
+                MessageBox.Show("Delete không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+
+    Private Sub btnAddPM_Click(sender As Object, e As EventArgs) Handles btnAddPM.Click
+        TabControl1.SelectTab(8)
+    End Sub
+
+    Private Sub btnAddQLT_Click(sender As Object, e As EventArgs) Handles btnAddQLT.Click
+        Dim frm = New frmQLTra
+        frm.ShowDialog()
+    End Sub
+
+    Private Sub cmbmsvMS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbmsvMS.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub ĐổiMậtKhẩuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ĐổiMậtKhẩuToolStripMenuItem.Click
+        Dim frm = New frmPassChange
+        frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            frmLogin.Show()
+            Me.Hide()
         End If
     End Sub
 End Class

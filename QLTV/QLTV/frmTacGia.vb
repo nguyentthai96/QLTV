@@ -55,8 +55,7 @@
         _isEdit = IsEdit
     End Sub
 
-    Private Sub frmTheLoai_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub frmTacGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txttentg.Focus()
-
     End Sub
 End Class

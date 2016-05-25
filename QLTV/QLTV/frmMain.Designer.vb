@@ -22,13 +22,11 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ThoátToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QLSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QLThểLoạiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QLTácGiảToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QLNgônNgữToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,6 +35,7 @@ Partial Class frmMain
         Me.QLNhânViênToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QLĐộcGiảToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LậpPhiếuMượnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QLMượnSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.QLTrảSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ThốngKêQuáHạnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,7 +69,12 @@ Partial Class frmMain
         Me.submenu62 = New System.Windows.Forms.ToolStripMenuItem()
         Me.submenu63 = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
-        Me.btnAddBook = New System.Windows.Forms.Button()
+        Me.dtpkhtMS2 = New System.Windows.Forms.DateTimePicker()
+        Me.cmbmsMS2 = New System.Windows.Forms.ComboBox()
+        Me.txttcMS2 = New System.Windows.Forms.TextBox()
+        Me.dtpkhtMS1 = New System.Windows.Forms.DateTimePicker()
+        Me.cmbmsMS1 = New System.Windows.Forms.ComboBox()
+        Me.txttcMS1 = New System.Windows.Forms.TextBox()
         Me.btnView = New System.Windows.Forms.Button()
         Me.dtpkngaymuonMS = New System.Windows.Forms.DateTimePicker()
         Me.dtpkhtMS = New System.Windows.Forms.DateTimePicker()
@@ -90,80 +94,44 @@ Partial Class frmMain
         Me.Label12 = New System.Windows.Forms.Label()
         Me.btnOkMS = New System.Windows.Forms.Button()
         Me.dtgrMuonSach = New System.Windows.Forms.DataGridView()
-        Me.btnreFreshMS = New System.Windows.Forms.Button()
-        Me.btnSearchMS = New System.Windows.Forms.Button()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshSV = New System.Windows.Forms.Button()
-        Me.btnSearchSV = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtSearchSV = New System.Windows.Forms.TextBox()
         Me.dtgrSV = New System.Windows.Forms.DataGridView()
-        Me.btnEditSV = New System.Windows.Forms.Button()
-        Me.btnDeleteSV = New System.Windows.Forms.Button()
-        Me.btnAddSV = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshNV = New System.Windows.Forms.Button()
-        Me.btnSearchNV = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtSearchNV = New System.Windows.Forms.TextBox()
         Me.dtgrNV = New System.Windows.Forms.DataGridView()
-        Me.btnEditNV = New System.Windows.Forms.Button()
-        Me.btnDeleteNV = New System.Windows.Forms.Button()
-        Me.b = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshNXB = New System.Windows.Forms.Button()
-        Me.btnSearchNXB = New System.Windows.Forms.Button()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtSearchNXB = New System.Windows.Forms.TextBox()
         Me.dtgrNXB = New System.Windows.Forms.DataGridView()
-        Me.btnEditNXB = New System.Windows.Forms.Button()
-        Me.btnDeleteNXB = New System.Windows.Forms.Button()
-        Me.btnAddNXB = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshNN = New System.Windows.Forms.Button()
-        Me.btnSearchNN = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtSearchNN = New System.Windows.Forms.TextBox()
         Me.dtgrNN = New System.Windows.Forms.DataGridView()
-        Me.btnEditNN = New System.Windows.Forms.Button()
-        Me.btnDeleteNN = New System.Windows.Forms.Button()
-        Me.btnAddNN = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshTG = New System.Windows.Forms.Button()
-        Me.btnSearchTG = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtSearchTG = New System.Windows.Forms.TextBox()
         Me.dtgrTG = New System.Windows.Forms.DataGridView()
-        Me.btnEditTG = New System.Windows.Forms.Button()
-        Me.btnDeleteTG = New System.Windows.Forms.Button()
-        Me.btnAddTG = New System.Windows.Forms.Button()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshTL = New System.Windows.Forms.Button()
-        Me.btnSearchTl = New System.Windows.Forms.Button()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtSearchTL = New System.Windows.Forms.TextBox()
         Me.dtgrTheLoai = New System.Windows.Forms.DataGridView()
-        Me.btnEditTL = New System.Windows.Forms.Button()
-        Me.btnDeleteTL = New System.Windows.Forms.Button()
-        Me.btnAddTL = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.btnRefreshSach = New System.Windows.Forms.Button()
-        Me.btnSearchSach = New System.Windows.Forms.Button()
         Me.lblSearch = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.dtgvSach = New System.Windows.Forms.DataGridView()
-        Me.btnEditSach = New System.Windows.Forms.Button()
-        Me.btnDeleteSach = New System.Windows.Forms.Button()
-        Me.btnAddSach = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.btnGiahanQLMuon = New System.Windows.Forms.Button()
-        Me.btnRefreshQLM = New System.Windows.Forms.Button()
-        Me.btnSearchQLM = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.txtSearchQLM = New System.Windows.Forms.TextBox()
         Me.cmbQLMuon = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -177,15 +145,59 @@ Partial Class frmMain
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtSearchQLTra = New System.Windows.Forms.TextBox()
         Me.dtgrQLTra = New System.Windows.Forms.DataGridView()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnRefreshSach = New System.Windows.Forms.Button()
+        Me.btnSearchSach = New System.Windows.Forms.Button()
+        Me.btnEditSach = New System.Windows.Forms.Button()
+        Me.btnDeleteSach = New System.Windows.Forms.Button()
+        Me.btnAddSach = New System.Windows.Forms.Button()
+        Me.btnRefreshTL = New System.Windows.Forms.Button()
+        Me.btnSearchTl = New System.Windows.Forms.Button()
+        Me.btnEditTL = New System.Windows.Forms.Button()
+        Me.btnDeleteTL = New System.Windows.Forms.Button()
+        Me.btnAddTL = New System.Windows.Forms.Button()
+        Me.btnRefreshTG = New System.Windows.Forms.Button()
+        Me.btnSearchTG = New System.Windows.Forms.Button()
+        Me.btnEditTG = New System.Windows.Forms.Button()
+        Me.btnDeleteTG = New System.Windows.Forms.Button()
+        Me.btnAddTG = New System.Windows.Forms.Button()
+        Me.btnRefreshNN = New System.Windows.Forms.Button()
+        Me.btnSearchNN = New System.Windows.Forms.Button()
+        Me.btnEditNN = New System.Windows.Forms.Button()
+        Me.btnDeleteNN = New System.Windows.Forms.Button()
+        Me.btnAddNN = New System.Windows.Forms.Button()
+        Me.btnRefreshNXB = New System.Windows.Forms.Button()
+        Me.btnSearchNXB = New System.Windows.Forms.Button()
+        Me.btnEditNXB = New System.Windows.Forms.Button()
+        Me.btnDeleteNXB = New System.Windows.Forms.Button()
+        Me.btnAddNXB = New System.Windows.Forms.Button()
+        Me.btnRefreshNV = New System.Windows.Forms.Button()
+        Me.btnSearchNV = New System.Windows.Forms.Button()
+        Me.btnEditNV = New System.Windows.Forms.Button()
+        Me.btnDeleteNV = New System.Windows.Forms.Button()
+        Me.b = New System.Windows.Forms.Button()
+        Me.btnRefreshSV = New System.Windows.Forms.Button()
+        Me.btnSearchSV = New System.Windows.Forms.Button()
+        Me.btnEditSV = New System.Windows.Forms.Button()
+        Me.btnDeleteSV = New System.Windows.Forms.Button()
+        Me.btnAddSV = New System.Windows.Forms.Button()
+        Me.btnAddBook = New System.Windows.Forms.Button()
+        Me.btnreFreshMS = New System.Windows.Forms.Button()
+        Me.btnSearchMS = New System.Windows.Forms.Button()
+        Me.btnAddPM = New System.Windows.Forms.Button()
+        Me.btnDelCTPM = New System.Windows.Forms.Button()
+        Me.btnDelPM = New System.Windows.Forms.Button()
+        Me.btnGiahanQLMuon = New System.Windows.Forms.Button()
+        Me.btnRefreshQLM = New System.Windows.Forms.Button()
+        Me.btnSearchQLM = New System.Windows.Forms.Button()
+        Me.btnAddQLT = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnQLtra = New System.Windows.Forms.Button()
-        Me.dtpkhtMS1 = New System.Windows.Forms.DateTimePicker()
-        Me.cmbmsMS1 = New System.Windows.Forms.ComboBox()
-        Me.txttcMS1 = New System.Windows.Forms.TextBox()
-        Me.dtpkhtMS2 = New System.Windows.Forms.DateTimePicker()
-        Me.cmbmsMS2 = New System.Windows.Forms.ComboBox()
-        Me.txttcMS2 = New System.Windows.Forms.TextBox()
-        Me.LậpPhiếuMượnToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogOutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ĐổiMậtKhẩuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ThoátToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QLSáchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         CType(Me.dtgrMuonSach, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -204,11 +216,13 @@ Partial Class frmMain
         Me.TabPage1.SuspendLayout()
         CType(Me.dtgvSach, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage9.SuspendLayout()
         Me.TabPage10.SuspendLayout()
         CType(Me.dtgrCTPM, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtgrPM, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage11.SuspendLayout()
         CType(Me.dtgrQLTra, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -222,22 +236,10 @@ Partial Class frmMain
         '
         'ToolStripMenuItem1
         '
-        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogOutToolStripMenuItem, Me.ThoátToolStripMenuItem})
+        Me.ToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogOutToolStripMenuItem, Me.ĐổiMậtKhẩuToolStripMenuItem, Me.ThoátToolStripMenuItem})
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(52, 20)
         Me.ToolStripMenuItem1.Text = "&Home"
-        '
-        'LogOutToolStripMenuItem
-        '
-        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
-        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.LogOutToolStripMenuItem.Text = "Đăng xuất"
-        '
-        'ThoátToolStripMenuItem
-        '
-        Me.ThoátToolStripMenuItem.Name = "ThoátToolStripMenuItem"
-        Me.ThoátToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ThoátToolStripMenuItem.Text = "Thoát"
         '
         'ToolStripMenuItem2
         '
@@ -246,32 +248,30 @@ Partial Class frmMain
         Me.ToolStripMenuItem2.Size = New System.Drawing.Size(117, 20)
         Me.ToolStripMenuItem2.Text = "&Quản lý danh mục"
         '
-        'QLSáchToolStripMenuItem
-        '
-        Me.QLSáchToolStripMenuItem.Name = "QLSáchToolStripMenuItem"
-        Me.QLSáchToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
-        Me.QLSáchToolStripMenuItem.Text = "QL Sách"
-        '
         'QLThểLoạiToolStripMenuItem
         '
+        Me.QLThểLoạiToolStripMenuItem.Image = CType(resources.GetObject("QLThểLoạiToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLThểLoạiToolStripMenuItem.Name = "QLThểLoạiToolStripMenuItem"
         Me.QLThểLoạiToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.QLThểLoạiToolStripMenuItem.Text = "QL Thể Loại"
         '
         'QLTácGiảToolStripMenuItem
         '
+        Me.QLTácGiảToolStripMenuItem.Image = CType(resources.GetObject("QLTácGiảToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLTácGiảToolStripMenuItem.Name = "QLTácGiảToolStripMenuItem"
         Me.QLTácGiảToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.QLTácGiảToolStripMenuItem.Text = "QL Tác Giả"
         '
         'QLNgônNgữToolStripMenuItem
         '
+        Me.QLNgônNgữToolStripMenuItem.Image = CType(resources.GetObject("QLNgônNgữToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLNgônNgữToolStripMenuItem.Name = "QLNgônNgữToolStripMenuItem"
         Me.QLNgônNgữToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.QLNgônNgữToolStripMenuItem.Text = "QL Ngôn Ngữ"
         '
         'QLNhàXuấtBảnToolStripMenuItem
         '
+        Me.QLNhàXuấtBảnToolStripMenuItem.Image = CType(resources.GetObject("QLNhàXuấtBảnToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLNhàXuấtBảnToolStripMenuItem.Name = "QLNhàXuấtBảnToolStripMenuItem"
         Me.QLNhàXuấtBảnToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.QLNhàXuấtBảnToolStripMenuItem.Text = "QL Nhà Xuất Bản"
@@ -285,12 +285,14 @@ Partial Class frmMain
         '
         'QLNhânViênToolStripMenuItem
         '
+        Me.QLNhânViênToolStripMenuItem.Image = CType(resources.GetObject("QLNhânViênToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLNhânViênToolStripMenuItem.Name = "QLNhânViênToolStripMenuItem"
         Me.QLNhânViênToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.QLNhânViênToolStripMenuItem.Text = "QL Nhân Viên"
         '
         'QLĐộcGiảToolStripMenuItem
         '
+        Me.QLĐộcGiảToolStripMenuItem.Image = CType(resources.GetObject("QLĐộcGiảToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLĐộcGiảToolStripMenuItem.Name = "QLĐộcGiảToolStripMenuItem"
         Me.QLĐộcGiảToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.QLĐộcGiảToolStripMenuItem.Text = "QL Độc Giả"
@@ -302,20 +304,30 @@ Partial Class frmMain
         Me.ToolStripMenuItem4.Size = New System.Drawing.Size(117, 20)
         Me.ToolStripMenuItem4.Text = "&Quản lý mượn- trả"
         '
+        'LậpPhiếuMượnToolStripMenuItem
+        '
+        Me.LậpPhiếuMượnToolStripMenuItem.Image = CType(resources.GetObject("LậpPhiếuMượnToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LậpPhiếuMượnToolStripMenuItem.Name = "LậpPhiếuMượnToolStripMenuItem"
+        Me.LậpPhiếuMượnToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.LậpPhiếuMượnToolStripMenuItem.Text = "Lập Phiếu Mượn"
+        '
         'QLMượnSáchToolStripMenuItem
         '
+        Me.QLMượnSáchToolStripMenuItem.Image = CType(resources.GetObject("QLMượnSáchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLMượnSáchToolStripMenuItem.Name = "QLMượnSáchToolStripMenuItem"
         Me.QLMượnSáchToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.QLMượnSáchToolStripMenuItem.Text = "QL Mượn Sách"
         '
         'QLTrảSáchToolStripMenuItem
         '
+        Me.QLTrảSáchToolStripMenuItem.Image = CType(resources.GetObject("QLTrảSáchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.QLTrảSáchToolStripMenuItem.Name = "QLTrảSáchToolStripMenuItem"
         Me.QLTrảSáchToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.QLTrảSáchToolStripMenuItem.Text = "QL Trả Sách"
         '
         'ThốngKêQuáHạnToolStripMenuItem
         '
+        Me.ThốngKêQuáHạnToolStripMenuItem.Image = CType(resources.GetObject("ThốngKêQuáHạnToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ThốngKêQuáHạnToolStripMenuItem.Name = "ThốngKêQuáHạnToolStripMenuItem"
         Me.ThốngKêQuáHạnToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.ThốngKêQuáHạnToolStripMenuItem.Text = "Thống Kê"
@@ -330,7 +342,7 @@ Partial Class frmMain
         'GiaoDiệnToolStripMenuItem
         '
         Me.GiaoDiệnToolStripMenuItem.Name = "GiaoDiệnToolStripMenuItem"
-        Me.GiaoDiệnToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.GiaoDiệnToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.GiaoDiệnToolStripMenuItem.Text = "Giao Diện"
         '
         'ToolStripMenuItem6
@@ -504,13 +516,13 @@ Partial Class frmMain
         '
         'TabPage8
         '
+        Me.TabPage8.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage8.Controls.Add(Me.dtpkhtMS2)
         Me.TabPage8.Controls.Add(Me.cmbmsMS2)
         Me.TabPage8.Controls.Add(Me.txttcMS2)
         Me.TabPage8.Controls.Add(Me.dtpkhtMS1)
         Me.TabPage8.Controls.Add(Me.cmbmsMS1)
         Me.TabPage8.Controls.Add(Me.txttcMS1)
-        Me.TabPage8.Controls.Add(Me.btnAddBook)
         Me.TabPage8.Controls.Add(Me.btnView)
         Me.TabPage8.Controls.Add(Me.dtpkngaymuonMS)
         Me.TabPage8.Controls.Add(Me.dtpkhtMS)
@@ -530,6 +542,7 @@ Partial Class frmMain
         Me.TabPage8.Controls.Add(Me.Label12)
         Me.TabPage8.Controls.Add(Me.btnOkMS)
         Me.TabPage8.Controls.Add(Me.dtgrMuonSach)
+        Me.TabPage8.Controls.Add(Me.btnAddBook)
         Me.TabPage8.Controls.Add(Me.btnreFreshMS)
         Me.TabPage8.Controls.Add(Me.btnSearchMS)
         Me.TabPage8.Location = New System.Drawing.Point(4, 22)
@@ -538,16 +551,66 @@ Partial Class frmMain
         Me.TabPage8.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage8.TabIndex = 8
         Me.TabPage8.Text = "Mượn sách"
-        Me.TabPage8.UseVisualStyleBackColor = True
         '
-        'btnAddBook
+        'dtpkhtMS2
         '
-        Me.btnAddBook.Image = CType(resources.GetObject("btnAddBook.Image"), System.Drawing.Image)
-        Me.btnAddBook.Location = New System.Drawing.Point(742, 128)
-        Me.btnAddBook.Name = "btnAddBook"
-        Me.btnAddBook.Size = New System.Drawing.Size(41, 35)
-        Me.btnAddBook.TabIndex = 39
-        Me.btnAddBook.UseVisualStyleBackColor = True
+        Me.dtpkhtMS2.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkhtMS2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkhtMS2.Location = New System.Drawing.Point(952, 193)
+        Me.dtpkhtMS2.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpkhtMS2.Name = "dtpkhtMS2"
+        Me.dtpkhtMS2.Size = New System.Drawing.Size(129, 20)
+        Me.dtpkhtMS2.TabIndex = 45
+        Me.dtpkhtMS2.Visible = False
+        '
+        'cmbmsMS2
+        '
+        Me.cmbmsMS2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbmsMS2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbmsMS2.FormattingEnabled = True
+        Me.cmbmsMS2.Location = New System.Drawing.Point(952, 136)
+        Me.cmbmsMS2.Name = "cmbmsMS2"
+        Me.cmbmsMS2.Size = New System.Drawing.Size(129, 21)
+        Me.cmbmsMS2.TabIndex = 44
+        Me.cmbmsMS2.Visible = False
+        '
+        'txttcMS2
+        '
+        Me.txttcMS2.Location = New System.Drawing.Point(952, 247)
+        Me.txttcMS2.Name = "txttcMS2"
+        Me.txttcMS2.Size = New System.Drawing.Size(129, 20)
+        Me.txttcMS2.TabIndex = 43
+        Me.txttcMS2.Visible = False
+        '
+        'dtpkhtMS1
+        '
+        Me.dtpkhtMS1.CustomFormat = "MM/dd/yyyy"
+        Me.dtpkhtMS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpkhtMS1.Location = New System.Drawing.Point(781, 193)
+        Me.dtpkhtMS1.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
+        Me.dtpkhtMS1.Name = "dtpkhtMS1"
+        Me.dtpkhtMS1.Size = New System.Drawing.Size(129, 20)
+        Me.dtpkhtMS1.TabIndex = 42
+        Me.dtpkhtMS1.Visible = False
+        '
+        'cmbmsMS1
+        '
+        Me.cmbmsMS1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbmsMS1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cmbmsMS1.FormattingEnabled = True
+        Me.cmbmsMS1.Location = New System.Drawing.Point(781, 136)
+        Me.cmbmsMS1.Name = "cmbmsMS1"
+        Me.cmbmsMS1.Size = New System.Drawing.Size(129, 21)
+        Me.cmbmsMS1.TabIndex = 41
+        Me.cmbmsMS1.Visible = False
+        '
+        'txttcMS1
+        '
+        Me.txttcMS1.Location = New System.Drawing.Point(781, 247)
+        Me.txttcMS1.Name = "txttcMS1"
+        Me.txttcMS1.Size = New System.Drawing.Size(129, 20)
+        Me.txttcMS1.TabIndex = 40
+        Me.txttcMS1.Visible = False
         '
         'btnView
         '
@@ -720,6 +783,7 @@ Partial Class frmMain
         Me.dtgrMuonSach.AllowUserToAddRows = False
         Me.dtgrMuonSach.AllowUserToDeleteRows = False
         Me.dtgrMuonSach.AllowUserToOrderColumns = True
+        Me.dtgrMuonSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrMuonSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrMuonSach.Location = New System.Drawing.Point(63, 393)
         Me.dtgrMuonSach.MultiSelect = False
@@ -731,26 +795,9 @@ Partial Class frmMain
         Me.dtgrMuonSach.Size = New System.Drawing.Size(1154, 235)
         Me.dtgrMuonSach.TabIndex = 1
         '
-        'btnreFreshMS
-        '
-        Me.btnreFreshMS.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnreFreshMS.Location = New System.Drawing.Point(910, 337)
-        Me.btnreFreshMS.Name = "btnreFreshMS"
-        Me.btnreFreshMS.Size = New System.Drawing.Size(75, 37)
-        Me.btnreFreshMS.TabIndex = 32
-        Me.btnreFreshMS.UseVisualStyleBackColor = True
-        '
-        'btnSearchMS
-        '
-        Me.btnSearchMS.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchMS.Location = New System.Drawing.Point(781, 337)
-        Me.btnSearchMS.Name = "btnSearchMS"
-        Me.btnSearchMS.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchMS.TabIndex = 31
-        Me.btnSearchMS.UseVisualStyleBackColor = True
-        '
         'TabPage7
         '
+        Me.TabPage7.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage7.Controls.Add(Me.btnRefreshSV)
         Me.TabPage7.Controls.Add(Me.btnSearchSV)
         Me.TabPage7.Controls.Add(Me.Label11)
@@ -765,25 +812,6 @@ Partial Class frmMain
         Me.TabPage7.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage7.TabIndex = 7
         Me.TabPage7.Text = "Sinh Viên"
-        Me.TabPage7.UseVisualStyleBackColor = True
-        '
-        'btnRefreshSV
-        '
-        Me.btnRefreshSV.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshSV.Location = New System.Drawing.Point(520, 88)
-        Me.btnRefreshSV.Name = "btnRefreshSV"
-        Me.btnRefreshSV.Size = New System.Drawing.Size(68, 51)
-        Me.btnRefreshSV.TabIndex = 31
-        Me.btnRefreshSV.UseVisualStyleBackColor = True
-        '
-        'btnSearchSV
-        '
-        Me.btnSearchSV.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchSV.Location = New System.Drawing.Point(424, 95)
-        Me.btnSearchSV.Name = "btnSearchSV"
-        Me.btnSearchSV.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchSV.TabIndex = 30
-        Me.btnSearchSV.UseVisualStyleBackColor = True
         '
         'Label11
         '
@@ -806,6 +834,7 @@ Partial Class frmMain
         Me.dtgrSV.AllowUserToAddRows = False
         Me.dtgrSV.AllowUserToDeleteRows = False
         Me.dtgrSV.AllowUserToResizeColumns = False
+        Me.dtgrSV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrSV.Location = New System.Drawing.Point(105, 174)
         Me.dtgrSV.MultiSelect = False
@@ -817,35 +846,9 @@ Partial Class frmMain
         Me.dtgrSV.Size = New System.Drawing.Size(762, 353)
         Me.dtgrSV.TabIndex = 20
         '
-        'btnEditSV
-        '
-        Me.btnEditSV.Image = CType(resources.GetObject("btnEditSV.Image"), System.Drawing.Image)
-        Me.btnEditSV.Location = New System.Drawing.Point(723, 88)
-        Me.btnEditSV.Name = "btnEditSV"
-        Me.btnEditSV.Size = New System.Drawing.Size(75, 51)
-        Me.btnEditSV.TabIndex = 24
-        Me.btnEditSV.UseVisualStyleBackColor = True
-        '
-        'btnDeleteSV
-        '
-        Me.btnDeleteSV.Image = CType(resources.GetObject("btnDeleteSV.Image"), System.Drawing.Image)
-        Me.btnDeleteSV.Location = New System.Drawing.Point(835, 88)
-        Me.btnDeleteSV.Name = "btnDeleteSV"
-        Me.btnDeleteSV.Size = New System.Drawing.Size(75, 51)
-        Me.btnDeleteSV.TabIndex = 23
-        Me.btnDeleteSV.UseVisualStyleBackColor = True
-        '
-        'btnAddSV
-        '
-        Me.btnAddSV.Image = CType(resources.GetObject("btnAddSV.Image"), System.Drawing.Image)
-        Me.btnAddSV.Location = New System.Drawing.Point(616, 88)
-        Me.btnAddSV.Name = "btnAddSV"
-        Me.btnAddSV.Size = New System.Drawing.Size(75, 51)
-        Me.btnAddSV.TabIndex = 22
-        Me.btnAddSV.UseVisualStyleBackColor = True
-        '
         'TabPage6
         '
+        Me.TabPage6.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage6.Controls.Add(Me.btnRefreshNV)
         Me.TabPage6.Controls.Add(Me.btnSearchNV)
         Me.TabPage6.Controls.Add(Me.Label13)
@@ -860,25 +863,6 @@ Partial Class frmMain
         Me.TabPage6.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage6.TabIndex = 6
         Me.TabPage6.Text = "Nhân viên"
-        Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'btnRefreshNV
-        '
-        Me.btnRefreshNV.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshNV.Location = New System.Drawing.Point(574, 112)
-        Me.btnRefreshNV.Name = "btnRefreshNV"
-        Me.btnRefreshNV.Size = New System.Drawing.Size(75, 53)
-        Me.btnRefreshNV.TabIndex = 30
-        Me.btnRefreshNV.UseVisualStyleBackColor = True
-        '
-        'btnSearchNV
-        '
-        Me.btnSearchNV.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchNV.Location = New System.Drawing.Point(449, 120)
-        Me.btnSearchNV.Name = "btnSearchNV"
-        Me.btnSearchNV.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchNV.TabIndex = 29
-        Me.btnSearchNV.UseVisualStyleBackColor = True
         '
         'Label13
         '
@@ -901,6 +885,7 @@ Partial Class frmMain
         Me.dtgrNV.AllowUserToAddRows = False
         Me.dtgrNV.AllowUserToDeleteRows = False
         Me.dtgrNV.AllowUserToOrderColumns = True
+        Me.dtgrNV.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrNV.Location = New System.Drawing.Point(112, 197)
         Me.dtgrNV.MultiSelect = False
@@ -912,35 +897,9 @@ Partial Class frmMain
         Me.dtgrNV.Size = New System.Drawing.Size(959, 353)
         Me.dtgrNV.TabIndex = 14
         '
-        'btnEditNV
-        '
-        Me.btnEditNV.Image = CType(resources.GetObject("btnEditNV.Image"), System.Drawing.Image)
-        Me.btnEditNV.Location = New System.Drawing.Point(869, 112)
-        Me.btnEditNV.Name = "btnEditNV"
-        Me.btnEditNV.Size = New System.Drawing.Size(75, 53)
-        Me.btnEditNV.TabIndex = 18
-        Me.btnEditNV.UseVisualStyleBackColor = True
-        '
-        'btnDeleteNV
-        '
-        Me.btnDeleteNV.Image = CType(resources.GetObject("btnDeleteNV.Image"), System.Drawing.Image)
-        Me.btnDeleteNV.Location = New System.Drawing.Point(996, 112)
-        Me.btnDeleteNV.Name = "btnDeleteNV"
-        Me.btnDeleteNV.Size = New System.Drawing.Size(75, 53)
-        Me.btnDeleteNV.TabIndex = 17
-        Me.btnDeleteNV.UseVisualStyleBackColor = True
-        '
-        'b
-        '
-        Me.b.Image = CType(resources.GetObject("b.Image"), System.Drawing.Image)
-        Me.b.Location = New System.Drawing.Point(723, 112)
-        Me.b.Name = "b"
-        Me.b.Size = New System.Drawing.Size(75, 53)
-        Me.b.TabIndex = 16
-        Me.b.UseVisualStyleBackColor = True
-        '
         'TabPage5
         '
+        Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage5.Controls.Add(Me.btnRefreshNXB)
         Me.TabPage5.Controls.Add(Me.btnSearchNXB)
         Me.TabPage5.Controls.Add(Me.Label10)
@@ -955,25 +914,6 @@ Partial Class frmMain
         Me.TabPage5.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage5.TabIndex = 5
         Me.TabPage5.Text = "Nhà Xuất Bản"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'btnRefreshNXB
-        '
-        Me.btnRefreshNXB.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshNXB.Location = New System.Drawing.Point(810, 106)
-        Me.btnRefreshNXB.Name = "btnRefreshNXB"
-        Me.btnRefreshNXB.Size = New System.Drawing.Size(75, 55)
-        Me.btnRefreshNXB.TabIndex = 29
-        Me.btnRefreshNXB.UseVisualStyleBackColor = True
-        '
-        'btnSearchNXB
-        '
-        Me.btnSearchNXB.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchNXB.Location = New System.Drawing.Point(629, 115)
-        Me.btnSearchNXB.Name = "btnSearchNXB"
-        Me.btnSearchNXB.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchNXB.TabIndex = 28
-        Me.btnSearchNXB.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -995,6 +935,7 @@ Partial Class frmMain
         '
         Me.dtgrNXB.AllowUserToAddRows = False
         Me.dtgrNXB.AllowUserToDeleteRows = False
+        Me.dtgrNXB.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrNXB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrNXB.Location = New System.Drawing.Point(133, 179)
         Me.dtgrNXB.MultiSelect = False
@@ -1006,35 +947,9 @@ Partial Class frmMain
         Me.dtgrNXB.Size = New System.Drawing.Size(803, 353)
         Me.dtgrNXB.TabIndex = 21
         '
-        'btnEditNXB
-        '
-        Me.btnEditNXB.Image = CType(resources.GetObject("btnEditNXB.Image"), System.Drawing.Image)
-        Me.btnEditNXB.Location = New System.Drawing.Point(1004, 231)
-        Me.btnEditNXB.Name = "btnEditNXB"
-        Me.btnEditNXB.Size = New System.Drawing.Size(75, 51)
-        Me.btnEditNXB.TabIndex = 25
-        Me.btnEditNXB.UseVisualStyleBackColor = True
-        '
-        'btnDeleteNXB
-        '
-        Me.btnDeleteNXB.Image = CType(resources.GetObject("btnDeleteNXB.Image"), System.Drawing.Image)
-        Me.btnDeleteNXB.Location = New System.Drawing.Point(1004, 305)
-        Me.btnDeleteNXB.Name = "btnDeleteNXB"
-        Me.btnDeleteNXB.Size = New System.Drawing.Size(75, 53)
-        Me.btnDeleteNXB.TabIndex = 24
-        Me.btnDeleteNXB.UseVisualStyleBackColor = True
-        '
-        'btnAddNXB
-        '
-        Me.btnAddNXB.Image = CType(resources.GetObject("btnAddNXB.Image"), System.Drawing.Image)
-        Me.btnAddNXB.Location = New System.Drawing.Point(1004, 153)
-        Me.btnAddNXB.Name = "btnAddNXB"
-        Me.btnAddNXB.Size = New System.Drawing.Size(75, 49)
-        Me.btnAddNXB.TabIndex = 23
-        Me.btnAddNXB.UseVisualStyleBackColor = True
-        '
         'TabPage4
         '
+        Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage4.Controls.Add(Me.btnRefreshNN)
         Me.TabPage4.Controls.Add(Me.btnSearchNN)
         Me.TabPage4.Controls.Add(Me.Label9)
@@ -1049,25 +964,6 @@ Partial Class frmMain
         Me.TabPage4.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage4.TabIndex = 4
         Me.TabPage4.Text = "Ngôn Ngữ"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'btnRefreshNN
-        '
-        Me.btnRefreshNN.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshNN.Location = New System.Drawing.Point(760, 171)
-        Me.btnRefreshNN.Name = "btnRefreshNN"
-        Me.btnRefreshNN.Size = New System.Drawing.Size(75, 55)
-        Me.btnRefreshNN.TabIndex = 28
-        Me.btnRefreshNN.UseVisualStyleBackColor = True
-        '
-        'btnSearchNN
-        '
-        Me.btnSearchNN.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchNN.Location = New System.Drawing.Point(593, 107)
-        Me.btnSearchNN.Name = "btnSearchNN"
-        Me.btnSearchNN.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchNN.TabIndex = 27
-        Me.btnSearchNN.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -1090,6 +986,7 @@ Partial Class frmMain
         Me.dtgrNN.AllowUserToAddRows = False
         Me.dtgrNN.AllowUserToDeleteRows = False
         Me.dtgrNN.AllowUserToOrderColumns = True
+        Me.dtgrNN.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrNN.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrNN.Location = New System.Drawing.Point(265, 171)
         Me.dtgrNN.MultiSelect = False
@@ -1101,36 +998,10 @@ Partial Class frmMain
         Me.dtgrNN.Size = New System.Drawing.Size(403, 353)
         Me.dtgrNN.TabIndex = 21
         '
-        'btnEditNN
-        '
-        Me.btnEditNN.Image = CType(resources.GetObject("btnEditNN.Image"), System.Drawing.Image)
-        Me.btnEditNN.Location = New System.Drawing.Point(760, 329)
-        Me.btnEditNN.Name = "btnEditNN"
-        Me.btnEditNN.Size = New System.Drawing.Size(75, 48)
-        Me.btnEditNN.TabIndex = 25
-        Me.btnEditNN.UseVisualStyleBackColor = True
-        '
-        'btnDeleteNN
-        '
-        Me.btnDeleteNN.Image = CType(resources.GetObject("btnDeleteNN.Image"), System.Drawing.Image)
-        Me.btnDeleteNN.Location = New System.Drawing.Point(760, 403)
-        Me.btnDeleteNN.Name = "btnDeleteNN"
-        Me.btnDeleteNN.Size = New System.Drawing.Size(75, 50)
-        Me.btnDeleteNN.TabIndex = 24
-        Me.btnDeleteNN.UseVisualStyleBackColor = True
-        '
-        'btnAddNN
-        '
-        Me.btnAddNN.Image = CType(resources.GetObject("btnAddNN.Image"), System.Drawing.Image)
-        Me.btnAddNN.Location = New System.Drawing.Point(760, 253)
-        Me.btnAddNN.Name = "btnAddNN"
-        Me.btnAddNN.Size = New System.Drawing.Size(75, 47)
-        Me.btnAddNN.TabIndex = 23
-        Me.btnAddNN.UseVisualStyleBackColor = True
-        '
         'TabPage3
         '
         Me.TabPage3.AutoScroll = True
+        Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Controls.Add(Me.btnRefreshTG)
         Me.TabPage3.Controls.Add(Me.btnSearchTG)
         Me.TabPage3.Controls.Add(Me.Label8)
@@ -1146,25 +1017,6 @@ Partial Class frmMain
         Me.TabPage3.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "Tác Giả"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'btnRefreshTG
-        '
-        Me.btnRefreshTG.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshTG.Location = New System.Drawing.Point(709, 169)
-        Me.btnRefreshTG.Name = "btnRefreshTG"
-        Me.btnRefreshTG.Size = New System.Drawing.Size(75, 55)
-        Me.btnRefreshTG.TabIndex = 22
-        Me.btnRefreshTG.UseVisualStyleBackColor = True
-        '
-        'btnSearchTG
-        '
-        Me.btnSearchTG.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchTG.Location = New System.Drawing.Point(529, 105)
-        Me.btnSearchTG.Name = "btnSearchTG"
-        Me.btnSearchTG.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchTG.TabIndex = 21
-        Me.btnSearchTG.UseVisualStyleBackColor = True
         '
         'Label8
         '
@@ -1187,6 +1039,7 @@ Partial Class frmMain
         Me.dtgrTG.AllowUserToAddRows = False
         Me.dtgrTG.AllowUserToDeleteRows = False
         Me.dtgrTG.AllowUserToOrderColumns = True
+        Me.dtgrTG.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrTG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrTG.Location = New System.Drawing.Point(215, 169)
         Me.dtgrTG.MultiSelect = False
@@ -1198,35 +1051,9 @@ Partial Class frmMain
         Me.dtgrTG.Size = New System.Drawing.Size(404, 353)
         Me.dtgrTG.TabIndex = 15
         '
-        'btnEditTG
-        '
-        Me.btnEditTG.Image = CType(resources.GetObject("btnEditTG.Image"), System.Drawing.Image)
-        Me.btnEditTG.Location = New System.Drawing.Point(709, 340)
-        Me.btnEditTG.Name = "btnEditTG"
-        Me.btnEditTG.Size = New System.Drawing.Size(75, 55)
-        Me.btnEditTG.TabIndex = 19
-        Me.btnEditTG.UseVisualStyleBackColor = True
-        '
-        'btnDeleteTG
-        '
-        Me.btnDeleteTG.Image = CType(resources.GetObject("btnDeleteTG.Image"), System.Drawing.Image)
-        Me.btnDeleteTG.Location = New System.Drawing.Point(709, 417)
-        Me.btnDeleteTG.Name = "btnDeleteTG"
-        Me.btnDeleteTG.Size = New System.Drawing.Size(75, 52)
-        Me.btnDeleteTG.TabIndex = 18
-        Me.btnDeleteTG.UseVisualStyleBackColor = True
-        '
-        'btnAddTG
-        '
-        Me.btnAddTG.Image = CType(resources.GetObject("btnAddTG.Image"), System.Drawing.Image)
-        Me.btnAddTG.Location = New System.Drawing.Point(709, 262)
-        Me.btnAddTG.Name = "btnAddTG"
-        Me.btnAddTG.Size = New System.Drawing.Size(75, 52)
-        Me.btnAddTG.TabIndex = 17
-        Me.btnAddTG.UseVisualStyleBackColor = True
-        '
         'TabPage2
         '
+        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage2.Controls.Add(Me.btnRefreshTL)
         Me.TabPage2.Controls.Add(Me.btnSearchTl)
         Me.TabPage2.Controls.Add(Me.Label7)
@@ -1241,25 +1068,6 @@ Partial Class frmMain
         Me.TabPage2.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage2.TabIndex = 2
         Me.TabPage2.Text = "Thể Loại"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'btnRefreshTL
-        '
-        Me.btnRefreshTL.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshTL.Location = New System.Drawing.Point(651, 140)
-        Me.btnRefreshTL.Name = "btnRefreshTL"
-        Me.btnRefreshTL.Size = New System.Drawing.Size(75, 55)
-        Me.btnRefreshTL.TabIndex = 16
-        Me.btnRefreshTL.UseVisualStyleBackColor = True
-        '
-        'btnSearchTl
-        '
-        Me.btnSearchTl.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchTl.Location = New System.Drawing.Point(481, 85)
-        Me.btnSearchTl.Name = "btnSearchTl"
-        Me.btnSearchTl.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchTl.TabIndex = 15
-        Me.btnSearchTl.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -1282,6 +1090,7 @@ Partial Class frmMain
         Me.dtgrTheLoai.AllowUserToAddRows = False
         Me.dtgrTheLoai.AllowUserToDeleteRows = False
         Me.dtgrTheLoai.AllowUserToOrderColumns = True
+        Me.dtgrTheLoai.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrTheLoai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrTheLoai.Location = New System.Drawing.Point(162, 140)
         Me.dtgrTheLoai.MultiSelect = False
@@ -1293,35 +1102,9 @@ Partial Class frmMain
         Me.dtgrTheLoai.Size = New System.Drawing.Size(382, 353)
         Me.dtgrTheLoai.TabIndex = 1
         '
-        'btnEditTL
-        '
-        Me.btnEditTL.Image = CType(resources.GetObject("btnEditTL.Image"), System.Drawing.Image)
-        Me.btnEditTL.Location = New System.Drawing.Point(651, 316)
-        Me.btnEditTL.Name = "btnEditTL"
-        Me.btnEditTL.Size = New System.Drawing.Size(75, 45)
-        Me.btnEditTL.TabIndex = 13
-        Me.btnEditTL.UseVisualStyleBackColor = True
-        '
-        'btnDeleteTL
-        '
-        Me.btnDeleteTL.Image = CType(resources.GetObject("btnDeleteTL.Image"), System.Drawing.Image)
-        Me.btnDeleteTL.Location = New System.Drawing.Point(651, 396)
-        Me.btnDeleteTL.Name = "btnDeleteTL"
-        Me.btnDeleteTL.Size = New System.Drawing.Size(75, 47)
-        Me.btnDeleteTL.TabIndex = 12
-        Me.btnDeleteTL.UseVisualStyleBackColor = True
-        '
-        'btnAddTL
-        '
-        Me.btnAddTL.Image = CType(resources.GetObject("btnAddTL.Image"), System.Drawing.Image)
-        Me.btnAddTL.Location = New System.Drawing.Point(651, 228)
-        Me.btnAddTL.Name = "btnAddTL"
-        Me.btnAddTL.Size = New System.Drawing.Size(75, 49)
-        Me.btnAddTL.TabIndex = 11
-        Me.btnAddTL.UseVisualStyleBackColor = True
-        '
         'TabPage1
         '
+        Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage1.Controls.Add(Me.btnRefreshSach)
         Me.TabPage1.Controls.Add(Me.btnSearchSach)
         Me.TabPage1.Controls.Add(Me.lblSearch)
@@ -1336,25 +1119,6 @@ Partial Class frmMain
         Me.TabPage1.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage1.TabIndex = 1
         Me.TabPage1.Text = "Sách"
-        Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'btnRefreshSach
-        '
-        Me.btnRefreshSach.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshSach.Location = New System.Drawing.Point(592, 138)
-        Me.btnRefreshSach.Name = "btnRefreshSach"
-        Me.btnRefreshSach.Size = New System.Drawing.Size(59, 55)
-        Me.btnRefreshSach.TabIndex = 11
-        Me.btnRefreshSach.UseVisualStyleBackColor = True
-        '
-        'btnSearchSach
-        '
-        Me.btnSearchSach.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchSach.Location = New System.Drawing.Point(432, 147)
-        Me.btnSearchSach.Name = "btnSearchSach"
-        Me.btnSearchSach.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchSach.TabIndex = 10
-        Me.btnSearchSach.UseVisualStyleBackColor = True
         '
         'lblSearch
         '
@@ -1377,6 +1141,7 @@ Partial Class frmMain
         Me.dtgvSach.AllowUserToAddRows = False
         Me.dtgvSach.AllowUserToDeleteRows = False
         Me.dtgvSach.AllowUserToOrderColumns = True
+        Me.dtgvSach.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgvSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgvSach.Location = New System.Drawing.Point(70, 238)
         Me.dtgvSach.MultiSelect = False
@@ -1387,36 +1152,6 @@ Partial Class frmMain
         Me.dtgvSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtgvSach.Size = New System.Drawing.Size(1161, 353)
         Me.dtgvSach.TabIndex = 0
-        '
-        'btnEditSach
-        '
-        Me.btnEditSach.Image = CType(resources.GetObject("btnEditSach.Image"), System.Drawing.Image)
-        Me.btnEditSach.Location = New System.Drawing.Point(816, 138)
-        Me.btnEditSach.Name = "btnEditSach"
-        Me.btnEditSach.Size = New System.Drawing.Size(63, 55)
-        Me.btnEditSach.TabIndex = 8
-        Me.btnEditSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnEditSach.UseVisualStyleBackColor = True
-        '
-        'btnDeleteSach
-        '
-        Me.btnDeleteSach.Image = CType(resources.GetObject("btnDeleteSach.Image"), System.Drawing.Image)
-        Me.btnDeleteSach.Location = New System.Drawing.Point(935, 137)
-        Me.btnDeleteSach.Name = "btnDeleteSach"
-        Me.btnDeleteSach.Size = New System.Drawing.Size(62, 56)
-        Me.btnDeleteSach.TabIndex = 7
-        Me.btnDeleteSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnDeleteSach.UseVisualStyleBackColor = True
-        '
-        'btnAddSach
-        '
-        Me.btnAddSach.Image = CType(resources.GetObject("btnAddSach.Image"), System.Drawing.Image)
-        Me.btnAddSach.Location = New System.Drawing.Point(695, 137)
-        Me.btnAddSach.Name = "btnAddSach"
-        Me.btnAddSach.Size = New System.Drawing.Size(68, 56)
-        Me.btnAddSach.TabIndex = 6
-        Me.btnAddSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btnAddSach.UseVisualStyleBackColor = True
         '
         'TabControl1
         '
@@ -1432,7 +1167,7 @@ Partial Class frmMain
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Controls.Add(Me.TabPage10)
         Me.TabControl1.Controls.Add(Me.TabPage11)
-        Me.TabControl1.Location = New System.Drawing.Point(23, 78)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 57)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.ShowToolTips = True
@@ -1441,22 +1176,80 @@ Partial Class frmMain
         '
         'TabPage9
         '
+        Me.TabPage9.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage9.Controls.Add(Me.Label24)
+        Me.TabPage9.Controls.Add(Me.Label23)
+        Me.TabPage9.Controls.Add(Me.Label22)
+        Me.TabPage9.Controls.Add(Me.Label20)
+        Me.TabPage9.Controls.Add(Me.Label21)
+        Me.TabPage9.Controls.Add(Me.PictureBox1)
         Me.TabPage9.Location = New System.Drawing.Point(4, 22)
         Me.TabPage9.Name = "TabPage9"
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage9.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage9.TabIndex = 9
         Me.TabPage9.Text = "Welcome"
-        Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, CType(163, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.DarkRed
+        Me.Label24.Location = New System.Drawing.Point(920, 402)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(181, 25)
+        Me.Label24.TabIndex = 15
+        Me.Label24.Text = "Nguyễn Văn Hiếu"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, CType(163, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.DarkRed
+        Me.Label23.Location = New System.Drawing.Point(915, 281)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(175, 25)
+        Me.Label23.TabIndex = 14
+        Me.Label23.Text = "Trịnh Đức Dương"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World, CType(163, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.DarkRed
+        Me.Label22.Location = New System.Drawing.Point(920, 341)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(168, 25)
+        Me.Label22.TabIndex = 13
+        Me.Label22.Text = "Phạm Xuân Duy"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Label20.Location = New System.Drawing.Point(912, 206)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(136, 39)
+        Me.Label20.TabIndex = 12
+        Me.Label20.Text = "Nhóm 6"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(163, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.Red
+        Me.Label21.Location = New System.Drawing.Point(95, 87)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(1177, 46)
+        Me.Label21.TabIndex = 11
+        Me.Label21.Text = "PHẦN MỀM QUẢN LÝ THƯ VIỆN TRƯỜNG ĐẠI HỌC ĐIỆN LỰC"
         '
         'TabPage10
         '
-        Me.TabPage10.Controls.Add(Me.Button2)
-        Me.TabPage10.Controls.Add(Me.Button4)
-        Me.TabPage10.Controls.Add(Me.Button3)
-        Me.TabPage10.Controls.Add(Me.btnGiahanQLMuon)
-        Me.TabPage10.Controls.Add(Me.btnRefreshQLM)
-        Me.TabPage10.Controls.Add(Me.btnSearchQLM)
+        Me.TabPage10.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage10.Controls.Add(Me.Label6)
+        Me.TabPage10.Controls.Add(Me.Label5)
         Me.TabPage10.Controls.Add(Me.txtSearchQLM)
         Me.TabPage10.Controls.Add(Me.cmbQLMuon)
         Me.TabPage10.Controls.Add(Me.Label3)
@@ -1464,68 +1257,36 @@ Partial Class frmMain
         Me.TabPage10.Controls.Add(Me.Label1)
         Me.TabPage10.Controls.Add(Me.dtgrCTPM)
         Me.TabPage10.Controls.Add(Me.dtgrPM)
+        Me.TabPage10.Controls.Add(Me.btnAddPM)
+        Me.TabPage10.Controls.Add(Me.btnDelCTPM)
+        Me.TabPage10.Controls.Add(Me.btnDelPM)
+        Me.TabPage10.Controls.Add(Me.btnGiahanQLMuon)
+        Me.TabPage10.Controls.Add(Me.btnRefreshQLM)
+        Me.TabPage10.Controls.Add(Me.btnSearchQLM)
         Me.TabPage10.Location = New System.Drawing.Point(4, 22)
         Me.TabPage10.Name = "TabPage10"
         Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage10.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage10.TabIndex = 10
         Me.TabPage10.Text = "QL Mượn"
-        Me.TabPage10.UseVisualStyleBackColor = True
         '
-        'Button2
+        'Label6
         '
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.Location = New System.Drawing.Point(609, 221)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(64, 49)
-        Me.Button2.TabIndex = 43
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(606, 273)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(83, 13)
+        Me.Label6.TabIndex = 45
+        Me.Label6.Text = "Lập phiếu mượn"
         '
-        'Button4
+        'Label5
         '
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.Location = New System.Drawing.Point(999, 522)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(61, 49)
-        Me.Button4.TabIndex = 42
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
-        Me.Button3.Location = New System.Drawing.Point(275, 522)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(61, 49)
-        Me.Button3.TabIndex = 40
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'btnGiahanQLMuon
-        '
-        Me.btnGiahanQLMuon.Image = Global.QLTV.My.Resources.Resources.Edit
-        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(859, 522)
-        Me.btnGiahanQLMuon.Name = "btnGiahanQLMuon"
-        Me.btnGiahanQLMuon.Size = New System.Drawing.Size(64, 49)
-        Me.btnGiahanQLMuon.TabIndex = 37
-        Me.btnGiahanQLMuon.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnGiahanQLMuon.UseVisualStyleBackColor = True
-        '
-        'btnRefreshQLM
-        '
-        Me.btnRefreshQLM.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshQLM.Location = New System.Drawing.Point(609, 137)
-        Me.btnRefreshQLM.Name = "btnRefreshQLM"
-        Me.btnRefreshQLM.Size = New System.Drawing.Size(64, 55)
-        Me.btnRefreshQLM.TabIndex = 36
-        Me.btnRefreshQLM.UseVisualStyleBackColor = True
-        '
-        'btnSearchQLM
-        '
-        Me.btnSearchQLM.Image = Global.QLTV.My.Resources.Resources.Search
-        Me.btnSearchQLM.Location = New System.Drawing.Point(870, 65)
-        Me.btnSearchQLM.Name = "btnSearchQLM"
-        Me.btnSearchQLM.Size = New System.Drawing.Size(63, 37)
-        Me.btnSearchQLM.TabIndex = 35
-        Me.btnSearchQLM.UseVisualStyleBackColor = True
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(867, 574)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(69, 13)
+        Me.Label5.TabIndex = 44
+        Me.Label5.Text = "Sửa- Gia hạn"
         '
         'txtSearchQLM
         '
@@ -1580,6 +1341,7 @@ Partial Class frmMain
         '
         Me.dtgrCTPM.AllowUserToAddRows = False
         Me.dtgrCTPM.AllowUserToDeleteRows = False
+        Me.dtgrCTPM.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrCTPM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrCTPM.Location = New System.Drawing.Point(737, 137)
         Me.dtgrCTPM.Name = "dtgrCTPM"
@@ -1593,6 +1355,7 @@ Partial Class frmMain
         '
         Me.dtgrPM.AllowUserToAddRows = False
         Me.dtgrPM.AllowUserToDeleteRows = False
+        Me.dtgrPM.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrPM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrPM.Location = New System.Drawing.Point(114, 137)
         Me.dtgrPM.Name = "dtgrPM"
@@ -1604,6 +1367,8 @@ Partial Class frmMain
         '
         'TabPage11
         '
+        Me.TabPage11.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage11.Controls.Add(Me.btnAddQLT)
         Me.TabPage11.Controls.Add(Me.bntGiaHanQLTra)
         Me.TabPage11.Controls.Add(Me.cmbfilterQLTra)
         Me.TabPage11.Controls.Add(Me.Label4)
@@ -1617,11 +1382,10 @@ Partial Class frmMain
         Me.TabPage11.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage11.TabIndex = 11
         Me.TabPage11.Text = "QL Trả"
-        Me.TabPage11.UseVisualStyleBackColor = True
         '
         'bntGiaHanQLTra
         '
-        Me.bntGiaHanQLTra.Location = New System.Drawing.Point(903, 264)
+        Me.bntGiaHanQLTra.Location = New System.Drawing.Point(998, 264)
         Me.bntGiaHanQLTra.Name = "bntGiaHanQLTra"
         Me.bntGiaHanQLTra.Size = New System.Drawing.Size(64, 49)
         Me.bntGiaHanQLTra.TabIndex = 41
@@ -1655,12 +1419,441 @@ Partial Class frmMain
         '
         'dtgrQLTra
         '
+        Me.dtgrQLTra.AllowUserToAddRows = False
+        Me.dtgrQLTra.AllowUserToDeleteRows = False
+        Me.dtgrQLTra.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dtgrQLTra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgrQLTra.Location = New System.Drawing.Point(159, 264)
+        Me.dtgrQLTra.MultiSelect = False
         Me.dtgrQLTra.Name = "dtgrQLTra"
+        Me.dtgrQLTra.ReadOnly = True
         Me.dtgrQLTra.RowHeadersVisible = False
-        Me.dtgrQLTra.Size = New System.Drawing.Size(698, 302)
+        Me.dtgrQLTra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtgrQLTra.Size = New System.Drawing.Size(809, 302)
         Me.dtgrQLTra.TabIndex = 0
+        '
+        'ToolTip1
+        '
+        Me.ToolTip1.ToolTipTitle = "Sửa- Gia hạn"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(103, 181)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(723, 267)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'btnRefreshSach
+        '
+        Me.btnRefreshSach.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshSach.Location = New System.Drawing.Point(592, 138)
+        Me.btnRefreshSach.Name = "btnRefreshSach"
+        Me.btnRefreshSach.Size = New System.Drawing.Size(59, 55)
+        Me.btnRefreshSach.TabIndex = 11
+        Me.btnRefreshSach.UseVisualStyleBackColor = True
+        '
+        'btnSearchSach
+        '
+        Me.btnSearchSach.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchSach.Location = New System.Drawing.Point(432, 147)
+        Me.btnSearchSach.Name = "btnSearchSach"
+        Me.btnSearchSach.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchSach.TabIndex = 10
+        Me.btnSearchSach.UseVisualStyleBackColor = True
+        '
+        'btnEditSach
+        '
+        Me.btnEditSach.Image = CType(resources.GetObject("btnEditSach.Image"), System.Drawing.Image)
+        Me.btnEditSach.Location = New System.Drawing.Point(816, 138)
+        Me.btnEditSach.Name = "btnEditSach"
+        Me.btnEditSach.Size = New System.Drawing.Size(63, 55)
+        Me.btnEditSach.TabIndex = 8
+        Me.btnEditSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnEditSach.UseVisualStyleBackColor = True
+        '
+        'btnDeleteSach
+        '
+        Me.btnDeleteSach.Image = CType(resources.GetObject("btnDeleteSach.Image"), System.Drawing.Image)
+        Me.btnDeleteSach.Location = New System.Drawing.Point(935, 137)
+        Me.btnDeleteSach.Name = "btnDeleteSach"
+        Me.btnDeleteSach.Size = New System.Drawing.Size(62, 56)
+        Me.btnDeleteSach.TabIndex = 7
+        Me.btnDeleteSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnDeleteSach.UseVisualStyleBackColor = True
+        '
+        'btnAddSach
+        '
+        Me.btnAddSach.Image = CType(resources.GetObject("btnAddSach.Image"), System.Drawing.Image)
+        Me.btnAddSach.Location = New System.Drawing.Point(695, 137)
+        Me.btnAddSach.Name = "btnAddSach"
+        Me.btnAddSach.Size = New System.Drawing.Size(68, 56)
+        Me.btnAddSach.TabIndex = 6
+        Me.btnAddSach.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnAddSach.UseVisualStyleBackColor = True
+        '
+        'btnRefreshTL
+        '
+        Me.btnRefreshTL.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshTL.Location = New System.Drawing.Point(651, 140)
+        Me.btnRefreshTL.Name = "btnRefreshTL"
+        Me.btnRefreshTL.Size = New System.Drawing.Size(75, 55)
+        Me.btnRefreshTL.TabIndex = 16
+        Me.btnRefreshTL.UseVisualStyleBackColor = True
+        '
+        'btnSearchTl
+        '
+        Me.btnSearchTl.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchTl.Location = New System.Drawing.Point(481, 85)
+        Me.btnSearchTl.Name = "btnSearchTl"
+        Me.btnSearchTl.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchTl.TabIndex = 15
+        Me.btnSearchTl.UseVisualStyleBackColor = True
+        '
+        'btnEditTL
+        '
+        Me.btnEditTL.Image = CType(resources.GetObject("btnEditTL.Image"), System.Drawing.Image)
+        Me.btnEditTL.Location = New System.Drawing.Point(651, 316)
+        Me.btnEditTL.Name = "btnEditTL"
+        Me.btnEditTL.Size = New System.Drawing.Size(75, 45)
+        Me.btnEditTL.TabIndex = 13
+        Me.btnEditTL.UseVisualStyleBackColor = True
+        '
+        'btnDeleteTL
+        '
+        Me.btnDeleteTL.Image = CType(resources.GetObject("btnDeleteTL.Image"), System.Drawing.Image)
+        Me.btnDeleteTL.Location = New System.Drawing.Point(651, 396)
+        Me.btnDeleteTL.Name = "btnDeleteTL"
+        Me.btnDeleteTL.Size = New System.Drawing.Size(75, 47)
+        Me.btnDeleteTL.TabIndex = 12
+        Me.btnDeleteTL.UseVisualStyleBackColor = True
+        '
+        'btnAddTL
+        '
+        Me.btnAddTL.Image = CType(resources.GetObject("btnAddTL.Image"), System.Drawing.Image)
+        Me.btnAddTL.Location = New System.Drawing.Point(651, 228)
+        Me.btnAddTL.Name = "btnAddTL"
+        Me.btnAddTL.Size = New System.Drawing.Size(75, 49)
+        Me.btnAddTL.TabIndex = 11
+        Me.btnAddTL.UseVisualStyleBackColor = True
+        '
+        'btnRefreshTG
+        '
+        Me.btnRefreshTG.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshTG.Location = New System.Drawing.Point(709, 169)
+        Me.btnRefreshTG.Name = "btnRefreshTG"
+        Me.btnRefreshTG.Size = New System.Drawing.Size(75, 55)
+        Me.btnRefreshTG.TabIndex = 22
+        Me.btnRefreshTG.UseVisualStyleBackColor = True
+        '
+        'btnSearchTG
+        '
+        Me.btnSearchTG.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchTG.Location = New System.Drawing.Point(529, 105)
+        Me.btnSearchTG.Name = "btnSearchTG"
+        Me.btnSearchTG.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchTG.TabIndex = 21
+        Me.btnSearchTG.UseVisualStyleBackColor = True
+        '
+        'btnEditTG
+        '
+        Me.btnEditTG.Image = CType(resources.GetObject("btnEditTG.Image"), System.Drawing.Image)
+        Me.btnEditTG.Location = New System.Drawing.Point(709, 340)
+        Me.btnEditTG.Name = "btnEditTG"
+        Me.btnEditTG.Size = New System.Drawing.Size(75, 55)
+        Me.btnEditTG.TabIndex = 19
+        Me.btnEditTG.UseVisualStyleBackColor = True
+        '
+        'btnDeleteTG
+        '
+        Me.btnDeleteTG.Image = CType(resources.GetObject("btnDeleteTG.Image"), System.Drawing.Image)
+        Me.btnDeleteTG.Location = New System.Drawing.Point(709, 417)
+        Me.btnDeleteTG.Name = "btnDeleteTG"
+        Me.btnDeleteTG.Size = New System.Drawing.Size(75, 52)
+        Me.btnDeleteTG.TabIndex = 18
+        Me.btnDeleteTG.UseVisualStyleBackColor = True
+        '
+        'btnAddTG
+        '
+        Me.btnAddTG.Image = CType(resources.GetObject("btnAddTG.Image"), System.Drawing.Image)
+        Me.btnAddTG.Location = New System.Drawing.Point(709, 262)
+        Me.btnAddTG.Name = "btnAddTG"
+        Me.btnAddTG.Size = New System.Drawing.Size(75, 52)
+        Me.btnAddTG.TabIndex = 17
+        Me.btnAddTG.UseVisualStyleBackColor = True
+        '
+        'btnRefreshNN
+        '
+        Me.btnRefreshNN.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshNN.Location = New System.Drawing.Point(760, 171)
+        Me.btnRefreshNN.Name = "btnRefreshNN"
+        Me.btnRefreshNN.Size = New System.Drawing.Size(75, 55)
+        Me.btnRefreshNN.TabIndex = 28
+        Me.btnRefreshNN.UseVisualStyleBackColor = True
+        '
+        'btnSearchNN
+        '
+        Me.btnSearchNN.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchNN.Location = New System.Drawing.Point(593, 107)
+        Me.btnSearchNN.Name = "btnSearchNN"
+        Me.btnSearchNN.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchNN.TabIndex = 27
+        Me.btnSearchNN.UseVisualStyleBackColor = True
+        '
+        'btnEditNN
+        '
+        Me.btnEditNN.Image = CType(resources.GetObject("btnEditNN.Image"), System.Drawing.Image)
+        Me.btnEditNN.Location = New System.Drawing.Point(760, 329)
+        Me.btnEditNN.Name = "btnEditNN"
+        Me.btnEditNN.Size = New System.Drawing.Size(75, 48)
+        Me.btnEditNN.TabIndex = 25
+        Me.btnEditNN.UseVisualStyleBackColor = True
+        '
+        'btnDeleteNN
+        '
+        Me.btnDeleteNN.Image = CType(resources.GetObject("btnDeleteNN.Image"), System.Drawing.Image)
+        Me.btnDeleteNN.Location = New System.Drawing.Point(760, 403)
+        Me.btnDeleteNN.Name = "btnDeleteNN"
+        Me.btnDeleteNN.Size = New System.Drawing.Size(75, 50)
+        Me.btnDeleteNN.TabIndex = 24
+        Me.btnDeleteNN.UseVisualStyleBackColor = True
+        '
+        'btnAddNN
+        '
+        Me.btnAddNN.Image = CType(resources.GetObject("btnAddNN.Image"), System.Drawing.Image)
+        Me.btnAddNN.Location = New System.Drawing.Point(760, 253)
+        Me.btnAddNN.Name = "btnAddNN"
+        Me.btnAddNN.Size = New System.Drawing.Size(75, 47)
+        Me.btnAddNN.TabIndex = 23
+        Me.btnAddNN.UseVisualStyleBackColor = True
+        '
+        'btnRefreshNXB
+        '
+        Me.btnRefreshNXB.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshNXB.Location = New System.Drawing.Point(810, 106)
+        Me.btnRefreshNXB.Name = "btnRefreshNXB"
+        Me.btnRefreshNXB.Size = New System.Drawing.Size(75, 55)
+        Me.btnRefreshNXB.TabIndex = 29
+        Me.btnRefreshNXB.UseVisualStyleBackColor = True
+        '
+        'btnSearchNXB
+        '
+        Me.btnSearchNXB.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchNXB.Location = New System.Drawing.Point(629, 115)
+        Me.btnSearchNXB.Name = "btnSearchNXB"
+        Me.btnSearchNXB.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchNXB.TabIndex = 28
+        Me.btnSearchNXB.UseVisualStyleBackColor = True
+        '
+        'btnEditNXB
+        '
+        Me.btnEditNXB.Image = CType(resources.GetObject("btnEditNXB.Image"), System.Drawing.Image)
+        Me.btnEditNXB.Location = New System.Drawing.Point(1004, 231)
+        Me.btnEditNXB.Name = "btnEditNXB"
+        Me.btnEditNXB.Size = New System.Drawing.Size(75, 51)
+        Me.btnEditNXB.TabIndex = 25
+        Me.btnEditNXB.UseVisualStyleBackColor = True
+        '
+        'btnDeleteNXB
+        '
+        Me.btnDeleteNXB.Image = CType(resources.GetObject("btnDeleteNXB.Image"), System.Drawing.Image)
+        Me.btnDeleteNXB.Location = New System.Drawing.Point(1004, 305)
+        Me.btnDeleteNXB.Name = "btnDeleteNXB"
+        Me.btnDeleteNXB.Size = New System.Drawing.Size(75, 53)
+        Me.btnDeleteNXB.TabIndex = 24
+        Me.btnDeleteNXB.UseVisualStyleBackColor = True
+        '
+        'btnAddNXB
+        '
+        Me.btnAddNXB.Image = CType(resources.GetObject("btnAddNXB.Image"), System.Drawing.Image)
+        Me.btnAddNXB.Location = New System.Drawing.Point(1004, 153)
+        Me.btnAddNXB.Name = "btnAddNXB"
+        Me.btnAddNXB.Size = New System.Drawing.Size(75, 49)
+        Me.btnAddNXB.TabIndex = 23
+        Me.btnAddNXB.UseVisualStyleBackColor = True
+        '
+        'btnRefreshNV
+        '
+        Me.btnRefreshNV.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshNV.Location = New System.Drawing.Point(574, 112)
+        Me.btnRefreshNV.Name = "btnRefreshNV"
+        Me.btnRefreshNV.Size = New System.Drawing.Size(75, 53)
+        Me.btnRefreshNV.TabIndex = 30
+        Me.btnRefreshNV.UseVisualStyleBackColor = True
+        '
+        'btnSearchNV
+        '
+        Me.btnSearchNV.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchNV.Location = New System.Drawing.Point(449, 120)
+        Me.btnSearchNV.Name = "btnSearchNV"
+        Me.btnSearchNV.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchNV.TabIndex = 29
+        Me.btnSearchNV.UseVisualStyleBackColor = True
+        '
+        'btnEditNV
+        '
+        Me.btnEditNV.Image = CType(resources.GetObject("btnEditNV.Image"), System.Drawing.Image)
+        Me.btnEditNV.Location = New System.Drawing.Point(869, 112)
+        Me.btnEditNV.Name = "btnEditNV"
+        Me.btnEditNV.Size = New System.Drawing.Size(75, 53)
+        Me.btnEditNV.TabIndex = 18
+        Me.btnEditNV.UseVisualStyleBackColor = True
+        '
+        'btnDeleteNV
+        '
+        Me.btnDeleteNV.Image = CType(resources.GetObject("btnDeleteNV.Image"), System.Drawing.Image)
+        Me.btnDeleteNV.Location = New System.Drawing.Point(996, 112)
+        Me.btnDeleteNV.Name = "btnDeleteNV"
+        Me.btnDeleteNV.Size = New System.Drawing.Size(75, 53)
+        Me.btnDeleteNV.TabIndex = 17
+        Me.btnDeleteNV.UseVisualStyleBackColor = True
+        '
+        'b
+        '
+        Me.b.Image = CType(resources.GetObject("b.Image"), System.Drawing.Image)
+        Me.b.Location = New System.Drawing.Point(723, 112)
+        Me.b.Name = "b"
+        Me.b.Size = New System.Drawing.Size(75, 53)
+        Me.b.TabIndex = 16
+        Me.b.UseVisualStyleBackColor = True
+        '
+        'btnRefreshSV
+        '
+        Me.btnRefreshSV.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshSV.Location = New System.Drawing.Point(520, 88)
+        Me.btnRefreshSV.Name = "btnRefreshSV"
+        Me.btnRefreshSV.Size = New System.Drawing.Size(68, 51)
+        Me.btnRefreshSV.TabIndex = 31
+        Me.btnRefreshSV.UseVisualStyleBackColor = True
+        '
+        'btnSearchSV
+        '
+        Me.btnSearchSV.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchSV.Location = New System.Drawing.Point(424, 95)
+        Me.btnSearchSV.Name = "btnSearchSV"
+        Me.btnSearchSV.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchSV.TabIndex = 30
+        Me.btnSearchSV.UseVisualStyleBackColor = True
+        '
+        'btnEditSV
+        '
+        Me.btnEditSV.Image = CType(resources.GetObject("btnEditSV.Image"), System.Drawing.Image)
+        Me.btnEditSV.Location = New System.Drawing.Point(723, 88)
+        Me.btnEditSV.Name = "btnEditSV"
+        Me.btnEditSV.Size = New System.Drawing.Size(75, 51)
+        Me.btnEditSV.TabIndex = 24
+        Me.btnEditSV.UseVisualStyleBackColor = True
+        '
+        'btnDeleteSV
+        '
+        Me.btnDeleteSV.Image = CType(resources.GetObject("btnDeleteSV.Image"), System.Drawing.Image)
+        Me.btnDeleteSV.Location = New System.Drawing.Point(835, 88)
+        Me.btnDeleteSV.Name = "btnDeleteSV"
+        Me.btnDeleteSV.Size = New System.Drawing.Size(75, 51)
+        Me.btnDeleteSV.TabIndex = 23
+        Me.btnDeleteSV.UseVisualStyleBackColor = True
+        '
+        'btnAddSV
+        '
+        Me.btnAddSV.Image = CType(resources.GetObject("btnAddSV.Image"), System.Drawing.Image)
+        Me.btnAddSV.Location = New System.Drawing.Point(616, 88)
+        Me.btnAddSV.Name = "btnAddSV"
+        Me.btnAddSV.Size = New System.Drawing.Size(75, 51)
+        Me.btnAddSV.TabIndex = 22
+        Me.btnAddSV.UseVisualStyleBackColor = True
+        '
+        'btnAddBook
+        '
+        Me.btnAddBook.Image = CType(resources.GetObject("btnAddBook.Image"), System.Drawing.Image)
+        Me.btnAddBook.Location = New System.Drawing.Point(742, 128)
+        Me.btnAddBook.Name = "btnAddBook"
+        Me.btnAddBook.Size = New System.Drawing.Size(41, 35)
+        Me.btnAddBook.TabIndex = 39
+        Me.btnAddBook.UseVisualStyleBackColor = True
+        '
+        'btnreFreshMS
+        '
+        Me.btnreFreshMS.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnreFreshMS.Location = New System.Drawing.Point(910, 337)
+        Me.btnreFreshMS.Name = "btnreFreshMS"
+        Me.btnreFreshMS.Size = New System.Drawing.Size(75, 37)
+        Me.btnreFreshMS.TabIndex = 32
+        Me.btnreFreshMS.UseVisualStyleBackColor = True
+        '
+        'btnSearchMS
+        '
+        Me.btnSearchMS.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchMS.Location = New System.Drawing.Point(781, 337)
+        Me.btnSearchMS.Name = "btnSearchMS"
+        Me.btnSearchMS.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchMS.TabIndex = 31
+        Me.btnSearchMS.UseVisualStyleBackColor = True
+        '
+        'btnAddPM
+        '
+        Me.btnAddPM.Image = CType(resources.GetObject("btnAddPM.Image"), System.Drawing.Image)
+        Me.btnAddPM.Location = New System.Drawing.Point(609, 221)
+        Me.btnAddPM.Name = "btnAddPM"
+        Me.btnAddPM.Size = New System.Drawing.Size(64, 49)
+        Me.btnAddPM.TabIndex = 43
+        Me.btnAddPM.UseVisualStyleBackColor = True
+        '
+        'btnDelCTPM
+        '
+        Me.btnDelCTPM.Image = CType(resources.GetObject("btnDelCTPM.Image"), System.Drawing.Image)
+        Me.btnDelCTPM.Location = New System.Drawing.Point(999, 522)
+        Me.btnDelCTPM.Name = "btnDelCTPM"
+        Me.btnDelCTPM.Size = New System.Drawing.Size(61, 49)
+        Me.btnDelCTPM.TabIndex = 42
+        Me.btnDelCTPM.UseVisualStyleBackColor = True
+        '
+        'btnDelPM
+        '
+        Me.btnDelPM.Image = CType(resources.GetObject("btnDelPM.Image"), System.Drawing.Image)
+        Me.btnDelPM.Location = New System.Drawing.Point(275, 522)
+        Me.btnDelPM.Name = "btnDelPM"
+        Me.btnDelPM.Size = New System.Drawing.Size(61, 49)
+        Me.btnDelPM.TabIndex = 40
+        Me.btnDelPM.UseVisualStyleBackColor = True
+        '
+        'btnGiahanQLMuon
+        '
+        Me.btnGiahanQLMuon.Image = Global.QLTV.My.Resources.Resources.Edit
+        Me.btnGiahanQLMuon.Location = New System.Drawing.Point(870, 522)
+        Me.btnGiahanQLMuon.Name = "btnGiahanQLMuon"
+        Me.btnGiahanQLMuon.Size = New System.Drawing.Size(63, 49)
+        Me.btnGiahanQLMuon.TabIndex = 37
+        Me.btnGiahanQLMuon.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.ToolTip1.SetToolTip(Me.btnGiahanQLMuon, "Chọn bản ghi cần gia hạn trên bảng Chi Tiết Phiếu Mượn trước")
+        Me.btnGiahanQLMuon.UseVisualStyleBackColor = True
+        '
+        'btnRefreshQLM
+        '
+        Me.btnRefreshQLM.Image = Global.QLTV.My.Resources.Resources.Refresh
+        Me.btnRefreshQLM.Location = New System.Drawing.Point(609, 137)
+        Me.btnRefreshQLM.Name = "btnRefreshQLM"
+        Me.btnRefreshQLM.Size = New System.Drawing.Size(64, 55)
+        Me.btnRefreshQLM.TabIndex = 36
+        Me.btnRefreshQLM.UseVisualStyleBackColor = True
+        '
+        'btnSearchQLM
+        '
+        Me.btnSearchQLM.Image = Global.QLTV.My.Resources.Resources.Search
+        Me.btnSearchQLM.Location = New System.Drawing.Point(870, 65)
+        Me.btnSearchQLM.Name = "btnSearchQLM"
+        Me.btnSearchQLM.Size = New System.Drawing.Size(63, 37)
+        Me.btnSearchQLM.TabIndex = 35
+        Me.btnSearchQLM.UseVisualStyleBackColor = True
+        '
+        'btnAddQLT
+        '
+        Me.btnAddQLT.Image = CType(resources.GetObject("btnAddQLT.Image"), System.Drawing.Image)
+        Me.btnAddQLT.Location = New System.Drawing.Point(998, 346)
+        Me.btnAddQLT.Name = "btnAddQLT"
+        Me.btnAddQLT.Size = New System.Drawing.Size(64, 44)
+        Me.btnAddQLT.TabIndex = 42
+        Me.btnAddQLT.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -1680,79 +1873,43 @@ Partial Class frmMain
         Me.btnQLtra.TabIndex = 37
         Me.btnQLtra.UseVisualStyleBackColor = True
         '
-        'dtpkhtMS1
+        'LogOutToolStripMenuItem
         '
-        Me.dtpkhtMS1.CustomFormat = "MM/dd/yyyy"
-        Me.dtpkhtMS1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkhtMS1.Location = New System.Drawing.Point(781, 193)
-        Me.dtpkhtMS1.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
-        Me.dtpkhtMS1.Name = "dtpkhtMS1"
-        Me.dtpkhtMS1.Size = New System.Drawing.Size(129, 20)
-        Me.dtpkhtMS1.TabIndex = 42
-        Me.dtpkhtMS1.Visible = False
+        Me.LogOutToolStripMenuItem.Image = Global.QLTV.My.Resources.Resources.logout
+        Me.LogOutToolStripMenuItem.Name = "LogOutToolStripMenuItem"
+        Me.LogOutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LogOutToolStripMenuItem.Text = "Đăng xuất"
         '
-        'cmbmsMS1
+        'ĐổiMậtKhẩuToolStripMenuItem
         '
-        Me.cmbmsMS1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbmsMS1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbmsMS1.FormattingEnabled = True
-        Me.cmbmsMS1.Location = New System.Drawing.Point(781, 136)
-        Me.cmbmsMS1.Name = "cmbmsMS1"
-        Me.cmbmsMS1.Size = New System.Drawing.Size(129, 21)
-        Me.cmbmsMS1.TabIndex = 41
-        Me.cmbmsMS1.Visible = False
+        Me.ĐổiMậtKhẩuToolStripMenuItem.Image = Global.QLTV.My.Resources.Resources._1464107390_application_pgp_signature
+        Me.ĐổiMậtKhẩuToolStripMenuItem.Name = "ĐổiMậtKhẩuToolStripMenuItem"
+        Me.ĐổiMậtKhẩuToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ĐổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu"
         '
-        'txttcMS1
+        'ThoátToolStripMenuItem
         '
-        Me.txttcMS1.Location = New System.Drawing.Point(781, 247)
-        Me.txttcMS1.Name = "txttcMS1"
-        Me.txttcMS1.Size = New System.Drawing.Size(129, 20)
-        Me.txttcMS1.TabIndex = 40
-        Me.txttcMS1.Visible = False
+        Me.ThoátToolStripMenuItem.Image = Global.QLTV.My.Resources.Resources._exit
+        Me.ThoátToolStripMenuItem.Name = "ThoátToolStripMenuItem"
+        Me.ThoátToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ThoátToolStripMenuItem.Text = "Thoát"
         '
-        'dtpkhtMS2
+        'QLSáchToolStripMenuItem
         '
-        Me.dtpkhtMS2.CustomFormat = "MM/dd/yyyy"
-        Me.dtpkhtMS2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpkhtMS2.Location = New System.Drawing.Point(952, 193)
-        Me.dtpkhtMS2.MinDate = New Date(2000, 1, 1, 0, 0, 0, 0)
-        Me.dtpkhtMS2.Name = "dtpkhtMS2"
-        Me.dtpkhtMS2.Size = New System.Drawing.Size(129, 20)
-        Me.dtpkhtMS2.TabIndex = 45
-        Me.dtpkhtMS2.Visible = False
-        '
-        'cmbmsMS2
-        '
-        Me.cmbmsMS2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
-        Me.cmbmsMS2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cmbmsMS2.FormattingEnabled = True
-        Me.cmbmsMS2.Location = New System.Drawing.Point(952, 136)
-        Me.cmbmsMS2.Name = "cmbmsMS2"
-        Me.cmbmsMS2.Size = New System.Drawing.Size(129, 21)
-        Me.cmbmsMS2.TabIndex = 44
-        Me.cmbmsMS2.Visible = False
-        '
-        'txttcMS2
-        '
-        Me.txttcMS2.Location = New System.Drawing.Point(952, 247)
-        Me.txttcMS2.Name = "txttcMS2"
-        Me.txttcMS2.Size = New System.Drawing.Size(129, 20)
-        Me.txttcMS2.TabIndex = 43
-        Me.txttcMS2.Visible = False
-        '
-        'LậpPhiếuMượnToolStripMenuItem
-        '
-        Me.LậpPhiếuMượnToolStripMenuItem.Name = "LậpPhiếuMượnToolStripMenuItem"
-        Me.LậpPhiếuMượnToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.LậpPhiếuMượnToolStripMenuItem.Text = "Lập Phiếu Mượn"
+        Me.QLSáchToolStripMenuItem.Image = Global.QLTV.My.Resources.Resources._1464119870_book_stack
+        Me.QLSáchToolStripMenuItem.Name = "QLSáchToolStripMenuItem"
+        Me.QLSáchToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.QLSáchToolStripMenuItem.Text = "QL Sách"
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.ClientSize = New System.Drawing.Size(1333, 735)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.MaximizeBox = False
         Me.Name = "frmMain"
@@ -1785,6 +1942,8 @@ Partial Class frmMain
         Me.TabPage1.PerformLayout()
         CType(Me.dtgvSach, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage9.ResumeLayout(False)
+        Me.TabPage9.PerformLayout()
         Me.TabPage10.ResumeLayout(False)
         Me.TabPage10.PerformLayout()
         CType(Me.dtgrCTPM, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1792,6 +1951,7 @@ Partial Class frmMain
         Me.TabPage11.ResumeLayout(False)
         Me.TabPage11.PerformLayout()
         CType(Me.dtgrQLTra, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1948,9 +2108,9 @@ Partial Class frmMain
     Friend WithEvents cmbmsvMS As System.Windows.Forms.ComboBox
     Friend WithEvents dtpkngaymuonMS As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnView As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnDelCTPM As System.Windows.Forms.Button
+    Friend WithEvents btnDelPM As System.Windows.Forms.Button
+    Friend WithEvents btnAddPM As System.Windows.Forms.Button
     Friend WithEvents btnAddBook As System.Windows.Forms.Button
     Friend WithEvents dtpkhtMS2 As System.Windows.Forms.DateTimePicker
     Friend WithEvents cmbmsMS2 As System.Windows.Forms.ComboBox
@@ -1959,5 +2119,16 @@ Partial Class frmMain
     Friend WithEvents cmbmsMS1 As System.Windows.Forms.ComboBox
     Friend WithEvents txttcMS1 As System.Windows.Forms.TextBox
     Friend WithEvents LậpPhiếuMượnToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents btnAddQLT As System.Windows.Forms.Button
+    Friend WithEvents ĐổiMậtKhẩuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 
 End Class
