@@ -43,7 +43,7 @@ Partial Class frmTheLoai
         '
         Me.btnOK.Location = New System.Drawing.Point(105, 222)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.Size = New System.Drawing.Size(75, 42)
         Me.btnOK.TabIndex = 1
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
@@ -76,7 +76,7 @@ Partial Class frmTheLoai
         '
         Me.btnCancel.Location = New System.Drawing.Point(226, 222)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 42)
         Me.btnCancel.TabIndex = 5
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -86,12 +86,14 @@ Partial Class frmTheLoai
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(404, 295)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.txttentl)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtmtl)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmTheLoai"
         Me.Text = "Quản Lý Thể Loại"
         Me.ResumeLayout(False)

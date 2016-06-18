@@ -51,7 +51,7 @@ Partial Class frmTacGia
         '
         Me.btnOK.Location = New System.Drawing.Point(109, 239)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(75, 32)
+        Me.btnOK.Size = New System.Drawing.Size(75, 39)
         Me.btnOK.TabIndex = 2
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
@@ -76,7 +76,7 @@ Partial Class frmTacGia
         '
         Me.btnCancel.Location = New System.Drawing.Point(228, 239)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 32)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 39)
         Me.btnCancel.TabIndex = 5
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -86,12 +86,14 @@ Partial Class frmTacGia
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(385, 321)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.txttentg)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.txtmtg)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmTacGia"
         Me.Text = "Quản Lý Tác Giả"
         Me.ResumeLayout(False)

@@ -10,7 +10,7 @@
 
     Private Function isEmpty() As Boolean
         Return (String.IsNullOrEmpty(txttennv.Text) OrElse String.IsNullOrEmpty(txtsdt.Text) OrElse String.IsNullOrEmpty(txtdc.Text) _
-            OrElse String.IsNullOrEmpty(txtemail.Text) OrElse dtpkngayvl.Value <= dtpkns.Value)
+            OrElse String.IsNullOrEmpty(txtemail.Text) OrElse dtpkngayvl.Value <= dtpkns.Value OrElse Not IsNumeric(txtsdt.Text))
     End Function
 
     Private Function UpdateNV() As Boolean
@@ -20,27 +20,31 @@
     End Function
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         If isEmpty() Then
-            MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            If _isEdit Then
-                If UpdateNV() Then
+                If _isEdit Then
+                If txtmanv.Text = maNV.ToString AndAlso UpdateNV() Then
                     MessageBox.Show("Update thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Me.DialogResult = Windows.Forms.DialogResult.Yes
                 Else
-                    MessageBox.Show("Update không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If txtmanv.Text <> maNV.ToString Then
+                        MessageBox.Show("Bạn chỉ có thể sửa thông tin cá nhân!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        MessageBox.Show("Update không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                     Me.DialogResult = Windows.Forms.DialogResult.No
                 End If
-            Else
-                If InsertNV() Then
-                    MessageBox.Show("Inster thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Me.DialogResult = Windows.Forms.DialogResult.Yes
                 Else
-                    MessageBox.Show("Inster không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Me.DialogResult = Windows.Forms.DialogResult.No
+                    If InsertNV() Then
+                        MessageBox.Show("Inster thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Me.DialogResult = Windows.Forms.DialogResult.Yes
+                    Else
+                        MessageBox.Show("Inster không thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Me.DialogResult = Windows.Forms.DialogResult.No
+                    End If
                 End If
+                Me.Close()
             End If
-            Me.Close()
-        End If
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -58,6 +62,6 @@
     End Sub
 
     Private Sub frmNhanVien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txttennv.Focus()
+        txttennv.Select()
     End Sub
 End Class

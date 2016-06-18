@@ -1,6 +1,5 @@
 Imports System
 Imports System.Data
-'Imports System.Data.Types
 Imports System.Configuration
 Imports System.Data.SqlClient
 Public Class DataBaseAccess
@@ -90,7 +89,29 @@ Public Class DataBaseAccess
         End If
         Return True
     End Function
-    
+
+    Public Function ExecuteScalar(ByVal v_sSqlString As String, Optional ByVal ShowErrorMessage As Boolean = False) As Double
+        If OpenConnection() Then
+            Try
+                'sets the SqlConnection used by this SqlCom of the SqlCommand
+                SqlCom = New SqlCommand(v_sSqlString, SqlCon)
+                ' Executes a SQL statement against the connection and returns
+                ' the number of rows affected.
+                Dim X As Double = SqlCom.ExecuteScalar()
+                Return X
+            Catch ex As SqlException
+                If ShowErrorMessage Then
+                    MsgBox(ex.Message, MsgBoxStyle.Critical, "Execute!")
+                End If
+                Return False
+            Finally
+                ' Close database connection.
+                CloseConnection()
+                SqlCom.Dispose()
+            End Try
+        End If
+        Return True
+    End Function
 
     ' Purpose: Provides a way of reading a forward-only stream of rows from a SQL database
     ' if SQL statement execute successful then return SqlDataReader else

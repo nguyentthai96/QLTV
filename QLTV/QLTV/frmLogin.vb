@@ -7,13 +7,16 @@
         Dim sqlQuery As String = String.Format("SELECT * FROM tbl_NhanVien where EmailNV = '{0}' and MatKhau = '{1}'", txtusername.Text, txtpassword.Text)
         Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
         If dtTable.Rows.Count > 0 Then
-            MessageBox.Show("Bạn đã đăng nhập với tên " & txtusername.Text.ToUpper)
+            MessageBox.Show("Bạn đã đăng nhập với tên " & txtusername.Text)
             userName = txtusername.Text
+            pass = txtpassword.Text
+            Dim sqlQuery1 As String = String.Format("SELECT maNV FROM tbl_NHANVIEN where EmailNV = '{0}' and MatKhau = '{1}'", txtusername.Text, txtpassword.Text)
+            maNV = _DBAccess.ExecuteScalar(sqlQuery1)
             Me.Hide()
             frmMain.Show()
         Else
             MessageBox.Show("Sai tên tài khoản hoặc mật khẩu", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            txtusername.Focus()
+            txtusername.Select()
         End If
     End Sub
 
@@ -22,10 +25,11 @@
     End Sub
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtusername.Focus()
+        txtusername.Select()
     End Sub
 
-    Private Sub frmLogin_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        End
-    End Sub
+    Private Function sqlQuery1() As String
+        Throw New NotImplementedException
+    End Function
+
 End Class

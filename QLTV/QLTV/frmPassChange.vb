@@ -11,6 +11,10 @@
             MessageBox.Show("Bạn phải nhập mật khẩu hiện tại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtcurrentpass.Focus()
             Return False
+        ElseIf (txtcurrentpass.Text <> pass) Then
+            MessageBox.Show("Mật khẩu cũ không khớp!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtcurrentpass.Focus()
+            Return False
         ElseIf (String.IsNullOrEmpty(txtnewpass.Text)) Then
             MessageBox.Show("Bạn phải nhập mật khẩu mới!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             txtnewpass.Focus()
@@ -37,7 +41,7 @@
     End Function
 
     Private Sub frmPassChange_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        txtcurrentpass.Select()
     End Sub
 
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click

@@ -9,7 +9,11 @@
 
 
     Private Function isEmpty() As Boolean
-        Return String.IsNullOrEmpty(txttennxb.Text)
+        If txtsdtnxb.Text = "" And Not String.IsNullOrEmpty(txttennxb.Text) Then
+            Return False
+        Else
+            Return String.IsNullOrEmpty(txttennxb.Text) OrElse Not IsNumeric(txtsdtnxb.Text)
+        End If
     End Function
 
     Private Function UpdateNXB() As Boolean
@@ -19,7 +23,7 @@
     End Function
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         If isEmpty() Then
-            MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Bạn phải nhập đầy đủ và chính xác các thông tin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If _isEdit Then
                 If UpdateNXB() Then
@@ -57,6 +61,6 @@
     End Sub
 
     Private Sub frmTheLoai_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txttennxb.Focus()
+        txttennxb.Select()
     End Sub
 End Class

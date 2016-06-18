@@ -132,7 +132,7 @@
             Me.cmbmnvMS.DisplayMember = "maNV"
             Me.cmbmnvMS.ValueMember = "maNV"
         End With
-        cmbmnvMS.SelectedIndex = -1
+        cmbmnvMS.SelectedValue = maNV
     End Sub
 
     Private Sub LoadMSOnCbbBox()
@@ -452,24 +452,11 @@
         sqlQuery += String.Format("VALUES ('{0}','{1}','{2}')", cmbmsvMS.SelectedValue, dtpkngaymuonMS.Value, cmbmnvMS.SelectedValue)
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
-    Private Function OnLoanBookOfLibrary_CTPhieuMuon() As Boolean
-            LoadDataPMOnGridView()
-            Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
-                sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS.Text, dtpkhtMS.Value, txttcMS.Text)
-            Return _DBAccess.ExecuteNoneQuery(sqlQuery)
-    End Function
-
-    Private Function OnLoanBookOfLibrary_CTPhieuMuon1() As Boolean
+    Private Function OnLoanBookOfLibrary_CTPhieuMuon(maSach As String, tienCoc As String) As Boolean
         LoadDataPMOnGridView()
+        tienCoc = Double.Parse(tienCoc)
         Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
-        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS1.Text, dtpkhtMS1.Value, txttcMS1.Text)
-        Return _DBAccess.ExecuteNoneQuery(sqlQuery)
-    End Function
-
-    Private Function OnLoanBookOfLibrary_CTPhieuMuon2() As Boolean
-        LoadDataPMOnGridView()
-        Dim sqlQuery As String = "INSERT dbo.tbl_CTPHIEUMUON ( maPhieu, maSach, hanTra, tienCoc )"
-        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, cmbmsMS2.Text, dtpkhtMS2.Value, txttcMS2.Text)
+        sqlQuery += String.Format("VALUES ('{0}','{1}','{2}','{3}')", Me.dtgrPM.Rows(Me.dtgrPM.RowCount - 1).Cells("maPhieu").Value, maSach, dtpkhtMS.Value, tienCoc)
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
 
@@ -505,7 +492,7 @@
 
     End Sub
 
-    
+
     Private Sub txtSearchTL_KeyDown(sender As Object, e As KeyEventArgs) Handles txtSearchTL.KeyDown
         If e.KeyCode = Keys.Enter Then
             SearchTLOnGridView()
@@ -686,7 +673,11 @@
 
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If MessageBox.Show("Bạn muốn thoát ứng dụng ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-            End
+            'Environment.Exit(1)
+            Application.Exit()
+            'End
+        Else
+            e.Cancel = True
         End If
     End Sub
 
@@ -800,14 +791,6 @@
         If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
             LoadDataSachOnGridview()
         End If
-    End Sub
-
-    Private Sub TabPage10_Click(sender As Object, e As EventArgs) Handles TabPage10.Click
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
     End Sub
 
     Private Sub btnSearchSach_Click(sender As Object, e As EventArgs) Handles btnSearchSach.Click
@@ -927,44 +910,90 @@
     Private Function Check_Input_MS()
         If _isAddBook = 1 Then
             Return (cmbmsvMS.SelectedIndex = -1 OrElse cmbmnvMS.SelectedIndex = -1 OrElse cmbmsMS.SelectedIndex = -1 _
-                    OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value)
+                    OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse Not IsNumeric(txttcMS.Text))
         ElseIf _isAddBook = 2 Then
             Return (cmbmsvMS.SelectedIndex = -1 OrElse cmbmnvMS.SelectedIndex = -1 OrElse cmbmsMS.SelectedIndex = -1 _
                     OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse cmbmsMS1.SelectedIndex = -1 _
-                    OrElse dtpkhtMS1.Value <= dtpkngaymuonMS.Value OrElse (cmbmsMS1.SelectedIndex = cmbmsMS.SelectedIndex))
+                    OrElse dtpkhtMS1.Value <= dtpkngaymuonMS.Value OrElse (cmbmsMS1.SelectedIndex = cmbmsMS.SelectedIndex) _
+                    OrElse Not IsNumeric(txttcMS.Text) OrElse Not IsNumeric(txttcMS1.Text))
         Else
             Return (cmbmsvMS.SelectedIndex = -1 OrElse cmbmnvMS.SelectedIndex = -1 OrElse cmbmsMS.SelectedIndex = -1 _
                     OrElse dtpkhtMS.Value <= dtpkngaymuonMS.Value OrElse cmbmsMS1.SelectedIndex = -1 _
                     OrElse dtpkhtMS1.Value <= dtpkngaymuonMS.Value OrElse cmbmsMS2.SelectedIndex = -1 Or dtpkhtMS2.Value <= dtpkngaymuonMS.Value _
-                    OrElse (cmbmsMS2.SelectedIndex = cmbmsMS.SelectedIndex Or cmbmsMS2.SelectedIndex = cmbmsMS1.SelectedIndex))
+                    OrElse (cmbmsMS2.SelectedIndex = cmbmsMS.SelectedIndex Or cmbmsMS2.SelectedIndex = cmbmsMS1.SelectedIndex) _
+                    OrElse Not IsNumeric(txttcMS.Text) OrElse Not IsNumeric(txttcMS1.Text) OrElse Not IsNumeric(txttcMS2.Text))
         End If
     End Function
 
-    Private Sub btnOkMS_Click(sender As Object, e As EventArgs) Handles btnOkMS.Click
-        If Check_Input_MS() Then
-            MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
-            If _isAddBook = 1 Then
-                If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() Then
-                    MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    Private Function CountBook(mSV As String) As Double
+        Dim count As Double = 0
+        Dim sqlQuery1 As String = String.Format("select count(tbl_CTPHIEUMUON.maSach) from tbl_CTPHIEUMUON,tbl_PHIEUMUON where tbl_CTPHIEUMUON.maPhieu = tbl_PHIEUMUON.maPhieu and tbl_PHIEUMUON.maSV = '{0}'", mSV)
+        Dim sqlQuery2 As String = String.Format("Select count(tbl_TRASACH.maSach) FROM tbl_TRASACH,tbl_PHIEUMUON where tbl_TRASACH.maPhieu = tbl_PHIEUMUON.maPhieu and tbl_PHIEUMUON.maSV = '{0}'", mSV)
+        Dim count1 As Double = _DBAccess.ExecuteScalar(sqlQuery1)
+        Dim count2 As Double = _DBAccess.ExecuteScalar(sqlQuery2)
+        count = (count1 - count2)
+        Return count
+    End Function
+
+    Private Sub btnAddBook_Click(sender As Object, e As EventArgs) Handles btnAddBook.Click
+        If MessageBox.Show("Thêm sách mượn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
+            If CountBook(cmbmsvMS.SelectedValue) + _isAddBook <= 3 Then
+                _isAddBook += 1
+                If _isAddBook = 2 Then
+                    Me.btnAddBook.Location = New Point(920, 129)
+                    Me.cmbmsMS1.Visible = True
+                    Me.dtpkhtMS1.Visible = True
+                    Me.txttcMS1.Visible = True
+                    LoadMSOnCbbBox1()
                 Else
-                    MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.cmbmsMS2.Visible = True
+                    Me.dtpkhtMS2.Visible = True
+                    Me.txttcMS2.Visible = True
+                    btnAddBook.Visible = False
+                    LoadMSOnCbbBox2()
                 End If
-            ElseIf _isAddBook = 2 Then
-                If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon1() Then
-                    MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
+                TabPage8.Refresh()
             Else
-                If OnLoanBookOfLibrary_PhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon() And OnLoanBookOfLibrary_CTPhieuMuon1() And OnLoanBookOfLibrary_CTPhieuMuon2() Then
-                    MessageBox.Show("Nhập liệu thành công!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    'Load dữ liệu bảng CTPM và bảng PM
-                    LoadDataCTPMOnGridView()
-                    LoadDataPMOnGridView()
+                MessageBox.Show("Sinh viên đang mượn " + CountBook(cmbmsvMS.SelectedValue).ToString + " cuốn sách, được mượn thêm " + (3 - CountBook(cmbmsvMS.SelectedValue)).ToString + " cuốn !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+    End Sub
+
+
+    Private Sub btnOkMS_Click(sender As Object, e As EventArgs) Handles btnOkMS.Click
+        If CountBook(cmbmsvMS.SelectedValue) + _isAddBook <= 3 Then
+            Dim count As Integer = 0
+            If Check_Input_MS() Then
+                MessageBox.Show("Bạn phải nhập đầy đủ thông tin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                If OnLoanBookOfLibrary_PhieuMuon() AndAlso OnLoanBookOfLibrary_CTPhieuMuon(cmbmsMS.SelectedValue, txttcMS.Text) Then
+                    count += 1
                 Else
                     MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
+                If _isAddBook > 1 Then
+                    If OnLoanBookOfLibrary_CTPhieuMuon(cmbmsMS1.SelectedValue, txttcMS1.Text) Then
+                        count += 1
+                    Else
+                        MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End If
+                If _isAddBook > 2 Then
+                    If OnLoanBookOfLibrary_CTPhieuMuon(cmbmsMS2.SelectedValue, txttcMS2.Text) Then
+                        count += 1
+                    Else
+                        MessageBox.Show("Nhập liệu thất bại!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End If
+            End If
+            If count > 0 Then
+                MessageBox.Show("Insert " + count.ToString + " rows thành công !", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Else
+            If CountBook(cmbmsvMS.SelectedValue) = 3 Then
+                MessageBox.Show("Sinh viên đã mượn 3 cuốn sách, Không thể mượn thêm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("Sinh viên đã mượn " + (CountBook(cmbmsvMS.SelectedValue)).ToString + " cuốn sách, được phép mượn tối đa " + (3 - (CountBook(cmbmsvMS.SelectedValue))).ToString + " cuốn sách", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
     End Sub
@@ -982,17 +1011,26 @@
         cmbmnvMS.SelectedIndex = -1
         cmbmsMS.SelectedIndex = -1
         dtpkhtMS.Value = Date.Today
+        Me.btnAddBook.Location = New Point(740, 129)
+        Me.btnAddBook.Visible = True
         txttcMS.Text = ""
         If _isAddBook > 1 Then
             cmbmsMS1.SelectedIndex = -1
+            cmbmsMS1.Visible = False
             dtpkhtMS1.Value = Date.Today
+            dtpkhtMS1.Visible = False
             txttcMS1.Text = ""
+            txttcMS1.Visible = False
         End If
         If _isAddBook = 3 Then
             cmbmsMS2.SelectedIndex = -1
+            cmbmsMS2.Visible = False
             dtpkhtMS2.Value = Date.Today
+            dtpkhtMS2.Visible = False
             txttcMS2.Text = ""
+            txttcMS2.Visible = False
         End If
+        _isAddBook = 1
     End Sub
 
     Private Sub btnEditNV_Click(sender As Object, e As EventArgs) Handles btnEditNV.Click
@@ -1117,25 +1155,6 @@
 
     End Sub
 
-    Private Sub btnAddBook_Click(sender As Object, e As EventArgs) Handles btnAddBook.Click
-        If MessageBox.Show("Thêm sách mượn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
-            _isAddBook += 1
-            If _isAddBook = 2 Then
-                Me.btnAddBook.Location = New Point(920, 129)
-                Me.cmbmsMS1.Visible = True
-                Me.dtpkhtMS1.Visible = True
-                Me.txttcMS1.Visible = True
-                LoadMSOnCbbBox1()
-            Else
-                Me.cmbmsMS2.Visible = True
-                Me.dtpkhtMS2.Visible = True
-                Me.txttcMS2.Visible = True
-                btnAddBook.Visible = False
-                LoadMSOnCbbBox2()
-            End If
-            TabPage8.Refresh()
-        End If
-    End Sub
 
     Private Sub cmbmsMS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbmsMS.SelectedIndexChanged
 
@@ -1246,12 +1265,11 @@
     End Sub
 
     Private Sub btnAddQLT_Click(sender As Object, e As EventArgs) Handles btnAddQLT.Click
-        Dim frm = New frmQLTra
+        Dim frm = New frmQLTra(False)
         frm.ShowDialog()
-    End Sub
-
-    Private Sub cmbmsvMS_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbmsvMS.SelectedIndexChanged
-
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataQLTraOnGridView()
+        End If
     End Sub
 
     Private Sub ĐổiMậtKhẩuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ĐổiMậtKhẩuToolStripMenuItem.Click
@@ -1260,6 +1278,120 @@
         If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
             frmLogin.Show()
             Me.Hide()
+        End If
+    End Sub
+
+    Private Sub btnEditQLTra_Click(sender As Object, e As EventArgs) Handles btnEditQLTra.Click
+        Dim frm = New frmQLTra(True, dtgrQLTra.CurrentRow)
+        frm.btnAddBook.Visible = False
+        frm.ShowDialog()
+        If frm.DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoadDataQLTraOnGridView()
+        End If
+    End Sub
+
+    Private Sub btnDeleteQLTra_Click(sender As Object, e As EventArgs) Handles btnDeleteQLTra.Click
+        Dim STT As String = Me.dtgrQLTra.Rows(Me.dtgrQLTra.CurrentCell.RowIndex).Cells(0).Value
+        'Xóa
+        Dim sqlQuery As String = String.Format("DELETE dbo.tbl_TRASACH WHERE STT = '{0}'", STT)
+        If MessageBox.Show("Bạn muốn xóa bản ghi này ?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.Yes Then
+            If _DBAccess.ExecuteNoneQuery(sqlQuery) Then
+                MessageBox.Show("Delete thành công!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadDataQLTraOnGridView()
+            Else
+                MessageBox.Show("Delete không thành công!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        End If
+    End Sub
+
+    Private Sub ThốngKêQuáHạnToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThốngKêQuáHạnToolStripMenuItem.Click
+        TabControl1.SelectTab(11)
+    End Sub
+
+    Private Sub btntkns_Click(sender As Object, e As EventArgs) Handles btntkns.Click
+        Dim sqlQuery As String = "SELECT SUM(thanhToan) FROM tbl_TRASACH"
+        txttkns.Text = _DBAccess.ExecuteScalar(sqlQuery)
+    End Sub
+
+    Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
+        If rdbt1.Checked = True Then
+            dtgrThongKe.Width = 750
+            Dim sqlQuery As String = "SELECT distinct tbl_SINHVIEN.maSV,[hoTenSV],[gioiTinhSV] = (CASE gioiTinhSV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),[ngaySinhSV],[lopSV],[ngayLamThe],[ngayHetHan] FROM dbo.tbl_SINHVIEN,tbl_PHIEUMUON where tbl_SINHVIEN.maSV IN (tbl_PHIEUMUON.maSV )"
+            Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+            Me.dtgrThongKe.DataSource = dataTable
+            With Me.dtgrThongKe
+                .Columns(0).HeaderText = "Mã sinh viên"
+                .Columns(1).HeaderText = "Tên sinh viên"
+                .Columns(1).Width = 150
+                .Columns(2).HeaderText = "Giới Tính"
+                .Columns(3).HeaderText = "Ngày Sinh"
+                .Columns(4).HeaderText = "Lớp"
+                .Columns(5).HeaderText = "Ngày Làm Thẻ"
+                .Columns(6).HeaderText = "Ngày Hết Hạn"
+            End With
+        ElseIf rdbt2.Checked = True Then
+            dtgrThongKe.Width = 1000
+            Dim sqlQuery As String = "SELECT distinct tbl_SACH.maSach,[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH,dbo.tbl_CTPHIEUMUON WHERE tbl_SACH.maSach IN (tbl_CTPHIEUMUON.maSach)"
+            Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+            Me.dtgrThongKe.DataSource = dtTable
+            With Me.dtgrThongKe
+                .Columns(0).HeaderText = "Mã Sách"
+                .Columns(1).HeaderText = "Tên Sách"
+                .Columns(1).Width = 150
+                .Columns(2).HeaderText = "Số Trang"
+                .Columns(3).HeaderText = "Giá"
+                .Columns(4).HeaderText = "Số Lượng"
+                .Columns(5).HeaderText = "Ngày Nhập"
+                .Columns(6).HeaderText = "Mã NXB"
+                .Columns(6).Width = 70
+                .Columns(7).HeaderText = "Mã TL"
+                .Columns(7).Width = 70
+                .Columns(8).HeaderText = "Mã TG"
+                .Columns(8).Width = 70
+                .Columns(9).HeaderText = "Mã NN"
+                .Columns(9).Width = 70
+                .Columns(10).HeaderText = "Tình Trạng"
+            End With
+        ElseIf rdbt3.Checked = True Then
+            dtgrThongKe.Width = 1000
+            Dim sqlQuery As String = "SELECT distinct tbl_SACH.maSach,[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH,dbo.tbl_CTPHIEUMUON WHERE tbl_SACH.maSach IN (tbl_CTPHIEUMUON.maSach) and DATEDIFF(day,hantra,GETDATE()) > 0"
+            Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+            Me.dtgrThongKe.DataSource = dtTable
+            With Me.dtgrThongKe
+                .Columns(0).HeaderText = "Mã Sách"
+                .Columns(1).HeaderText = "Tên Sách"
+                .Columns(1).Width = 150
+                .Columns(2).HeaderText = "Số Trang"
+                .Columns(3).HeaderText = "Giá"
+                .Columns(4).HeaderText = "Số Lượng"
+                .Columns(5).HeaderText = "Ngày Nhập"
+                .Columns(6).HeaderText = "Mã NXB"
+                .Columns(6).Width = 70
+                .Columns(7).HeaderText = "Mã TL"
+                .Columns(7).Width = 70
+                .Columns(8).HeaderText = "Mã TG"
+                .Columns(8).Width = 70
+                .Columns(9).HeaderText = "Mã NN"
+                .Columns(9).Width = 70
+                .Columns(10).HeaderText = "Tình Trạng"
+            End With
+        ElseIf rdbt4.Checked = True Then
+            dtgrThongKe.Width = 750
+            Dim sqlQuery As String = "SELECT distinct tbl_SINHVIEN.maSV,[hoTenSV],[gioiTinhSV] = (CASE gioiTinhSV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),[ngaySinhSV],[lopSV],[ngayLamThe],[ngayHetHan] FROM dbo.tbl_SINHVIEN,tbl_PHIEUMUON,tbl_CTPHIEUMUON where tbl_SINHVIEN.maSV IN (tbl_PHIEUMUON.maSV ) and DATEDIFF(day,hantra,GETDATE()) > 0 and tbl_PHIEUMUON.maPhieu NOT IN (Select maPhieu FROM tbl_TRASACH)"
+            Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
+            Me.dtgrThongKe.DataSource = dataTable
+            With Me.dtgrThongKe
+                .Columns(0).HeaderText = "Mã sinh viên"
+                .Columns(1).HeaderText = "Tên sinh viên"
+                .Columns(1).Width = 150
+                .Columns(2).HeaderText = "Giới Tính"
+                .Columns(3).HeaderText = "Ngày Sinh"
+                .Columns(4).HeaderText = "Lớp"
+                .Columns(5).HeaderText = "Ngày Làm Thẻ"
+                .Columns(6).HeaderText = "Ngày Hết Hạn"
+            End With
+        Else
+            MessageBox.Show("Chọn một lựa chọn trước!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
     End Sub
 End Class

@@ -65,6 +65,6 @@
     End Sub
 
     Private Sub frmSinhVien_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        txttsv.Select()
     End Sub
 End Class

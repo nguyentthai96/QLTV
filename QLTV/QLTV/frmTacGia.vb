@@ -56,6 +56,6 @@
     End Sub
 
     Private Sub frmTacGia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txttentg.Focus()
+        txttentg.Select()
     End Sub
 End Class

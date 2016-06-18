@@ -44,7 +44,7 @@ Partial Class frmPassChange
         '
         Me.btnOK.Location = New System.Drawing.Point(78, 202)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.Size = New System.Drawing.Size(75, 39)
         Me.btnOK.TabIndex = 1
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
@@ -96,7 +96,7 @@ Partial Class frmPassChange
         '
         Me.btnCancel.Location = New System.Drawing.Point(206, 202)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 39)
         Me.btnCancel.TabIndex = 7
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -106,6 +106,7 @@ Partial Class frmPassChange
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(372, 274)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtnewpass1)
@@ -114,6 +115,7 @@ Partial Class frmPassChange
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.txtcurrentpass)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmPassChange"
         Me.Text = "Thay đổi mật khẩu"
         Me.ResumeLayout(False)

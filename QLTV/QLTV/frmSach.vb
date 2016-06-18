@@ -45,7 +45,8 @@
     Private Function isEmpty() As Boolean
         Return (String.IsNullOrEmpty(txtTenSach.Text) OrElse String.IsNullOrEmpty(txtSoTrang.Text) OrElse String.IsNullOrEmpty(txtGia.Text) _
                 OrElse String.IsNullOrEmpty(txtSoLuong.Text) OrElse cmbmanxb.SelectedIndex = -1 _
-                OrElse cmbmatl.SelectedIndex = -1 OrElse cmbmatg.SelectedIndex = -1 OrElse cmbmann.SelectedIndex = -1)
+                OrElse cmbmatl.SelectedIndex = -1 OrElse cmbmatg.SelectedIndex = -1 OrElse cmbmann.SelectedIndex = -1 _
+                OrElse Not IsNumeric(txtGia.Text) OrElse Not IsNumeric(txtSoLuong.Text) OrElse Not IsNumeric(txtSoTrang.Text))
     End Function
 
     Private Function UpdateSach() As Boolean
@@ -55,7 +56,7 @@
     End Function
     Private Sub btnOK_Click(sender As Object, e As EventArgs) Handles btnOK.Click
         If isEmpty() Then
-            MessageBox.Show("Bạn phải nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Bạn phải nhập chính xác và đầy đủ các thông tin!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If _isEdit Then
                 If UpdateSach() Then
@@ -114,7 +115,7 @@
     End Sub
 
     Private Sub frmSach_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtTenSach.Focus()
+        txtTenSach.Select()
         'Gọi các thủ tục load dữ liệu lên cmbBox
         loadMaNXBOnComboBox()
         loadMaTLBOnComboBox()

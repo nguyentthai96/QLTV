@@ -40,7 +40,7 @@ Partial Class frmLogin
         '
         Me.btnLogin.Location = New System.Drawing.Point(188, 199)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(75, 23)
+        Me.btnLogin.Size = New System.Drawing.Size(75, 37)
         Me.btnLogin.TabIndex = 1
         Me.btnLogin.Text = "&Login"
         Me.btnLogin.UseVisualStyleBackColor = True
@@ -67,7 +67,7 @@ Partial Class frmLogin
         '
         Me.btnCancel.Location = New System.Drawing.Point(334, 199)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 37)
         Me.btnCancel.TabIndex = 5
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -137,6 +137,7 @@ Partial Class frmLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(519, 261)
+        Me.ControlBox = False
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.txtpassword)
         Me.Controls.Add(Me.txtusername)
@@ -147,6 +148,7 @@ Partial Class frmLogin
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnLogin)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False

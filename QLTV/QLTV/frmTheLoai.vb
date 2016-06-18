@@ -56,6 +56,6 @@
     End Sub
 
     Private Sub frmTheLoai_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txttentl.Focus()
+        txttentl.Select()
     End Sub
 End Class

@@ -214,6 +214,7 @@ Partial Class frmNhanVien
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(661, 381)
+        Me.ControlBox = False
         Me.Controls.Add(Me.rdbtNu)
         Me.Controls.Add(Me.rdbtNam)
         Me.Controls.Add(Me.dtpkns)
@@ -233,6 +234,7 @@ Partial Class frmNhanVien
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txttennv)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmNhanVien"
         Me.Text = "Quản Lý Nhân Viên"
         Me.ResumeLayout(False)

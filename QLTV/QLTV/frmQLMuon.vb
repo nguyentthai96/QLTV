@@ -3,7 +3,7 @@
 
     Private Function isEmpty() As Boolean
         Return (String.IsNullOrEmpty(txtmsv.Text) OrElse String.IsNullOrEmpty(txtmnv.Text) OrElse String.IsNullOrEmpty(txtms.Text) _
-                OrElse dtpkht.Value <= dtpkngaymuon.Value)
+                OrElse dtpkht.Value <= dtpkngaymuon.Value OrElse Not IsNumeric(txttc.Text))
     End Function
 
     Private Function UpdatePM() As Boolean
@@ -13,8 +13,14 @@
     End Function
 
     Private Function UpdateCTPM() As Boolean
+        Dim x As Double
+        If String.IsNullOrEmpty(txttc.Text) Then
+            x = 0
+        Else
+            x = Double.Parse(txttc.Text)
+        End If
         Dim sqlQuery As String = String.Format("UPDATE dbo.tbl_CTPHIEUMUON SET  hanTra = '{0}',tienCoc = '{1}' WHERE maPhieu = '{2}' AND maSach = '{3}'", _
-                             dtpkht.Value, txttc.Text, txtmp.Text, txtms.Text)
+                             dtpkht.Value, x, txtmp.Text, txtms.Text)
         Return _DBAccess.ExecuteNoneQuery(sqlQuery)
     End Function
 
@@ -34,7 +40,7 @@
     End Sub
 
     Private Sub frmTheLoai_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtmsv.Focus()
+        txtmsv.Select()
     End Sub
 
     Private Sub bntCancel_Click(sender As Object, e As EventArgs) Handles bntCancel.Click

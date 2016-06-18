@@ -126,7 +126,7 @@ Partial Class frmQLMuon
         '
         Me.btnOK.Location = New System.Drawing.Point(227, 277)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(72, 31)
+        Me.btnOK.Size = New System.Drawing.Size(72, 40)
         Me.btnOK.TabIndex = 39
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
@@ -142,7 +142,7 @@ Partial Class frmQLMuon
         '
         Me.bntCancel.Location = New System.Drawing.Point(365, 277)
         Me.bntCancel.Name = "bntCancel"
-        Me.bntCancel.Size = New System.Drawing.Size(72, 31)
+        Me.bntCancel.Size = New System.Drawing.Size(72, 40)
         Me.bntCancel.TabIndex = 54
         Me.bntCancel.Text = "&Cancel"
         Me.bntCancel.UseVisualStyleBackColor = True
@@ -176,6 +176,7 @@ Partial Class frmQLMuon
         '
         Me.txtmnv.Location = New System.Drawing.Point(136, 201)
         Me.txtmnv.Name = "txtmnv"
+        Me.txtmnv.ReadOnly = True
         Me.txtmnv.Size = New System.Drawing.Size(146, 20)
         Me.txtmnv.TabIndex = 58
         '
@@ -184,6 +185,7 @@ Partial Class frmQLMuon
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(681, 370)
+        Me.ControlBox = False
         Me.Controls.Add(Me.txtmnv)
         Me.Controls.Add(Me.txtms)
         Me.Controls.Add(Me.txtmp)
@@ -200,6 +202,7 @@ Partial Class frmQLMuon
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.btnOK)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmQLMuon"
         Me.Text = "Quản Lý Mượn Sách"
         Me.ResumeLayout(False)

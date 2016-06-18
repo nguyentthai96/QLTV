@@ -245,6 +245,7 @@ Partial Class frmSach
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(710, 425)
+        Me.ControlBox = False
         Me.Controls.Add(Me.cmbmann)
         Me.Controls.Add(Me.cmbmatg)
         Me.Controls.Add(Me.cmbmatl)
@@ -267,6 +268,7 @@ Partial Class frmSach
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtTenSach)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmSach"
         Me.Text = "Quản Lý Sách"
         Me.ResumeLayout(False)

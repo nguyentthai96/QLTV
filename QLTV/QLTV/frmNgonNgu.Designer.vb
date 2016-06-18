@@ -34,7 +34,7 @@ Partial Class frmNgonNgu
         '
         Me.btnCancel.Location = New System.Drawing.Point(229, 229)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 34)
         Me.btnCancel.TabIndex = 11
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -67,7 +67,7 @@ Partial Class frmNgonNgu
         '
         Me.btnOK.Location = New System.Drawing.Point(108, 229)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.Size = New System.Drawing.Size(75, 34)
         Me.btnOK.TabIndex = 7
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
@@ -86,12 +86,14 @@ Partial Class frmNgonNgu
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(416, 317)
+        Me.ControlBox = False
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.txttennn)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtmnn)
         Me.Controls.Add(Me.btnOK)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmNgonNgu"
         Me.Text = "Quản Lý Ngôn Ngữ"
         Me.ResumeLayout(False)

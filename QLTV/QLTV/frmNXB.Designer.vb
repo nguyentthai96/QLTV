@@ -40,7 +40,7 @@ Partial Class frmNXB
         '
         Me.btnCancel.Location = New System.Drawing.Point(251, 274)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(75, 34)
         Me.btnCancel.TabIndex = 11
         Me.btnCancel.Text = "&Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -65,7 +65,7 @@ Partial Class frmNXB
         '
         Me.btnOK.Location = New System.Drawing.Point(130, 274)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(75, 23)
+        Me.btnOK.Size = New System.Drawing.Size(75, 34)
         Me.btnOK.TabIndex = 7
         Me.btnOK.Text = "&OK"
         Me.btnOK.UseVisualStyleBackColor = True
@@ -140,6 +140,7 @@ Partial Class frmNXB
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(482, 320)
+        Me.ControlBox = False
         Me.Controls.Add(Me.txtwebsitenxb)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtdiachinxb)
@@ -152,6 +153,7 @@ Partial Class frmNXB
         Me.Controls.Add(Me.txtsdtnxb)
         Me.Controls.Add(Me.Đ)
         Me.Controls.Add(Me.btnOK)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmNXB"
         Me.Text = "Quản Lý Nhà Xuất Bản"
         Me.ResumeLayout(False)
