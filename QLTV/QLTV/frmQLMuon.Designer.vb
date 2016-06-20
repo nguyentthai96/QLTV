@@ -128,7 +128,7 @@ Partial Class frmQLMuon
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(72, 40)
         Me.btnOK.TabIndex = 39
-        Me.btnOK.Text = "&OK"
+        Me.btnOK.Text = "&Đồng ý"
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'txtmsv
@@ -144,7 +144,7 @@ Partial Class frmQLMuon
         Me.bntCancel.Name = "bntCancel"
         Me.bntCancel.Size = New System.Drawing.Size(72, 40)
         Me.bntCancel.TabIndex = 54
-        Me.bntCancel.Text = "&Cancel"
+        Me.bntCancel.Text = "&Hủy bỏ"
         Me.bntCancel.UseVisualStyleBackColor = True
         '
         'txtmp

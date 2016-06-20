@@ -42,7 +42,7 @@ Partial Class frmLogin
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(75, 37)
         Me.btnLogin.TabIndex = 1
-        Me.btnLogin.Text = "&Login"
+        Me.btnLogin.Text = "&Đăng Nhập"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'Label1
@@ -50,18 +50,18 @@ Partial Class frmLogin
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(152, 80)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.Size = New System.Drawing.Size(73, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Username"
+        Me.Label1.Text = "Tên tài khoản"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(152, 123)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.Size = New System.Drawing.Size(52, 13)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Password"
+        Me.Label2.Text = "Mật khẩu"
         '
         'btnCancel
         '
@@ -69,7 +69,7 @@ Partial Class frmLogin
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 37)
         Me.btnCancel.TabIndex = 5
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Thoát"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'llblforgetpass

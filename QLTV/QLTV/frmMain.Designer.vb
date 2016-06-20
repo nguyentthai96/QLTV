@@ -102,6 +102,7 @@ Partial Class frmMain
         Me.btnreFreshMS = New System.Windows.Forms.Button()
         Me.btnSearchMS = New System.Windows.Forms.Button()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.btnExelSV = New System.Windows.Forms.Button()
         Me.btnRefreshSV = New System.Windows.Forms.Button()
         Me.btnSearchSV = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -111,6 +112,7 @@ Partial Class frmMain
         Me.btnDeleteSV = New System.Windows.Forms.Button()
         Me.btnAddSV = New System.Windows.Forms.Button()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.btnExcelNV = New System.Windows.Forms.Button()
         Me.btnRefreshNV = New System.Windows.Forms.Button()
         Me.btnSearchNV = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -156,6 +158,7 @@ Partial Class frmMain
         Me.btnDeleteTL = New System.Windows.Forms.Button()
         Me.btnAddTL = New System.Windows.Forms.Button()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.btnExcelSach = New System.Windows.Forms.Button()
         Me.btnRefreshSach = New System.Windows.Forms.Button()
         Me.btnSearchSach = New System.Windows.Forms.Button()
         Me.lblSearch = New System.Windows.Forms.Label()
@@ -200,7 +203,7 @@ Partial Class frmMain
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnQLtra = New System.Windows.Forms.Button()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnXuatExcel = New System.Windows.Forms.Button()
         Me.btntkns = New System.Windows.Forms.Button()
         Me.txttkns = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
@@ -626,6 +629,7 @@ Partial Class frmMain
         Me.txttcMS2.Name = "txttcMS2"
         Me.txttcMS2.Size = New System.Drawing.Size(129, 20)
         Me.txttcMS2.TabIndex = 43
+        Me.txttcMS2.Text = "0"
         Me.txttcMS2.Visible = False
         '
         'dtpkhtMS1
@@ -656,6 +660,7 @@ Partial Class frmMain
         Me.txttcMS1.Name = "txttcMS1"
         Me.txttcMS1.Size = New System.Drawing.Size(129, 20)
         Me.txttcMS1.TabIndex = 40
+        Me.txttcMS1.Text = "0"
         Me.txttcMS1.Visible = False
         '
         'btnView
@@ -725,7 +730,7 @@ Partial Class frmMain
         Me.btnCancelMS.Name = "btnCancelMS"
         Me.btnCancelMS.Size = New System.Drawing.Size(75, 31)
         Me.btnCancelMS.TabIndex = 30
-        Me.btnCancelMS.Text = "&Clear"
+        Me.btnCancelMS.Text = "&Làm lại"
         Me.btnCancelMS.UseVisualStyleBackColor = True
         '
         'Label17
@@ -761,6 +766,7 @@ Partial Class frmMain
         Me.txttcMS.Name = "txttcMS"
         Me.txttcMS.Size = New System.Drawing.Size(129, 20)
         Me.txttcMS.TabIndex = 26
+        Me.txttcMS.Text = "0"
         '
         'txtSearchMS
         '
@@ -872,6 +878,7 @@ Partial Class frmMain
         'TabPage7
         '
         Me.TabPage7.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage7.Controls.Add(Me.btnExelSV)
         Me.TabPage7.Controls.Add(Me.btnRefreshSV)
         Me.TabPage7.Controls.Add(Me.btnSearchSV)
         Me.TabPage7.Controls.Add(Me.Label11)
@@ -886,6 +893,15 @@ Partial Class frmMain
         Me.TabPage7.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage7.TabIndex = 7
         Me.TabPage7.Text = "Sinh Viên"
+        '
+        'btnExelSV
+        '
+        Me.btnExelSV.Image = CType(resources.GetObject("btnExelSV.Image"), System.Drawing.Image)
+        Me.btnExelSV.Location = New System.Drawing.Point(922, 174)
+        Me.btnExelSV.Name = "btnExelSV"
+        Me.btnExelSV.Size = New System.Drawing.Size(68, 53)
+        Me.btnExelSV.TabIndex = 32
+        Me.btnExelSV.UseVisualStyleBackColor = True
         '
         'btnRefreshSV
         '
@@ -968,6 +984,7 @@ Partial Class frmMain
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage6.Controls.Add(Me.btnExcelNV)
         Me.TabPage6.Controls.Add(Me.btnRefreshNV)
         Me.TabPage6.Controls.Add(Me.btnSearchNV)
         Me.TabPage6.Controls.Add(Me.Label13)
@@ -983,10 +1000,19 @@ Partial Class frmMain
         Me.TabPage6.TabIndex = 6
         Me.TabPage6.Text = "Nhân viên"
         '
+        'btnExcelNV
+        '
+        Me.btnExcelNV.Image = CType(resources.GetObject("btnExcelNV.Image"), System.Drawing.Image)
+        Me.btnExcelNV.Location = New System.Drawing.Point(994, 197)
+        Me.btnExcelNV.Name = "btnExcelNV"
+        Me.btnExcelNV.Size = New System.Drawing.Size(68, 53)
+        Me.btnExcelNV.TabIndex = 31
+        Me.btnExcelNV.UseVisualStyleBackColor = True
+        '
         'btnRefreshNV
         '
         Me.btnRefreshNV.Image = Global.QLTV.My.Resources.Resources.Refresh
-        Me.btnRefreshNV.Location = New System.Drawing.Point(574, 112)
+        Me.btnRefreshNV.Location = New System.Drawing.Point(546, 112)
         Me.btnRefreshNV.Name = "btnRefreshNV"
         Me.btnRefreshNV.Size = New System.Drawing.Size(75, 53)
         Me.btnRefreshNV.TabIndex = 30
@@ -1031,13 +1057,13 @@ Partial Class frmMain
         Me.dtgrNV.RowHeadersVisible = False
         Me.dtgrNV.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dtgrNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtgrNV.Size = New System.Drawing.Size(959, 353)
+        Me.dtgrNV.Size = New System.Drawing.Size(848, 353)
         Me.dtgrNV.TabIndex = 14
         '
         'btnEditNV
         '
         Me.btnEditNV.Image = CType(resources.GetObject("btnEditNV.Image"), System.Drawing.Image)
-        Me.btnEditNV.Location = New System.Drawing.Point(869, 112)
+        Me.btnEditNV.Location = New System.Drawing.Point(774, 112)
         Me.btnEditNV.Name = "btnEditNV"
         Me.btnEditNV.Size = New System.Drawing.Size(75, 53)
         Me.btnEditNV.TabIndex = 18
@@ -1046,7 +1072,7 @@ Partial Class frmMain
         'btnDeleteNV
         '
         Me.btnDeleteNV.Image = CType(resources.GetObject("btnDeleteNV.Image"), System.Drawing.Image)
-        Me.btnDeleteNV.Location = New System.Drawing.Point(996, 112)
+        Me.btnDeleteNV.Location = New System.Drawing.Point(885, 112)
         Me.btnDeleteNV.Name = "btnDeleteNV"
         Me.btnDeleteNV.Size = New System.Drawing.Size(75, 53)
         Me.btnDeleteNV.TabIndex = 17
@@ -1055,7 +1081,7 @@ Partial Class frmMain
         'b
         '
         Me.b.Image = CType(resources.GetObject("b.Image"), System.Drawing.Image)
-        Me.b.Location = New System.Drawing.Point(723, 112)
+        Me.b.Location = New System.Drawing.Point(659, 112)
         Me.b.Name = "b"
         Me.b.Size = New System.Drawing.Size(75, 53)
         Me.b.TabIndex = 16
@@ -1449,6 +1475,7 @@ Partial Class frmMain
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage1.Controls.Add(Me.btnExcelSach)
         Me.TabPage1.Controls.Add(Me.btnRefreshSach)
         Me.TabPage1.Controls.Add(Me.btnSearchSach)
         Me.TabPage1.Controls.Add(Me.lblSearch)
@@ -1463,6 +1490,15 @@ Partial Class frmMain
         Me.TabPage1.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage1.TabIndex = 1
         Me.TabPage1.Text = "Sách"
+        '
+        'btnExcelSach
+        '
+        Me.btnExcelSach.Image = CType(resources.GetObject("btnExcelSach.Image"), System.Drawing.Image)
+        Me.btnExcelSach.Location = New System.Drawing.Point(1055, 140)
+        Me.btnExcelSach.Name = "btnExcelSach"
+        Me.btnExcelSach.Size = New System.Drawing.Size(68, 53)
+        Me.btnExcelSach.TabIndex = 12
+        Me.btnExcelSach.UseVisualStyleBackColor = True
         '
         'btnRefreshSach
         '
@@ -1581,7 +1617,7 @@ Partial Class frmMain
         Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage9.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage9.TabIndex = 9
-        Me.TabPage9.Text = "Welcome"
+        Me.TabPage9.Text = "Chào mừng"
         '
         'Label24
         '
@@ -1939,7 +1975,8 @@ Partial Class frmMain
         '
         'TabPage12
         '
-        Me.TabPage12.Controls.Add(Me.Button4)
+        Me.TabPage12.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage12.Controls.Add(Me.btnXuatExcel)
         Me.TabPage12.Controls.Add(Me.btntkns)
         Me.TabPage12.Controls.Add(Me.txttkns)
         Me.TabPage12.Controls.Add(Me.Label26)
@@ -1951,16 +1988,15 @@ Partial Class frmMain
         Me.TabPage12.Size = New System.Drawing.Size(1323, 631)
         Me.TabPage12.TabIndex = 12
         Me.TabPage12.Text = "Thống kê"
-        Me.TabPage12.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnXuatExcel
         '
-        Me.Button4.Location = New System.Drawing.Point(610, 537)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 37)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Xuất Excel"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnXuatExcel.Image = CType(resources.GetObject("btnXuatExcel.Image"), System.Drawing.Image)
+        Me.btnXuatExcel.Location = New System.Drawing.Point(614, 528)
+        Me.btnXuatExcel.Name = "btnXuatExcel"
+        Me.btnXuatExcel.Size = New System.Drawing.Size(68, 53)
+        Me.btnXuatExcel.TabIndex = 6
+        Me.btnXuatExcel.UseVisualStyleBackColor = True
         '
         'btntkns
         '
@@ -2310,7 +2346,7 @@ Partial Class frmMain
     Friend WithEvents btnEditQLTra As System.Windows.Forms.Button
     Friend WithEvents btnDeleteQLTra As System.Windows.Forms.Button
     Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents btnXuatExcel As System.Windows.Forms.Button
     Friend WithEvents btntkns As System.Windows.Forms.Button
     Friend WithEvents txttkns As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
@@ -2322,5 +2358,8 @@ Partial Class frmMain
     Friend WithEvents rdbt1 As System.Windows.Forms.RadioButton
     Friend WithEvents dtgrThongKe As System.Windows.Forms.DataGridView
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents btnExelSV As System.Windows.Forms.Button
+    Friend WithEvents btnExcelNV As System.Windows.Forms.Button
+    Friend WithEvents btnExcelSach As System.Windows.Forms.Button
 
 End Class

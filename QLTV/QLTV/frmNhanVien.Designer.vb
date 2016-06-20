@@ -49,7 +49,7 @@ Partial Class frmNhanVien
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 36)
         Me.btnCancel.TabIndex = 45
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Hủy bỏ"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'btnOK
@@ -58,7 +58,7 @@ Partial Class frmNhanVien
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 36)
         Me.btnOK.TabIndex = 44
-        Me.btnOK.Text = "&OK"
+        Me.btnOK.Text = "&Đồng ý"
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'txtmanv

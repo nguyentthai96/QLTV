@@ -53,7 +53,7 @@ Partial Class frmTacGia
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 39)
         Me.btnOK.TabIndex = 2
-        Me.btnOK.Text = "&OK"
+        Me.btnOK.Text = "&Đồng ý"
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'txttentg
@@ -78,7 +78,7 @@ Partial Class frmTacGia
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 39)
         Me.btnCancel.TabIndex = 5
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Hủy bỏ"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'frmTacGia

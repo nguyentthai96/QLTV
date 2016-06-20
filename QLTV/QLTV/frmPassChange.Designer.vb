@@ -46,7 +46,7 @@ Partial Class frmPassChange
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 39)
         Me.btnOK.TabIndex = 1
-        Me.btnOK.Text = "&OK"
+        Me.btnOK.Text = "&Đồng ý"
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'Label1
@@ -54,18 +54,18 @@ Partial Class frmPassChange
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(37, 50)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(90, 13)
+        Me.Label1.Size = New System.Drawing.Size(89, 13)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Current Password"
+        Me.Label1.Text = "Mật khẩu hiện tại"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(37, 98)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 13)
+        Me.Label2.Size = New System.Drawing.Size(71, 13)
         Me.Label2.TabIndex = 4
-        Me.Label2.Text = "New Password"
+        Me.Label2.Text = "Mật khẩu mới"
         '
         'txtnewpass
         '
@@ -80,9 +80,9 @@ Partial Class frmPassChange
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(37, 148)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(126, 13)
+        Me.Label3.Size = New System.Drawing.Size(112, 13)
         Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Re- Enter New Password"
+        Me.Label3.Text = "Nhập lại mật khẩu mới"
         '
         'txtnewpass1
         '
@@ -98,7 +98,7 @@ Partial Class frmPassChange
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 39)
         Me.btnCancel.TabIndex = 7
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Hủy bỏ"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'frmPassChange

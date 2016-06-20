@@ -147,7 +147,7 @@ Partial Class frmQLTra
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 39)
         Me.btnCancel.TabIndex = 17
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Hủy bỏ"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'cmbmp
@@ -311,7 +311,7 @@ Partial Class frmQLTra
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 39)
         Me.btnClear.TabIndex = 51
-        Me.btnClear.Text = "&Clear"
+        Me.btnClear.Text = "&Làm lại"
         Me.btnClear.UseVisualStyleBackColor = True
         '
         'frmQLTra

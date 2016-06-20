@@ -45,7 +45,7 @@ Partial Class frmTheLoai
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(75, 42)
         Me.btnOK.TabIndex = 1
-        Me.btnOK.Text = "&OK"
+        Me.btnOK.Text = "&Đồng ý"
         Me.btnOK.UseVisualStyleBackColor = True
         '
         'txtmtl
@@ -78,7 +78,7 @@ Partial Class frmTheLoai
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(75, 42)
         Me.btnCancel.TabIndex = 5
-        Me.btnCancel.Text = "&Cancel"
+        Me.btnCancel.Text = "&Hủy bỏ"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
         'frmTheLoai

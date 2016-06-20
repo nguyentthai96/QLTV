@@ -2,6 +2,8 @@
     'Khai báo obj class DataBaseAccess
     Private _DBAccess As New DataBaseAccess
     'Load Data Sach on GridView
+
+
     Private Sub LoadDataSachOnGridview()
         Dim sqlQuery As String = "SELECT [maSach],[tenSach],[soTrang],[gia],[soLuong],[ngayNhap],[maNXB],[maTL],[maTG],[maNN],[tinhTrang] = (CASE [tinhTrang] WHEN 'True' THEN N'Còn' WHEN 'False' THEN N'Hết' end) FROM dbo.tbl_SACH"
         Dim dtTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
@@ -95,7 +97,7 @@
     End Sub
 
     Private Sub LoadDataNVOnGridview()
-        Dim sqlQuery As String = "SELECT maNV,tenNV,gioiTinhNV = (CASE gioiTinhNV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),ngaySinhNV,dienThoaiNV,diaChiNV,emailNV,ngayVaoLam,matKhau FROM dbo.tbl_NHANVIEN"
+        Dim sqlQuery As String = "SELECT maNV,tenNV,gioiTinhNV = (CASE gioiTinhNV WHEN 'true' THEN N'Nam' WHEN 'false' THEN N'Nữ' END),ngaySinhNV,dienThoaiNV,diaChiNV,emailNV,ngayVaoLam FROM dbo.tbl_NHANVIEN"
         Dim dataTable As DataTable = _DBAccess.GetDataTable(sqlQuery)
         Me.dtgrNV.DataSource = dataTable
         With Me.dtgrNV
@@ -108,7 +110,6 @@
             .Columns(5).HeaderText = "Địa Chỉ"
             .Columns(6).HeaderText = "Email"
             .Columns(7).HeaderText = "Ngày vào"
-            .Columns(8).HeaderText = "Mật khẩu"
         End With
     End Sub
 
@@ -1393,5 +1394,61 @@
         Else
             MessageBox.Show("Chọn một lựa chọn trước!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
+    End Sub
+
+    Private Sub btnXuatExcel_Click(sender As Object, e As EventArgs) Handles btnXuatExcel.Click
+        Dim colName As String = ""
+        If rdbt1.Checked Or rdbt4.Checked Then
+            colName = "Mã sinh viên,Tên Sinh Viên,Giới Tính,Ngày Sinh,Lớp,Ngày Làm Thẻ,Ngày Hết Hạn"
+        ElseIf rdbt2.Checked Or rdbt3.Checked Then
+            colName = "Mã Sách,Tên Sách,Số Trang,Giá,Số Lượng,Ngày Nhập,Mã NXB,Mã TL,Mã TG,Mã NN,Tình Trạng"
+        Else
+            MessageBox.Show("Chọn một lựa chọn trước!", "Infomation", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+        Try
+            SaveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx"
+            SaveFileDialog1.ShowDialog()
+            Dim File_name = SaveFileDialog1.FileName
+            Export_to_Excel(dtgrThongKe.DataSource, colName, File_name)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
+    End Sub
+
+    Private Sub btnExelSV_Click(sender As Object, e As EventArgs) Handles btnExelSV.Click
+        Dim colName As String = "Mã sinh viên,Tên Sinh Viên,Giới Tính,Ngày Sinh,Lớp,Ngày Làm Thẻ,Ngày Hết Hạn"
+        Try
+            SaveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx"
+            SaveFileDialog1.ShowDialog()
+            Dim File_name = SaveFileDialog1.FileName
+            Export_to_Excel(dtgrSV.DataSource, colName, File_name)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
+    End Sub
+
+    Private Sub btnExcelNV_Click(sender As Object, e As EventArgs) Handles btnExcelNV.Click
+        Dim colName As String = "Mã nhân viên,Tên nhân viên,Giới tính,Ngày sinh,Điện thoại,Địa chỉ,Email,Ngày vào làm"
+        Try
+            SaveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx"
+            SaveFileDialog1.ShowDialog()
+            Dim File_name = SaveFileDialog1.FileName
+            Export_to_Excel(dtgrNV.DataSource, colName, File_name)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
+    End Sub
+
+    Private Sub btnExcelSach_Click(sender As Object, e As EventArgs) Handles btnExcelSach.Click
+        Dim colName As String = "Mã Sách,Tên Sách,Số Trang,Giá,Số Lượng,Ngày Nhập,Mã NXB,Mã TL,Mã TG,Mã NN,Tình Trạng"
+        Try
+            SaveFileDialog1.Filter = "Excel (*.xlsx)|*.xlsx"
+            SaveFileDialog1.ShowDialog()
+            Dim File_name = SaveFileDialog1.FileName
+            Export_to_Excel(dtgvSach.DataSource, colName, File_name)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+        End Try
     End Sub
 End Class
